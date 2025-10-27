@@ -6,72 +6,8 @@
     <title>Gpa's Shop - Trusted Product Recommendations</title>
         <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: Lora, Georgia, serif;
-            font-size: 21px;
-            line-height: 1.6;
-        }
-        h1 { font-size: 32px; }
-        h2 { font-size: 24px; }
-.frame-overlay {
-    position: absolute;
-    top: -10px;  /* negative margins make frame extend beyond photo */
-    left: -10px;
-    width: calc(100% + 20px);  /* adds 10px on each side */
-    height: calc(100% + 20px);
-    z-index: 1;  /* frame behind everything */
-    pointer-events: none;
-}
-
-.overlay-text {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 85%;
-    text-align: center;
-    color: #333;
-    text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
-}
-.window-overlay {
-    bottom: 5px; /* moved up to sit inside the frame */
-    z-index: 3; /* stays on top of frame */
-    position: absolute;
-    margin: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 85%;
-    background: rgba(255, 255, 255, 0.85);
-    border: 4px solid #8B4513;
-    box-shadow: inset 0 0 0 2px #D2691E, 0 4px 8px rgba(0,0,0,0.3);
-    padding: 10px 5px 5px 5px; /* top, right, bottom, left */
-}
-.window-overlay::before,
-.window-overlay::after {
-    content: '';
-    position: absolute;
-    background: #8B4513;
-}
-.window-overlay::before {
-     top: calc(50% - 1.4px); /* perfectly centered */
-    left: 0;
-    right: 0;
-    height: 3px;
-}
-.window-overlay::after {
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-}
-.photo-container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
+<style>
+/* === BASIC PAGE STYLES === */
 body {
     font-family: 'Lora', Georgia, serif;
     font-size: 21px;
@@ -79,13 +15,69 @@ body {
     background-color: #FFF8DC;
     padding: 20px;
 }
-.window-overlay p { margin: 0; }
-        
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grandpa John's Shop</title>
+h1 { font-size: 32px; }
+h2 { font-size: 24px; }
+
+/* === MAIN PHOTO CONTAINER === */
+.photo-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* === RUSTIC FRAME OVERLAY === */
+.frame-overlay {
+    position: absolute;
+    top: -10px;  /* extends frame beyond photo edges */
+    left: -10px;
+    width: calc(100% + 20px);  /* adds 10px on each side */
+    height: calc(100% + 20px);
+    z-index: 1;  /* keeps frame behind photo */
+    pointer-events: none;  /* clicks pass through */
+}
+
+/* === TEXT WINDOW STYLES === */
+.window-overlay {
+    position: absolute;
+    bottom: 5px;  /* positions window inside frame */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    background: rgba(255, 255, 255, 0.85);
+    border: 4px solid #8B4513;
+    box-shadow: inset 0 0 0 2px #D2691E, 0 4px 8px rgba(0,0,0,0.3);
+    padding: 10px 10px 5px 10px;  /* top right bottom left */
+    z-index: 3;  /* keeps text on top */
+}
+
+/* === WINDOW PANE CROSSBARS === */
+.window-overlay::before {  /* horizontal bar */
+    content: '';
+    position: absolute;
+    background: #8B4513;
+    top: calc(50% - 1.5px);
+    left: 0;
+    right: 0;
+    height: 3px;
+}
+.window-overlay::after {  /* vertical bar */
+    content: '';
+    position: absolute;
+    background: #8B4513;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+}
+
+/* === TEXT INSIDE WINDOW === */
+.window-overlay p { 
+    margin: 0;  /* removes default paragraph spacing */
+}
+</style>
 </head>
-    </style>
 
 <body>
     <center>
