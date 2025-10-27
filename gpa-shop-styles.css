@@ -23,8 +23,8 @@ h2 { font-size: 24px; }
 
 /* === POSITION CLASSES FOR DIFFERENT PAGE TYPES === */
 .home-position {
-    top: 40px;    /* from top instead of bottom */
-    right: 40px;  /* pull left from edge */
+    top: 100px;    /* from top instead of bottom */
+    right: 39px;  /* pull left from edge */
 }
 
 .page-position {
