@@ -16,10 +16,11 @@
         h2 { font-size: 24px; }
 .frame-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: -10px;  /* negative margins make frame extend beyond photo */
+    left: -10px;
+    width: calc(100% + 20px);  /* adds 10px on each side */
+    height: calc(100% + 20px);
+    z-index: 1;  /* frame behind everything */
     pointer-events: none;
 }
 .wood-frame {
@@ -59,7 +60,7 @@
 }
 .window-overlay {
     bottom: 5px; /* moved up to sit inside the frame */
-    z-index: 2; /* stays on top of frame */
+    z-index: 3; /* stays on top of frame */
     position: absolute;
     margin: 0;
     bottom: 20px;
@@ -114,13 +115,10 @@ body {
 <body>
     <center>
 <div class="photo-container">
-     <div class="wood-frame">
-        <img src="Gpa%20John's%20Shop%20Home%20Page.png" alt="Inside Grandpa John's cozy country shop" style="width: 100%; max-width: 600px;">
-         <img src="rustic-frame.png" class="frame-overlay">
-     </div>
-
+    <img src="rustic-frame.png" class="frame-overlay">
+    <img src="Gpa%20John's%20Shop%20Home%20Page.png" alt="Inside Grandpa John's cozy country shop" style="width: 100%; max-width: 600px;">
     <div class="window-overlay">
-        <p><margin: 0;>
+        <p>
             Hi ya — I'm Grandpa John, and I want to share some stuff I've discovered over the years. Whether it's a children's book that made my grandkids laugh, a t-shirt with something fun on the front, or a devotional that spoke to my heart, I only recommend things I know personally.</p>
     </div>
 </div>
