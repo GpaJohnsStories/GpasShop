@@ -21,14 +21,10 @@ h2 { font-size: 24px; }
     z-index: 4;
 }
 
-.wood-menu-button:hover {
-    transform: scale(1.05);
-}
-
 /* === POSITION CLASSES FOR DIFFERENT PAGE TYPES === */
 .home-position {
-    bottom: 320px;
-    right: 15px;
+    top: 40px;    /* from top instead of bottom */
+    right: 40px;  /* pull left from edge */
 }
 
 .page-position {
