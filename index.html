@@ -30,6 +30,35 @@
     color: #333;
     text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
 }
+        .window-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    background: rgba(255, 255, 255, 0.85);
+    border: 4px solid #8B4513;
+    box-shadow: inset 0 0 0 2px #D2691E, 0 4px 8px rgba(0,0,0,0.3);
+    padding: 20px;
+}
+.window-overlay::before,
+.window-overlay::after {
+    content: '';
+    position: absolute;
+    background: #8B4513;
+}
+.window-overlay::before {
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+}
+.window-overlay::after {
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+}
     </style>
 </head>
 
@@ -41,9 +70,12 @@
     <center>
 <div class="photo-container">
     <img src="Gpa%20John's%20Shop%20Home%20Page.png" alt="Inside Grandpa John's cozy country shop" style="width: 100%; max-width: 600px;">
-    <div class="overlay-text">
-        <p>Hi ya —<br>
-        I'm Grandpa John, and I want to share and suggest some stuff I've discovered over the years. Whether it's a children's book that made my grandkids laugh, a t-shirt with something fun on the front that actually holds up, or a devotional that spoke to my heart, I only recommend things I know personally.</p>
+    <div class="window-overlay">
+        <p>Hi ya — I'm Grandpa John, and I want to share and suggest<br>
+           some stuff I've discovered over the years. Whether it's a<br>
+           children's book that made my grandkids laugh, a t-shirt with<br>
+           something fun on the front that actually holds up, or a <br>
+           devotional that spoke to my heart, I only recommend things I know personally.</p>
     </div>
 </div>
 </center>
@@ -51,20 +83,6 @@
 
 <p>Browse around, and remember: these aren't just products, they're things I'd tell you about if we were neighbors just chatting over the fence.</p>
 
-===================================
-
-    
-    <img src="Gpa%20John's%20Shop%20Home%20Page.png" alt="Inside Grandpa John's cozy country shop" style="width: 100%; max-width: 600px;">
-    <p>Hi ya —<br>
-        I'm Grandpa John, and I want to share and suggest some stuff I've discovered over the years. Whether it's a children's book that made my grandkids laugh, a t-shirt with something fun on the front that actually holds up, or a devotional that spoke to my heart, I only recommend things I know personally.</p>
-
-<p>When you click my links and buy something, the companies pay me a small commission. This doesn't cost you extra, but it helps me keep my free websites <b>GpasKids.com</b> and <b>GpasFaith.com</b> grow with more stories and encouragement. Think of it as dropping a coin in the jar by the register — except the jar supports my free and safe websites that help kids learn kindness and families grow in faith.</p>
-
-<p>Browse around, and remember: these aren't just products, they're things I'd tell you about if we were neighbors just chatting over the fence.</p>
-        
-        <p>I share products I know and trust from organizations I know and trust.<br>
-        When you purchase through my links, it helps support<br>
-        my free sites — <bold>GpasKids.com</bold> and <bold>GpasFaith.com</bold>.</p>
     <h2>Browse by Category:</h2>
     <ul>
         <li><a href="childrens-books.html">Children's Books</a></li>
