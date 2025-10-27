@@ -1,0 +1,36 @@
+/* === BASIC PAGE STYLES (ALL PAGES) === */
+body {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 21px;
+    line-height: 1.4;
+    background-color: #FFF8DC;
+    padding: 20px;
+}
+h1 { font-size: 32px; }
+h2 { font-size: 24px; }
+
+/* === MENU BUTTON BASE STYLES (ALL PAGES) === */
+.wood-menu-button {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.wood-menu-button:hover {
+    transform: scale(1.05);
+}
+
+/* === POSITION CLASSES FOR DIFFERENT PAGE TYPES === */
+.home-position {
+    bottom: 320px;
+    right: 15px;
+}
+
+.page-position {
+    top: 35px;     /* for pages with just the sign */
+    right: 45px;
+}
