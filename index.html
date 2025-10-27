@@ -4,93 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gpa's Shop - Trusted Product Recommendations</title>
-        <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-/* === BASIC PAGE STYLES === */
-body {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 21px;
-    line-height: 1.4;
-    background-color: #FFF8DC;
-    padding: 20px;
-}
-h1 { font-size: 32px; }
-h2 { font-size: 24px; }
-
-/* === MAIN PHOTO CONTAINER === */
-.photo-container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-.wood-menu-button {
-    position: absolute;
-    bottom: 320px;  /* moves up from bottom - adjust this */
-    right: 15px;    /* adjust to fit corner */
-    width: 50px;    /* make smaller */
-    height: 50px;
-}
-
-/* === TEXT WINDOW STYLES === */
-.window-overlay {
-    position: absolute;
-    bottom: -15px;  /* positions window outside frame */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;
-    background: rgba(255, 255, 255, 0.85);
-    border: 4px solid #8B4513;
-    box-shadow: inset 0 0 0 2px #D2691E, 0 8px 16px rgba(0,0,0,0.4); /* deeper shadow for "hanging sign" effect */
-    padding: 10px 10px 5px 10px;  /* top right bottom left */
-    z-index: 3;  /* keeps text on top */
-}
-
-/* === WINDOW PANE CROSSBARS === */
-.window-overlay::before {  /* horizontal bar */
-    content: '';
-    position: absolute;
-    background: #8B4513;
-    top: calc(50% - 1.5px);
-    left: 0;
-    right: 0;
-    height: 3px;
-}
-.window-overlay::after {  /* vertical bar */
-    content: '';
-    position: absolute;
-    background: #8B4513;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-}
-
-/* === TEXT INSIDE WINDOW === */
-.window-overlay p { 
-    margin: 0;  /* removes default paragraph spacing */
-}
-</style>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gpa-shop-styles.css">
 </head>
 
 <body>
     <center>
-<div class="photo-container">
- 
+<div style="position: relative; display: inline-block; width: 100%; max-width: 600px; margin: 0 auto;">
     <img src="gpas-shop-w-frame.png" alt="Inside Grandpa John's cozy country shop" style="width: 100%; max-width: 600px;">
-    <button class="menu-wood-brass.png" onclick="toggleMenu()">
-        <img src="wood-menu-button.png" alt="Menu">
-    </button>
-    <div class="window-overlay">
-        <p>
+    
+    <!-- Fixed: class name and image source -->
+    <img src="menu-wood-brass.png" class="wood-menu-button home-position" onclick="toggleMenu()" alt="Menu">
+    
+    <!-- Window overlay with inline styles since it's home-page only -->
+    <div style="position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 95%; background: rgba(255, 255, 255, 0.85); border: 4px solid #8B4513; box-shadow: inset 0 0 0 2px #D2691E, 0 8px 16px rgba(0,0,0,0.4); padding: 10px 10px 5px 10px; z-index: 3;">
+        <!-- Window pane bars -->
+        <div style="position: absolute; background: #8B4513; top: calc(50% - 1.5px); left: 0; right: 0; height: 3px;"></div>
+        <div style="position: absolute; background: #8B4513; left: 50%; top: 0; bottom: 0; width: 3px;"></div>
+        <p style="margin: 0;">
             Hi ya — I'm Grandpa John, and I want to share some stuff I've discovered over the years. Whether it's a children's book that made my grandkids laugh, a t-shirt with something fun on the front, or a devotional that spoke to my heart, I only recommend things I know personally.</p>
     </div>
 </div>
 </center>
     
-<p><b>**24** 
+<p><b>**25** 
 </b>When you click my links and buy something, the companies pay me a small commission. This doesn't cost you extra, but it helps me keep my free websites <b><a href="https://gpaskids.com" target="_blank">GpasKids.com</a></b> and <b><a href="https://gpasfaith.com" target="_blank">GpasFaith.com</a></b> grow with more stories and encouragement. Think of it as dropping a coin in the jar by the register — except the jar supports my free and safe websites that help kids learn kindness and families grow in faith.</p>
 
 <p>Browse around, and remember: these aren't just products, they're things I'd tell you about if we were neighbors just chatting over the fence.</p>
