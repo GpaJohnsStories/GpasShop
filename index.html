@@ -13,8 +13,17 @@
 <body>
 <center>
 <!-- Shop Photo -->
-<img src="gpas-shop-w-frame-bell.png" alt="Inside Grandpa John's cozy country shop" style="width: 100%; max-width: 600px;">
+<img src="gpas-shop-w-frame-bell.png" alt="Inside Grandpa John's cozy country shop" style="width: 100%; max-width: 600px; margin-left: 10px;">
 
+<!-- Add the audio element right after your shop image --> 
+	<audio id="bellSound" src="shop-bell-ring.mp3" preload="auto">
+	</audio> <script> document.getElementById('bellSound').volume = 1; // 0 to 1, default is 0.5 
+	</script> 
+	
+	<!-- Add this after the <img src="gpas-shop-w-frame-bell.png"...> --> 
+	<div onclick="document.getElementById('bellSound').play(); toggleMenu();" style="position: absolute; top: 100px; right: 35px; width: 140px; height: 200px; cursor: pointer;">
+	</div>
+	
 <div style="height: 10px;"></div>
 
 <!-- Blackboard -->
@@ -22,8 +31,8 @@
     <div style="font-family: 'Kalam', cursive; font-size: 24px; font-style: italic; color: white;">
         <div style="text-align: left;">Hi Friend &mdash;</div>
         <div style="text-align: center; margin-top: 10px;">
-            [your message here]
-        </div>
+			Glad to see you. I'm sorry but my memory isn't what it used to be and I don't remember your name. But that's okay, I'm Grandpa John. Just ring or click on the bell, top right in the shop photo, and you may find what you're looking for. Everything here is stuff I'd tell you about if we were neighbors just chatting over the fence.
+		</div>
     </div>
 </div>
 
