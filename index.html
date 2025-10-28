@@ -12,8 +12,10 @@
     <center>
 <div style="position: relative; display: inline-block; width: 100%; max-width: 600px; margin: 0 auto;">
     <img src="gpas-shop-w-frame-bell.png" alt="Inside Grandpa John's cozy country shop" style="width: 100%; max-width: 600px;">
+    <!-- Add the audio element right after your shop image -->
+        <audio id="bellSound" src="shop-bell-ring.mp3" preload="auto"></audio>
 <!-- Add this after the <img src="gpas-shop-w-frame-bell.png"...> -->
-<div onclick="toggleMenu()" style="position: absolute; top: 100px; right: 35px; width: 140px; height: 200px; cursor: pointer;"></div>
+<div onclick="document.getElementById('bellSound').play(); toggleMenu();" style="position: absolute; top: 100px; right: 35px; width: 140px; height: 200px; cursor: pointer;"></div>
     
     <!-- Window overlay with inline styles since it's home-page only -->
    <div style=" position: absolute; bottom: -15px; left: -35px; right: 20px; background: rgba(255, 255, 255, 0.85); border: 4px solid #8B4513; box-shadow: inset 0 0 0 2px #D2691E, 0 8px 16px rgba(0,0,0,0.4); padding: 10px 10px 5px 10px; z-index: 3;">
