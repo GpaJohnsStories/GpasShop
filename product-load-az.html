@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Product Data Extractor - GpasShop</title>
+    <title>Quick Product Formatter - GpasShop</title>
     <style>
         body {
             font-family: Georgia, serif;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
             background: #f5f5dc;
@@ -23,20 +23,14 @@
             border-bottom: 2px solid #D2691E;
             padding-bottom: 10px;
         }
-        .step {
-            margin: 20px 0;
-            padding: 20px;
-            background: #FFF8DC;
-            border-radius: 5px;
-            border: 1px solid #D2691E;
-        }
-        input, textarea, select {
+        textarea {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 2px solid #D2691E;
             border-radius: 4px;
-            font-family: Georgia, serif;
+            font-family: monospace;
+            font-size: 12px;
         }
         button {
             background: #8B4513;
@@ -46,40 +40,56 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
+            margin: 10px 0;
         }
         button:hover {
             background: #A0522D;
         }
-        .results {
+        .output {
             margin-top: 30px;
             padding: 20px;
             background: #F0F8FF;
             border-radius: 5px;
-            display: none;
+            border: 2px solid #D2691E;
         }
-        .form-group {
-            margin: 15px 0;
+        .product-display {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 10px 0;
         }
-        label {
-            display: block;
+        .product-title {
+            font-size: 20px;
             font-weight: bold;
             color: #8B4513;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
-        #productImage {
+        .product-price {
+            font-size: 24px;
+            color: #228B22;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .product-rating {
+            color: #FF8C00;
+            margin: 5px 0;
+        }
+        .product-description {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+        .product-image {
             max-width: 300px;
-            margin: 20px auto;
-            display: block;
+            margin: 20px 0;
             border: 3px solid #D2691E;
             border-radius: 5px;
         }
-        .copy-btn {
-            background: #228B22;
-            font-size: 14px;
-            padding: 6px 12px;
+        #jsonOutput {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
             margin-top: 20px;
-        }
-        textarea {
+            white-space: pre-wrap;
             font-family: monospace;
             font-size: 12px;
         }
@@ -87,212 +97,101 @@
 </head>
 <body>
     <div class="container">
-        <h1>🔔 Amazon Product Data Extractor</h1>
+        <h1>🔔 Quick Product Formatter</h1>
         
-        <div class="step">
-            <h3>Step 1: Enter Amazon Product URL</h3>
-            <input type="url" id="amazonUrl" placeholder="https://www.amazon.com/dp/..." />
+        <div>
+            <h3>Step 1: Paste Title/Price/Rating Line</h3>
+            <textarea id="titleInfo" rows="3" placeholder="Apollo Launch Escape System Space Module Diagram Blueprint T-Shirt
+5.0 5.0 out of 5 stars   (3) | Ask questions and search reviews
+$14.99$14.99"></textarea>
         </div>
 
-        <div class="step">
-            <h3>Step 2: Copy & Paste HTML</h3>
-            <p>Right-click the Amazon page → "View Page Source" → Select All (Ctrl+A) → Copy (Ctrl+C) → Paste here:</p>
-            <textarea id="htmlInput" rows="10" placeholder="Paste Amazon HTML here..."></textarea>
-            <button onclick="extractData()">Extract Product Data</button>
+        <div>
+            <h3>Step 2: Paste Description</h3>
+            <textarea id="description" rows="6" placeholder="Love space? Grab this awesome Apollo Launch Escape System design..."></textarea>
         </div>
 
-        <div class="results" id="results">
-            <h3>Extracted Product Data:</h3>
-            <form id="productForm">
-                <img id="productImage" style="display:none;" />
-                
-                <div class="form-group">
-                    <label for="title">Product Title:</label>
-                    <input type="text" id="title" name="title" />
-                </div>
+        <div>
+            <h3>Step 3: Paste Image URL (optional)</h3>
+            <input type="text" id="imageUrl" placeholder="https://..." style="width:100%; padding:10px; border:2px solid #D2691E; border-radius:4px;">
+        </div>
 
-                <div class="form-group">
-                    <label for="description">Description:</label>
-                    <textarea id="description" name="description" rows="4"></textarea>
-                </div>
+        <button onclick="formatProduct()">Format Product</button>
 
-                <div class="form-group">
-                    <label for="price">Price:</label>
-                    <input type="text" id="price" name="price" />
-                </div>
-
-                <div class="form-group">
-                    <label for="affiliate_url">Affiliate URL:</label>
-                    <input type="url" id="affiliate_url" name="affiliate_url" />
-                </div>
-
-                <div class="form-group">
-                    <label for="image_url">Image URL:</label>
-                    <input type="url" id="image_url" name="image_url" />
-                </div>
-
-                <div class="form-group">
-                    <label for="asin">ASIN:</label>
-                    <input type="text" id="asin" name="asin" />
-                </div>
-
-                <div class="form-group">
-                    <label for="brand">Brand:</label>
-                    <input type="text" id="brand" name="brand" />
-                </div>
-
-                <div class="form-group">
-                    <label for="category">Category:</label>
-                    <select id="category" name="category">
-                        <option value="">Select Category</option>
-                        <option value="shirts">Shirts</option>
-                        <option value="fun-books">Fun Books</option>
-                        <option value="devotions-bibles">Devotions & Bibles</option>
-                        <option value="odds-ends">Odds & Ends</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="character_pick">Character Pick:</label>
-                    <select id="character_pick" name="character_pick">
-                        <option value="">None</option>
-                        <option value="buddy">Buddy's Pick</option>
-                        <option value="sparky">Sparky's Pick</option>
-                        <option value="joy">Joy's Pick</option>
-                        <option value="benny">Benny's Pick</option>
-                        <option value="sky">Sky's Pick</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="in_stock">In Stock:</label>
-                    <select id="in_stock" name="in_stock">
-                        <option value="true">Yes</option>
-                        <option value="false">No</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="rating">Rating:</label>
-										                    <input type="text" id="rating" name="rating" />
-                </div>
-
-                <button type="button" onclick="copyFormData()" class="copy-btn">Copy Data for Supabase</button>
-            </form>
+        <div class="output" style="display:none;" id="output">
+            <h3>Formatted Display:</h3>
+            <div class="product-display" id="productDisplay"></div>
+            
+            <h3>JSON for Database:</h3>
+            <div id="jsonOutput"></div>
+            <button onclick="copyJSON()">Copy JSON</button>
         </div>
     </div>
 
     <script>
-        function extractData() {
-            const html = document.getElementById('htmlInput').value;
-            const url = document.getElementById('amazonUrl').value;
+        function formatProduct() {
+            const titleInfo = document.getElementById('titleInfo').value;
+            const description = document.getElementById('description').value;
+            const imageUrl = document.getElementById('imageUrl').value;
             
-            if (!html) {
-                alert('Please paste the Amazon HTML first!');
-                return;
-            }
-
-            // Create a temporary DOM to parse HTML
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
+            // Parse the messy title/price/rating
+            const lines = titleInfo.split('\n');
+            const title = lines[0].trim();
             
-            // Extract and fill all the data
-            document.getElementById('title').value = extractTitle(doc);
-            document.getElementById('description').value = extractFeatures(doc).join('\n');
-            document.getElementById('price').value = extractPrice(doc);
-            document.getElementById('affiliate_url').value = url;
-            document.getElementById('image_url').value = extractImage(doc);
-            document.getElementById('asin').value = extractASIN(doc, url);
-            document.getElementById('brand').value = extractBrand(doc);
-            document.getElementById('rating').value = extractRating(doc);
-            
-            // Show image if found
-            const imageUrl = extractImage(doc);
-            if (imageUrl) {
-                document.getElementById('productImage').src = imageUrl;
-                document.getElementById('productImage').style.display = 'block';
+            // Extract price (look for $)
+            let price = 'Price not found';
+            const priceMatch = titleInfo.match(/\$(\d+\.?\d*)/);
+            if (priceMatch) {
+                price = '$' + priceMatch[1];
             }
             
-            // Check availability
-            const availability = extractAvailability(doc);
-            document.getElementById('in_stock').value = availability.includes('In Stock') ? 'true' : 'false';
-            
-            // Show results
-            document.getElementById('results').style.display = 'block';
-        }
-			        function extractTitle(doc) {
-            const titleElement = doc.querySelector('#productTitle') || 
-                               doc.querySelector('h1.a-size-large') ||
-                               doc.querySelector('[name="title"]');
-            return titleElement ? titleElement.textContent.trim() : 'Not found';
-        }
-
-        function extractPrice(doc) {
-            const priceElement = doc.querySelector('.a-price-whole') || 
-                                doc.querySelector('#priceblock_dealprice') ||
-                                doc.querySelector('#priceblock_ourprice') ||
-                                doc.querySelector('.a-price.a-text-price.a-size-medium');
-            return priceElement ? priceElement.textContent.trim() : 'Not found';
-        }
-
-        function extractImage(doc) {
-            const imgElement = doc.querySelector('#landingImage') || 
-                              doc.querySelector('#imgBlkFront') ||
-                              doc.querySelector('.a-dynamic-image');
-            return imgElement ? imgElement.src || imgElement.getAttribute('data-src') : '';
-        }
-
-        function extractBrand(doc) {
-            const brandElement = doc.querySelector('#bylineInfo') || 
-                                doc.querySelector('.by-line a') ||
-                                doc.querySelector('[data-brand]');
-            return brandElement ? brandElement.textContent.replace('Brand: ', '').replace('Visit the', '').trim() : 'Not found';
-        }
-
-        function extractRating(doc) {
-            const ratingElement = doc.querySelector('[data-hook="rating-out-of-text"]') ||
-                                 doc.querySelector('.a-icon-star span');
-            return ratingElement ? ratingElement.textContent.trim() : 'Not found';
-        }
-
-        function extractAvailability(doc) {
-            const availElement = doc.querySelector('#availability span') ||
-                                doc.querySelector('.a-size-medium.a-color-success');
-            return availElement ? availElement.textContent.trim() : 'Not found';
-        }
-			        function extractFeatures(doc) {
-            const features = [];
-            const featureElements = doc.querySelectorAll('#feature-bullets li:not(.aok-hidden)');
-            featureElements.forEach(el => {
-                const text = el.textContent.trim();
-                if (text && !text.includes('Make sure this fits')) {
-                    features.push(text);
-                }
-            });
-            return features.slice(0, 5); // Top 5 features
-        }
-
-        function extractASIN(doc, url) {
-            // Try to get from URL first
-            const urlMatch = url.match(/\/dp\/([A-Z0-9]{10})/);
-            if (urlMatch) return urlMatch[1];
-            
-            // Try to find in page
-            const asinElement = doc.querySelector('[data-asin]');
-            return asinElement ? asinElement.getAttribute('data-asin') : 'Not found';
-        }
-
-        function copyFormData() {
-            const formData = new FormData(document.getElementById('productForm'));
-            const data = {};
-            
-            for (let [key, value] of formData.entries()) {
-                data[key] = value;
+            // Extract rating
+            let rating = '';
+            const ratingMatch = titleInfo.match(/(\d+\.?\d*)\s+out of 5 stars/);
+            if (ratingMatch) {
+                rating = ratingMatch[1] + ' out of 5 stars';
             }
             
-            const jsonData = JSON.stringify(data, null, 2);
-            navigator.clipboard.writeText(jsonData).then(() => {
-                alert('Data copied to clipboard as JSON!');
+            // Extract review count
+            let reviews = '';
+            const reviewMatch = titleInfo.match(/\((\d+)\)/);
+            if (reviewMatch) {
+                reviews = reviewMatch[1] + ' reviews';
+            }
+            
+            // Create display
+            let displayHTML = `
+                <div class="product-title">${title}</div>
+                <div class="product-price">${price}</div>
+                ${rating ? `<div class="product-rating">★★★★★ ${rating} (${reviews})</div>` : ''}
+                <div class="product-description">${description.replace(/\n/g, '<br>')}</div>
+                ${imageUrl ? `<img src="${imageUrl}" class="product-image" alt="${title}">` : ''}
+            `;
+            
+            document.getElementById('productDisplay').innerHTML = displayHTML;
+            
+            // Create JSON
+            const productData = {
+                title: title,
+                price: price,
+                rating: rating,
+                review_count: reviews,
+                description: description,
+                image_url: imageUrl || null,
+                affiliate_url: "", // Add your affiliate URL
+                category: "", // Select category
+                character_pick: "", // Select character
+                in_stock: true
+            };
+            
+            document.getElementById('jsonOutput').textContent = JSON.stringify(productData, null, 2);
+            document.getElementById('output').style.display = 'block';
+        }
+        
+        function copyJSON() {
+            const json = document.getElementById('jsonOutput').textContent;
+            navigator.clipboard.writeText(json).then(() => {
+                alert('JSON copied to clipboard!');
             });
         }
     </script>
