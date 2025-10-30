@@ -68,42 +68,61 @@
         }
         
         /* Product card styles for grid */
-        .product-card {
+       .product-card {
             background: white;
-            padding: 15px;
+            padding: 20px;
             border-radius: 5px;
             border: 2px solid #D2691E;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            max-width: 400px;
+            font-size: 16px; /* Base 16pt */
         }
         .product-card-image {
             width: 100%;
-            height: 200px;
+            height: 250px;
             object-fit: contain;
             border: 2px solid #D2691E;
             border-radius: 3px;
             cursor: pointer;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         .product-card-title {
-            font-size: 16px;
+            font-size: 18px; /* Larger for title */
             font-weight: bold;
             color: #8B4513;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             line-height: 1.3;
-            flex-grow: 1;
+        }
+        .amazon-badge {
+            background: #FF9900;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 14px;
+            display: inline-block;
+            margin: 5px 0;
         }
         .product-card-price {
-            font-size: 20px;
+            font-size: 24px;
             color: #228B22;
             font-weight: bold;
-            margin: 8px 0;
+            margin: 10px 0;
         }
         .product-card-rating {
             color: #FF8C00;
+            font-size: 16px;
+            margin: 8px 0;
+        }
+        .product-card-description {
+            font-size: 16px;
+            color: #666;
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+        .price-disclaimer {
             font-size: 14px;
-            margin: 5px 0;
+            color: #888;
+            font-style: italic;
+            margin: 10px 0;
         }
         .amazon-button-small {
             background: #FF9900;
@@ -249,51 +268,73 @@ $14.99$14.99"></textarea>
     </div>
 
     <script>
-        function formatProduct() {
+             function formatProduct() {
             const titleInfo = document.getElementById('titleInfo').value;
             const description = document.getElementById('description').value;
             const imageUrl = document.getElementById('imageUrl').value;
             const amazonUrl = document.getElementById('amazonUrl').value;
             
-            // Parse the messy title/price/rating
-            const lines = titleInfo.split('\n');
+            // Clean up duplicates in pasted text
+            const cleanedInfo = titleInfo.replace(/(.+)\n\1/g, '$1');
+            
+            // Parse the title
+            const lines = cleanedInfo.split('\n');
             const title = lines[0].trim();
             
             // Extract price
             let price = 'Price not found';
-            const priceMatch = titleInfo.match(/\$(\d+\.?\d*)/);
+            const priceMatch = cleanedInfo.match(/\$(\d+\.?\d*)/);
             if (priceMatch) {
                 price = '$' + priceMatch[1];
             }
             
             // Extract rating
             let rating = '';
-            const ratingMatch = titleInfo.match(/(\d+\.?\d*)\s+out of 5 stars/);
+            const ratingMatch = cleanedInfo.match(/(\d+\.?\d*)\s+out of 5 stars/);
             if (ratingMatch) {
                 rating = ratingMatch[1];
             }
             
             // Extract review count
             let reviews = '';
-            const reviewMatch = titleInfo.match(/\((\d+)\)/);
+            const reviewMatch = cleanedInfo.match(/\(([0-9,]+)\)/);
             if (reviewMatch) {
                 reviews = reviewMatch[1];
             }
             
-           // Create grid card preview
+            // Check for Amazon's Choice
+            const hasAmazonChoice = cleanedInfo.includes("Amazon's Choice");
+            
+            // Extract bought count
+            let boughtCount = '';
+            const boughtMatch = cleanedInfo.match(/(\d+K?\+?)\s+bought in past month/);
+            if (boughtMatch) {
+                boughtCount = boughtMatch[1] + ' bought in past month';
+            }
+            
+            // Get current date
+            const today = new Date().toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            // Create single card preview
             let cardHTML = `
                 <div class="product-card">
                     ${imageUrl ? `<img src="${imageUrl}" class="product-card-image" alt="${title}" onclick="openModal('${imageUrl}')">` : ''}
                     <div class="product-card-title">${title}</div>
+                    ${hasAmazonChoice ? `<span class="amazon-badge">Amazon's Choice</span>` : ''}
                     <div class="product-card-price">${price}</div>
                     ${rating ? `<div class="product-card-rating">★★★★★ ${rating} stars (${reviews} reviews)</div>` : ''}
-                    <div class="product-card-description">${description.substring(0, 100)}${description.length > 100 ? '...' : ''}</div>
+                    ${boughtCount ? `<div class="product-card-rating">${boughtCount}</div>` : ''}
+                    <div class="product-card-description">${description}</div>
+                    <div class="price-disclaimer">Posted ${today} - Price may have changed</div>
                     ${amazonUrl ? `<button class="amazon-button-small" onclick="window.open('${amazonUrl}', '_blank')">View on Amazon</button>` : ''}
                 </div>
             `;
             
-            // Show 4 copies for desktop preview
-            document.getElementById('gridPreview').innerHTML = cardHTML + cardHTML + cardHTML + cardHTML;
+            document.getElementById('gridPreview').innerHTML = cardHTML;
             
             // Create JSON
             const productData = {
