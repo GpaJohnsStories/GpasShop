@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Product Data Extractor - GpasShop</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5dc;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #8B4513;
+            border-bottom: 2px solid #D2691E;
+            padding-bottom: 10px;
+        }
+        .step {
+            margin: 20px 0;
+            padding: 20px;
+            background: #FFF8DC;
+            border-radius: 5px;
+            border: 1px solid #D2691E;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #D2691E;
+            border-radius: 4px;
+            font-family: Georgia, serif;
+        }
+        button {
+            background: #8B4513;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #A0522D;
+        }
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            background: #F0F8FF;
+            border-radius: 5px;
+            display: none;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: #8B4513;
+            margin-bottom: 5px;
+        }
+        #productImage {
+            max-width: 300px;
+            margin: 20px auto;
+            display: block;
+            border: 3px solid #D2691E;
+            border-radius: 5px;
+        }
+        .copy-btn {
+            background: #228B22;
+            font-size: 14px;
+            padding: 6px 12px;
+            margin-top: 20px;
+        }
+        textarea {
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔔 Amazon Product Data Extractor</h1>
+        
+        <div class="step">
+            <h3>Step 1: Enter Amazon Product URL</h3>
+            <input type="url" id="amazonUrl" placeholder="https://www.amazon.com/dp/..." />
+        </div>
+
+        <div class="step">
+            <h3>Step 2: Copy & Paste HTML</h3>
+            <p>Right-click the Amazon page → "View Page Source" → Select All (Ctrl+A) → Copy (Ctrl+C) → Paste here:</p>
+            <textarea id="htmlInput" rows="10" placeholder="Paste Amazon HTML here..."></textarea>
+            <button onclick="extractData()">Extract Product Data</button>
+        </div>
+
+        <div class="results" id="results">
+            <h3>Extracted Product Data:</h3>
+            <form id="productForm">
+                <img id="productImage" style="display:none;" />
+                
+                <div class="form-group">
+                    <label for="title">Product Title:</label>
+                    <input type="text" id="title" name="title" />
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="text" id="price" name="price" />
+                </div>
+
+                <div class="form-group">
+                    <label for="affiliate_url">Affiliate URL:</label>
+                    <input type="url" id="affiliate_url" name="affiliate_url" />
+                </div>
+
+                <div class="form-group">
+                    <label for="image_url">Image URL:</label>
+                    <input type="url" id="image_url" name="image_url" />
+                </div>
+
+                <div class="form-group">
+                    <label for="asin">ASIN:</label>
+                    <input type="text" id="asin" name="asin" />
+                </div>
+
+                <div class="form-group">
+                    <label for="brand">Brand:</label>
+                    <input type="text" id="brand" name="brand" />
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category">
+                        <option value="">Select Category</option>
+                        <option value="shirts">Shirts</option>
+                        <option value="fun-books">Fun Books</option>
+                        <option value="devotions-bibles">Devotions & Bibles</option>
+                        <option value="odds-ends">Odds & Ends</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="character_pick">Character Pick:</label>
+                    <select id="character_pick" name="character_pick">
+                        <option value="">None</option>
+                        <option value="buddy">Buddy's Pick</option>
+                        <option value="sparky">Sparky's Pick</option>
+                        <option value="joy">Joy's Pick</option>
+                        <option value="benny">Benny's Pick</option>
+                        <option value="sky">Sky's Pick</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="in_stock">In Stock:</label>
+                    <select id="in_stock" name="in_stock">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Rating:</label>
+										                    <input type="text" id="rating" name="rating" />
+                </div>
+
+                <button type="button" onclick="copyFormData()" class="copy-btn">Copy Data for Supabase</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function extractData() {
+            const html = document.getElementById('htmlInput').value;
+            const url = document.getElementById('amazonUrl').value;
+            
+            if (!html) {
+                alert('Please paste the Amazon HTML first!');
+                return;
+            }
+
+            // Create a temporary DOM to parse HTML
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            // Extract and fill all the data
+            document.getElementById('title').value = extractTitle(doc);
+            document.getElementById('description').value = extractFeatures(doc).join('\n');
+            document.getElementById('price').value = extractPrice(doc);
+            document.getElementById('affiliate_url').value = url;
+            document.getElementById('image_url').value = extractImage(doc);
+            document.getElementById('asin').value = extractASIN(doc, url);
+            document.getElementById('brand').value = extractBrand(doc);
+            document.getElementById('rating').value = extractRating(doc);
+            
+            // Show image if found
+            const imageUrl = extractImage(doc);
+            if (imageUrl) {
+                document.getElementById('productImage').src = imageUrl;
+                document.getElementById('productImage').style.display = 'block';
+            }
+            
+            // Check availability
+            const availability = extractAvailability(doc);
+            document.getElementById('in_stock').value = availability.includes('In Stock') ? 'true' : 'false';
+            
+            // Show results
+            document.getElementById('results').style.display = 'block';
+        }
+			        function extractTitle(doc) {
+            const titleElement = doc.querySelector('#productTitle') || 
+                               doc.querySelector('h1.a-size-large') ||
+                               doc.querySelector('[name="title"]');
+            return titleElement ? titleElement.textContent.trim() : 'Not found';
+        }
+
+        function extractPrice(doc) {
+            const priceElement = doc.querySelector('.a-price-whole') || 
+                                doc.querySelector('#priceblock_dealprice') ||
+                                doc.querySelector('#priceblock_ourprice') ||
+                                doc.querySelector('.a-price.a-text-price.a-size-medium');
+            return priceElement ? priceElement.textContent.trim() : 'Not found';
+        }
+
+        function extractImage(doc) {
+            const imgElement = doc.querySelector('#landingImage') || 
+                              doc.querySelector('#imgBlkFront') ||
+                              doc.querySelector('.a-dynamic-image');
+            return imgElement ? imgElement.src || imgElement.getAttribute('data-src') : '';
+        }
+
+        function extractBrand(doc) {
+            const brandElement = doc.querySelector('#bylineInfo') || 
+                                doc.querySelector('.by-line a') ||
+                                doc.querySelector('[data-brand]');
+            return brandElement ? brandElement.textContent.replace('Brand: ', '').replace('Visit the', '').trim() : 'Not found';
+        }
+
+        function extractRating(doc) {
+            const ratingElement = doc.querySelector('[data-hook="rating-out-of-text"]') ||
+                                 doc.querySelector('.a-icon-star span');
+            return ratingElement ? ratingElement.textContent.trim() : 'Not found';
+        }
+
+        function extractAvailability(doc) {
+            const availElement = doc.querySelector('#availability span') ||
+                                doc.querySelector('.a-size-medium.a-color-success');
+            return availElement ? availElement.textContent.trim() : 'Not found';
+        }
+			        function extractFeatures(doc) {
+            const features = [];
+            const featureElements = doc.querySelectorAll('#feature-bullets li:not(.aok-hidden)');
+            featureElements.forEach(el => {
+                const text = el.textContent.trim();
+                if (text && !text.includes('Make sure this fits')) {
+                    features.push(text);
+                }
+            });
+            return features.slice(0, 5); // Top 5 features
+        }
+
+        function extractASIN(doc, url) {
+            // Try to get from URL first
+            const urlMatch = url.match(/\/dp\/([A-Z0-9]{10})/);
+            if (urlMatch) return urlMatch[1];
+            
+            // Try to find in page
+            const asinElement = doc.querySelector('[data-asin]');
+            return asinElement ? asinElement.getAttribute('data-asin') : 'Not found';
+        }
+
+        function copyFormData() {
+            const formData = new FormData(document.getElementById('productForm'));
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            const jsonData = JSON.stringify(data, null, 2);
+            navigator.clipboard.writeText(jsonData).then(() => {
+                alert('Data copied to clipboard as JSON!');
+            });
+        }
+    </script>
+</body>
+</html>
