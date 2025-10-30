@@ -23,7 +23,7 @@
             border-bottom: 2px solid #D2691E;
             padding-bottom: 10px;
         }
-        textarea {
+        textarea, input {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
@@ -58,6 +58,23 @@
             border-radius: 5px;
             margin: 10px 0;
         }
+        .product-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .product-image {
+            width: 250px;
+            height: 250px;
+            object-fit: contain;
+            border: 3px solid #D2691E;
+            border-radius: 5px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .product-info {
+            flex: 1;
+        }
         .product-title {
             font-size: 20px;
             font-weight: bold;
@@ -74,16 +91,61 @@
             color: #FF8C00;
             margin: 5px 0;
         }
+        .amazon-button {
+            background: #FF9900;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .amazon-button:hover {
+            background: #FFB84D;
+        }
         .product-description {
-            margin: 15px 0;
+            clear: both;
+            margin-top: 20px;
             line-height: 1.6;
+            padding-top: 20px;
+            border-top: 1px solid #D2691E;
         }
-        .product-image {
-            max-width: 300px;
-            margin: 20px 0;
-            border: 3px solid #D2691E;
-            border-radius: 5px;
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
         }
+        .modal-content {
+            margin: 5% auto;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #D2691E;
+        }
+        
         #jsonOutput {
             background: #f5f5f5;
             padding: 15px;
@@ -112,8 +174,13 @@ $14.99$14.99"></textarea>
         </div>
 
         <div>
-            <h3>Step 3: Paste Image URL (optional)</h3>
-            <input type="text" id="imageUrl" placeholder="https://..." style="width:100%; padding:10px; border:2px solid #D2691E; border-radius:4px;">
+            <h3>Step 3: Paste Image URL</h3>
+            <input type="text" id="imageUrl" placeholder="https://..." />
+        </div>
+
+        <div>
+            <h3>Step 4: Paste Amazon URL (with your affiliate tag)</h3>
+            <input type="text" id="amazonUrl" placeholder="https://www.amazon.com/dp/B07ZC6C6QF?tag=gpajohn-20..." />
         </div>
 
         <button onclick="formatProduct()">Format Product</button>
@@ -122,9 +189,17 @@ $14.99$14.99"></textarea>
             <h3>Formatted Display:</h3>
             <div class="product-display" id="productDisplay"></div>
             
-            <h3>JSON for Database:</h3>
+     <h3>JSON for Database:</h3>
             <div id="jsonOutput"></div>
             <button onclick="copyJSON()">Copy JSON</button>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Product image">
         </div>
     </div>
 
@@ -133,12 +208,13 @@ $14.99$14.99"></textarea>
             const titleInfo = document.getElementById('titleInfo').value;
             const description = document.getElementById('description').value;
             const imageUrl = document.getElementById('imageUrl').value;
+            const amazonUrl = document.getElementById('amazonUrl').value;
             
             // Parse the messy title/price/rating
             const lines = titleInfo.split('\n');
             const title = lines[0].trim();
             
-            // Extract price (look for $)
+            // Extract price
             let price = 'Price not found';
             const priceMatch = titleInfo.match(/\$(\d+\.?\d*)/);
             if (priceMatch) {
@@ -159,13 +235,18 @@ $14.99$14.99"></textarea>
                 reviews = reviewMatch[1] + ' reviews';
             }
             
-            // Create display
+            // Create display with new layout
             let displayHTML = `
-                <div class="product-title">${title}</div>
-                <div class="product-price">${price}</div>
-                ${rating ? `<div class="product-rating">★★★★★ ${rating} (${reviews})</div>` : ''}
+                <div class="product-header">
+                    ${imageUrl ? `<img src="${imageUrl}" class="product-image" alt="${title}" onclick="openModal('${imageUrl}')">` : ''}
+                    <div class="product-info">
+                        <div class="product-title">${title}</div>
+                        <div class="product-price">${price}</div>
+                        ${rating ? `<div class="product-rating">★★★★★ ${rating} (${reviews})</div>` : ''}
+                        ${amazonUrl ? `<button class="amazon-button" onclick="window.open('${amazonUrl}', '_blank')">View on Amazon</button>` : ''}
+                    </div>
+                </div>
                 <div class="product-description">${description.replace(/\n/g, '<br>')}</div>
-                ${imageUrl ? `<img src="${imageUrl}" class="product-image" alt="${title}">` : ''}
             `;
             
             document.getElementById('productDisplay').innerHTML = displayHTML;
@@ -178,9 +259,9 @@ $14.99$14.99"></textarea>
                 review_count: reviews,
                 description: description,
                 image_url: imageUrl || null,
-                affiliate_url: "", // Add your affiliate URL
-                category: "", // Select category
-                character_pick: "", // Select character
+                affiliate_url: amazonUrl || "",
+                category: "", // Select category later
+                character_pick: "", // Select character later
                 in_stock: true
             };
             
@@ -193,6 +274,23 @@ $14.99$14.99"></textarea>
             navigator.clipboard.writeText(json).then(() => {
                 alert('JSON copied to clipboard!');
             });
+        }
+        
+        function openModal(imageUrl) {
+            document.getElementById('modalImage').src = imageUrl;
+            document.getElementById('imageModal').style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeModal();
+            }
         }
     </script>
 </body>
