@@ -24,7 +24,7 @@
             border-bottom: 2px solid #D2691E;
             padding-bottom: 10px;
         }
-       .input-grid {
+        .input-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
@@ -50,9 +50,6 @@
             line-height: 30px;
             font-weight: bold;
             margin-right: 10px;
-        }
-        .step-optional {
-            background: #FF8C00;
         }
         h3 {
             display: flex;
@@ -177,8 +174,6 @@
         .amazon-button-small:hover {
             background: #FFB84D;
         }
-        
-        /* Modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -218,20 +213,19 @@
             text-align: center;
             line-height: 45px;
         }
-        
         #jsonOutput {
             background: #f5f5f5;
             padding: 15px;
             border-radius: 5px;
             margin-top: 20px;
             white-space: pre-wrap;
-            font-family: monospace
-                        font-size: 12px;
+            font-family: monospace;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
-  <div class="container">
+    <div class="container">
         <h1>🔔 Quick Product Formatter - Admin Tool</h1>
         
         <div class="input-grid">
@@ -248,7 +242,6 @@ $14.99"></textarea>
             </div>
 
             <div class="input-group full-height">
-                <!-- Audio recording will go here later -->
                 <h3><span class="step-number">7</span>Record Audio (Coming Soon)</h3>
                 <div style="padding: 40px; text-align: center; color: #999;">
                     Audio recording feature will be added here
@@ -289,7 +282,7 @@ $14.99"></textarea>
                 </select>
             </div>
         </div>
-      
+
         <button onclick="formatProduct()" id="formatButton">Format Product</button>
 
         <div class="output" style="display:none;" id="output">
@@ -300,9 +293,9 @@ $14.99"></textarea>
             <div id="jsonOutput"></div>
             <button onclick="copyJSON()">Copy JSON</button>
         </div>
-  </div>    
+    </div>
 
-       <!-- Image Modal -->
+    <!-- Image Modal -->
     <div id="imageModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <div class="modal-content">
@@ -388,7 +381,6 @@ $14.99"></textarea>
             
             // Create single card preview
             let cardHTML = `
-`
                 <div class="product-card">
                     ${imageUrl ? `<img src="${imageUrl}" class="product-card-image" alt="${title}" onclick="openModal('${imageUrl}')">` : ''}
                     <div class="product-card-title">${title}</div>
@@ -403,7 +395,9 @@ $14.99"></textarea>
                 </div>
             `;
             
-            // Create JSON (updated)
+            document.getElementById('gridPreview').innerHTML = cardHTML;
+            
+            // Create JSON
             const productData = {
                 title: title,
                 price: price,
@@ -416,7 +410,7 @@ $14.99"></textarea>
                 age_group: ageGroup,
                 amazon_choice: hasAmazonChoice,
                 date_posted: today
-            }
+            };
             
             document.getElementById('jsonOutput').textContent = JSON.stringify(productData, null, 2);
             document.getElementById('output').style.display = 'block';
