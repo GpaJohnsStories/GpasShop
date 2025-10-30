@@ -24,11 +24,14 @@
             border-bottom: 2px solid #D2691E;
             padding-bottom: 10px;
         }
-        .input-grid {
+       .input-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-bottom: 20px;
+        }
+        .full-height {
+            grid-row: span 3;
         }
         .input-group {
             background: #FFF8DC;
@@ -228,7 +231,7 @@
     </style>
 </head>
 <body>
-    <div class="container">
+  <div class="container">
         <h1>🔔 Quick Product Formatter - Admin Tool</h1>
         
         <div class="input-grid">
@@ -242,6 +245,14 @@ $14.99"></textarea>
             <div class="input-group">
                 <h3><span class="step-number">2</span>Paste Image URL</h3>
                 <input type="text" id="imageUrl" placeholder="https://..." />
+            </div>
+
+            <div class="input-group full-height">
+                <!-- Audio recording will go here later -->
+                <h3><span class="step-number">7</span>Record Audio (Coming Soon)</h3>
+                <div style="padding: 40px; text-align: center; color: #999;">
+                    Audio recording feature will be added here
+                </div>
             </div>
 
             <div class="input-group">
@@ -259,10 +270,10 @@ $14.99"></textarea>
                 <h3><span class="step-number">5</span>Shop Category</h3>
                 <select id="category">
                     <option value="">Select Category</option>
-                    <option value="shirts">Shirts</option>
-                    <option value="fun-books">Fun Books</option>
-                    <option value="devotions-bibles">Devotions & Bibles</option>
-                    <option value="odds-ends">Odds & Ends</option>
+                    <option value="Shirts">Shirts</option>
+                    <option value="Fun Books">Fun Books</option>
+                    <option value="Devotions & Bibles">Devotions & Bibles</option>
+                    <option value="Odds & Ends">Odds & Ends</option>
                 </select>
             </div>
 
@@ -270,15 +281,15 @@ $14.99"></textarea>
                 <h3><span class="step-number">6</span>Age Group</h3>
                 <select id="ageGroup">
                     <option value="">Select Age Group</option>
-                    <option value="preschool">Preschool</option>
-                    <option value="grade-school">Grade School</option>
-                    <option value="teen">Teen</option>
-                    <option value="adult-men">Adult Men</option>
-                    <option value="adult-women">Adult Women</option>
+                    <option value="Preschool">Preschool</option>
+                    <option value="Grade School">Grade School</option>
+                    <option value="Teen">Teen</option>
+                    <option value="Adult Men">Adult Men</option>
+                    <option value="Adult Women">Adult Women</option>
                 </select>
             </div>
         </div>
-
+      
         <button onclick="formatProduct()" id="formatButton">Format Product</button>
 
         <div class="output" style="display:none;" id="output">
@@ -377,10 +388,12 @@ $14.99"></textarea>
             
             // Create single card preview
             let cardHTML = `
+`
                 <div class="product-card">
                     ${imageUrl ? `<img src="${imageUrl}" class="product-card-image" alt="${title}" onclick="openModal('${imageUrl}')">` : ''}
                     <div class="product-card-title">${title}</div>
                     ${hasAmazonChoice ? `<span class="amazon-badge">Amazon's Choice</span>` : ''}
+                    ${ageGroup ? `<div style="color: #666; margin: 10px 0;">Age Group: ${ageGroup}</div>` : ''}
                     <div class="product-card-price">${price}</div>
                     ${rating ? `<div class="product-card-rating">★★★★★ ${rating} stars (${reviews} reviews)</div>` : ''}
                     ${boughtCount ? `<div class="product-card-rating">${boughtCount}</div>` : ''}
@@ -390,9 +403,7 @@ $14.99"></textarea>
                 </div>
             `;
             
-            document.getElementById('gridPreview').innerHTML = cardHTML;
-            
-            // Create JSON
+            // Create JSON (updated)
             const productData = {
                 title: title,
                 price: price,
@@ -400,13 +411,12 @@ $14.99"></textarea>
                 review_count: reviews,
                 description: description,
                 image_url: imageUrl || null,
-                affiliate_url: amazonUrl || "",
+                product_url: amazonUrl || "",
                 category: category,
                 age_group: ageGroup,
                 amazon_choice: hasAmazonChoice,
-                in_stock: true,
                 date_posted: today
-            };
+            }
             
             document.getElementById('jsonOutput').textContent = JSON.stringify(productData, null, 2);
             document.getElementById('output').style.display = 'block';
