@@ -491,7 +491,8 @@ $14.99"></textarea>
                 amazon_choice: hasAmazonChoice,
                 date_posted: today
             };
-            
+
+            currentProductData = productData;
             document.getElementById('jsonOutput').textContent = JSON.stringify(productData, null, 2);
             document.getElementById('output').style.display = 'block';
         }
