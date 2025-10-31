@@ -22,14 +22,18 @@
       border-spacing: 0 10px;
     }
     th {
-      background: #D2691E;
-      color: white;
-      padding: 12px;
-      text-align: center;
-      font-weight: bold;
-      border-radius: 12px;
-      cursor: pointer;
-    }
+	  background: #D2691E;
+	  color: white;
+	  font-size: 21px;
+	  font-weight: bold;
+	  text-align: center;
+	  border-radius: 12px;
+	  margin: 0;
+  padding: 0;
+  height: 40px;
+  line-height: 40px;
+}
+
     td {
       background: white;
       padding: 12px;
@@ -37,8 +41,11 @@
       border-radius: 8px;
       text-align: center;
     }
+	td:nth-child(2) {
+	  text-align: left;
+}
     td:first-child {
-      text-align: left;
+      text-align: center;
     }
     .swatch {
       display: inline-block;
@@ -56,9 +63,9 @@
   <table id="colorTable">
     <thead>
       <tr>
-	      <th>Swatch</th>
-				<th onclick="sortTable(1)">Color Name</th>
-        <th onclick="sortTable(2)">Grouping</th>
+	    <th onclick="sortTable(1)">Color Name ▲</th>
+		<th>Swatch</th>
+<		th onclick="sortTable(2)">Grouping ▼</th>
         <th>Hex</th>
         <th>How Used</th>
         <th>Where Used</th>
@@ -188,13 +195,32 @@
 
   <script>
     function sortTable(colIndex) {
-      const table = document.getElementById("colorTable");
-      const rows = Array.from(table.rows).slice(1);
-      const sorted = rows.sort((a, b) => {
-        const aText = a.cells[colIndex].textContent.trim().toLowerCase();
-        const bText = b.cells[colIndex].textContent.trim().toLowerCase();
-        return aText.localeCompare(bText);
-      });
+  const table = document.getElementById("colorTable");
+  const rows = Array.from(table.rows).slice(1);
+  const isAsc = table.getAttribute("data-sort-col") == colIndex && table.getAttribute("data-sort-dir") == "asc";
+  const dir = isAsc ? "desc" : "asc";
+
+  rows.sort((a, b) => {
+    const aText = a.cells[colIndex].textContent.trim().toLowerCase();
+    const bText = b.cells[colIndex].textContent.trim().toLowerCase();
+    return dir === "asc" ? aText.localeCompare(bText) : bText.localeCompare(aText);
+  });
+
+  rows.forEach(row => table.tBodies[0].appendChild(row));
+  table.setAttribute("data-sort-col", colIndex);
+  table.setAttribute("data-sort-dir", dir);
+
+  // Update indicators
+  const headers = table.querySelectorAll("th");
+  headers.forEach((th, i) => {
+    if (i === colIndex) {
+      th.textContent = th.textContent.replace(/ ▲| ▼/g, "") + (dir === "asc" ? " ▲" : " ▼");
+    } else {
+      th.textContent = th.textContent.replace(/ ▲| ▼/g, "");
+    }
+  });
+}
+
       sorted.forEach(row => table.tBodies[0].appendChild(row));
     }
   </script>
