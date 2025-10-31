@@ -223,6 +223,86 @@
             font-size: 12px;
         }
     </style>
+
+<!-- Add this in the <head> section after other scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Replace the entire output div with this -->
+<div class="output" style="display:none;" id="output">
+    <h3>Product Preview:</h3>
+    <div id="gridPreview"></div>
+    
+    <div style="margin-top: 20px;">
+        <button onclick="saveToSupabase()" style="background: #228B22;">Save to Supabase</button>
+        <button onclick="toggleJSON()" style="background: #666; font-size: 14px;">Show JSON (Debug)</button>
+    </div>
+    
+    <div id="saveStatus" style="margin-top: 15px;"></div>
+    <div id="jsonOutput" style="display:none;"></div>
+</div>
+
+<!-- Add this to your script section -->
+<script>
+    // Initialize Supabase
+    const supabaseUrl = 'https://hlywucxwpzbqmzssmwpj.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhseXd1Y3h3cHpicW16c3Ntd3BqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg5MTQwNTMsImV4cCI6MjA2NDQ5MDA1M30.m72-z_MYxyijIqclV9hJplTNen02IdLLCOv7w3ZoHfY';
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+    
+    let currentProductData = null;
+
+    // Update formatProduct to store data
+    function formatProduct() {
+        // ... existing code ...
+        
+        // Store for saving
+        currentProductData = productData;
+        
+        document.getElementById('jsonOutput').textContent = JSON.stringify(productData, null, 2);
+        document.getElementById('output').style.display = 'block';
+    }
+    
+    async function saveToSupabase() {
+        const statusDiv = document.getElementById('saveStatus');
+        statusDiv.innerHTML = '<div style="color: blue;">Saving...</div>';
+        
+        try {
+            const { data, error } = await supabase
+                .from('products')
+                .insert([{
+                    ...currentProductData,
+                    site: 'shop'
+                }]);
+                
+            if (error) throw error;
+            
+            statusDiv.innerHTML = '<div style="color: green; font-weight: bold;">✓ Product saved successfully!</div>';
+            
+            // Clear form after success
+            setTimeout(() => {
+                if (confirm('Product saved! Clear form for next product?')) {
+                    document.getElementById('titleInfo').value = '';
+                    document.getElementById('description').value = '';
+                    document.getElementById('imageUrl').value = '';
+                    document.getElementById('amazonUrl').value = '';
+                    document.getElementById('category').value = '';
+                    document.getElementById('ageGroup').value = '';
+                    document.getElementById('output').style.display = 'none';
+                    updateCharCount();
+                }
+            }, 1000);
+            
+        } catch (error) {
+            statusDiv.innerHTML = `<div style="color: red;">Error: ${error.message}</div>`;
+        }
+    }
+    
+    function toggleJSON() {
+        const jsonDiv = document.getElementById('jsonOutput');
+        jsonDiv.style.display = jsonDiv.style.display === 'none' ? 'block' : 'none';
+    }
+</script>
+
+    
 </head>
 <body>
     <div class="container">
