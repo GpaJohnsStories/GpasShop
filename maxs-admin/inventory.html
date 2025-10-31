@@ -118,21 +118,42 @@
     </select>
   </div>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Category</th>
-        <th>Age Group</th>
-        <th>Last Update</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody id="productList">
-      <!-- Products will be loaded here -->
-    </tbody>
-  </table>
+ <table>
+  <thead>
+    <tr>
+      <th class="col-name">Name</th>
+      <th class="col-center">Price</th>
+      <th class="col-center">Category</th>
+      <th class="col-center">Age Group</th>
+      <th class="col-center">Last Update</th>
+      <th class="col-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-name">
+        <div class="product-info">
+          <div class="amazon-badge">A</div>
+          <img src="..." class="product-image" />
+          <div>
+            <div class="product-title">Buddy’s Big Adventure <span class="new-badge">New</span></div>
+            <div class="product-author">by Max G.</div>
+          </div>
+        </div>
+      </td>
+      <td class="col-center price">$12.99</td>
+      <td class="col-center">Grade School - Fun Books</td>
+      <td class="col-center">Grade School</td>
+      <td class="col-center">Oct 30, 2025</td>
+      <td class="col-center actions">
+        <button class="pill edit-btn">Edit</button>
+        <button class="pill delete-btn">Delete</button>
+        <button class="pill status-btn active">Active</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 
   <script>
     const supabase = window.supabase.createClient(
