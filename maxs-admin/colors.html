@@ -17,7 +17,7 @@
       margin-bottom: 30px;
     }
     table {
-      width: 100%;
+      width: 90%;
       border-collapse: separate;
       border-spacing: 0 10px;
     }
@@ -36,7 +36,7 @@
 
     td {
       background: white;
-      padding: 12px;
+      padding: 6px;
       vertical-align: middle;
       border-radius: 8px;
       text-align: center;
@@ -49,8 +49,8 @@
     }
     .swatch {
       display: inline-block;
-      width: 40px;
-      height: 40px;
+      width: 60px;
+      height: 60px;
       border-radius: 6px;
       border: 1px solid #ccc;
       margin-right: 10px;
@@ -63,9 +63,9 @@
 <table id="colorTable" data-sort-col="" data-sort-dir="">
     <thead>
       <tr>
-	    <th>onclick="sortTable(1)">Color Name ▲</th>
 		<th>Swatch</th>
-		<th>onclick="sortTable(2)">Grouping ▼</th>
+		<th onclick="sortTable(1)">Color Name ▲</th>
+		<th onclick="sortTable(2)">Grouping ▼</th>
         <th>Hex</th>
         <th>How Used</th>
         <th>Where Used</th>
