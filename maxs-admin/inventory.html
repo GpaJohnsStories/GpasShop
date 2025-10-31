@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gpa's Shop Inventory List</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background: #f5f5dc;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #8B4513;
+      border-bottom: 2px solid #D2691E;
+      padding-bottom: 10px;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    input, select {
+      padding: 8px;
+      font-size: 16px;
+      border: 2px solid #D2691E;
+      border-radius: 4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background: #D2691E;
+      color: white;
+      cursor: pointer;
+    }
+    tr:hover {
+      background: #FFF8DC;
+    }
+    .product-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .product-image {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      border: 1px solid #D2691E;
+    }
+    .amazon-badge {
+      width: 20px;
+      height: 20px;
+      background: #FF9900;
+      color: white;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 20px;
+    }
+    .new-badge {
+      background: #DC143C;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+    .actions button {
+      margin-right: 5px;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .edit-btn { background: #228B22; color: white; }
+    .delete-btn { background: #DC143C; color: white; }
+    .status-btn.active { background: #228B22; color: white; }
+    .status-btn.inactive { background: #999; color: white; }
+  </style>
+</head>
+<body>
+  <h1>📦 Gpa's Shop Inventory List</h1>
+
+  <div class="controls">
+    <input type="text" id="searchBox" placeholder="Search title, author, price, stars, description..." oninput="searchProducts()"/>
+    <select id="sortBy" onchange="sortProducts()">
+      <option value="created_at_desc">Newest First</option>
+      <option value="title_asc">Title A-Z</option>
+      <option value="title_desc">Title Z-A</option>
+      <option value="price_asc">Price Low-High</option>
+      <option value="price_desc">Price High-Low</option>
+      <option value="category">Category</option>
+      <option value="age_group">Age Group</option>
+    </select>
+    <select id="categoryFilter" onchange="filterProducts()">
+      <option value="">Show All Categories</option>
+    </select>
+    <select id="ageFilter" onchange="filterProducts()">
+      <option value="">All Age Groups</option>
+      <option value="Preschool">Preschool</option>
+      <option value="Grade School">Grade School</option>
+      <option value="Teen">Teen</option>
+      <option value="Adult Men">Adult Men</option>
+      <option value="Adult Women">Adult Women</option>
+    </select>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Age Group</th>
+        <th>Last Update</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="productList">
+      <!-- Products will be loaded here -->
+    </tbody>
+  </table>
+
+  <script>
+    const supabase = window.supabase.createClient(
+      'https://hlywucxwpzbqmzssmwpj.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhseXd1Y3h3cHpicW16c3Ntd3BqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg5MTQwNTMsImV4cCI6MjA2NDQ5MDA1M30.m72-z_MYxyijIqclV9hJplTNen02IdLLCOv7w3ZoHfY'
+    );
+
+    async function loadProducts() {
+      const { data, error } = await supabase
+        .from('products')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        console.error('Error loading products:', error.message);
+        return;
+      }
+
+      const now = new Date();
+      const productList = document.getElementById('productList');
+      productList.innerHTML = data.map(p => {
+        const isNew = (now - new Date(p.created_at)) / (1000 * 60 * 60 * 24) < 10;
+        return `
+          <tr>
+            <td>
+              <div class="product-info">
+                ${p.amazon_choice ? '<div class="amazon-badge">A</div>' : ''}
+                <img src="${p.image_url}" class="product-image"/>
+                <div>
+                  <div class="product-title">${p.title}${isNew ? '<span class="new-badge">New</span>' : ''}</div>
+                  ${p.author ? `<div class="product-author">${p.author}</div>` : ''}
+                </div>
+              </div>
+            </td>
+            <td class="price">${p.price || ''}</td>
+            <td>${p.category || ''}</td>
+            <td>${p.age_group || ''}</td>
+            <td>${new Date(p.updated_at || p.created_at).toLocaleDateString()}</td>
+            <td class="actions">
+              <button class="edit-btn" onclick="editProduct('${p.id}')">Edit</button>
+              <button class="delete-btn" onclick="deleteProduct('${p.id}')">Delete</button>
+              <button class="status-btn ${p.status === 'active' ? 'active' : 'inactive'}" onclick="toggleStatus('${p.id}', '${p.status}')">${p.status || 'inactive'}</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function searchProducts() {
+      // Add live search logic here
+    }
+
+    function sortProducts() {
+      // Add sort logic here
+    }
+
+    function filterProducts() {
+      // Add filter logic here
+    }
+
+    function editProduct(id) {
+      alert('Edit product ' + id);
+    }
+
+    function deleteProduct(id) {
+      if (confirm('Delete this product?')) {
+        supabase.from('products').delete().eq('id', id).then(loadProducts);
+      }
+    }
+
+    function toggleStatus(id, currentStatus) {
+      const newStatus = currentStatus === 'active' ? 'inactive' : 'active';
+      supabase.from('products').update({ status: newStatus }).eq('id', id).then(loadProducts);
+    }
+
+    loadProducts();
+  </script>
+</body>
+</html>
