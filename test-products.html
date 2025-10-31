@@ -66,15 +66,19 @@
 
                 statusDiv.innerHTML = `<div class="status success">Found ${data.length} products!</div>`;
                 
-                // Display products
-                productsDiv.innerHTML = data.map(product => `
-                    <div class="product-card">
-                        <h3>${product.title}</h3>
-                        <p><strong>${product.price}</strong></p>
-                        <p>${product.description || 'No description'}</p>
-                        <p><small>Category: ${product.category || 'Uncategorized'}</small></p>
-                    </div>
-                `).join('');
+     // Display products
+productsDiv.innerHTML = data.map(product => `
+    <div class="product-card">
+        ${product.image_url ? `<img src="${product.image_url}" style="width:100%; height:200px; object-fit:contain; margin-bottom:10px;">` : ''}
+        <h3>${product.title}</h3>
+        ${product.amazon_choice ? '<span style="background:#FF9900; color:white; padding:4px 8px; border-radius:3px; font-size:14px;">Amazon\'s Choice</span>' : ''}
+        <p><strong>${product.price}</strong></p>
+        ${product.rating ? `<p style="color:#FF8C00;">★★★★★ ${product.rating} stars (${product.review_count} reviews)</p>` : ''}
+        <p>${product.description || 'No description'}</p>
+        <p><small>Category: ${product.category || 'Uncategorized'}</small></p>
+        ${product.product_url ? `<button onclick="window.open('${product.product_url}', '_blank')" style="background:#FF9900; width:100%; padding:10px; border:none; border-radius:4px; cursor:pointer;">View on Amazon</button>` : ''}
+    </div>
+`).join('');
 
             } catch (error) {
                 statusDiv.innerHTML = `<div class="status error">Error: ${error.message}</div>`;
