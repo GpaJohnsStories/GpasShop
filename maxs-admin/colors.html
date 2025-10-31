@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gpa's Shop Color Reference</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background: #F5F5DC;
+      padding: 30px;
+      font-size: 21px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #8B4513;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 10px;
+    }
+    th {
+      background: #D2691E;
+      color: white;
+      padding: 12px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+    td {
+      background: white;
+      padding: 12px;
+      vertical-align: middle;
+      border-radius: 8px;
+      text-align: center;
+    }
+    td:first-child {
+      text-align: left;
+    }
+    .swatch {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎨 Gpa's Shop Color Reference</h1>
+  <table id="colorTable">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0)">Color Name</th>
+        <th>Swatch</th>
+        <th onclick="sortTable(2)">Grouping</th>
+        <th>Hex</th>
+        <th>How Used</th>
+        <th>Where Used</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Brown - Saddle</td>
+        <td><div class="swatch" style="background:#8B4513;"></div></td>
+        <td>Primary</td>
+        <td>#8B4513</td>
+        <td>Header text, section titles</td>
+        <td>Page title, headings</td>
+        <td>Deep rustic brown; matches aged wood</td>
+      </tr>
+      <tr>
+        <td>Brown - Woodgrain</td>
+        <td><div class="swatch" style="background:#A0522D;"></div></td>
+        <td>Primary</td>
+        <td>#A0522D</td>
+        <td>Header/footer background</td>
+        <td>Top and bottom bars</td>
+        <td>Warm wood tone; evokes handcrafted feel</td>
+      </tr>
+      <tr>
+        <td>Brown - Floorboard</td>
+        <td><div class="swatch" style="background:#D8B185;"></div></td>
+        <td>Secondary</td>
+        <td>#D8B185</td>
+        <td>Interior wood flooring</td>
+        <td>Shop floor</td>
+        <td>Soft, aged wood; cozy and grounded</td>
+      </tr>
+      <tr>
+        <td>Brass - Bell Gold</td>
+        <td><div class="swatch" style="background:#FFD700;"></div></td>
+        <td>Accent</td>
+        <td>#FFD700</td>
+        <td>Icon, logo, visual anchor</td>
+        <td>Menu bell icon</td>
+        <td>Bright brass tone; signals warmth and welcome</td>
+      </tr>
+      <tr>
+        <td>Blue - Curtain Deep</td>
+        <td><div class="swatch" style="background:#256EAB;"></div></td>
+        <td>Accent</td>
+        <td>#256EAB</td>
+        <td>Decorative contrast</td>
+        <td>Window curtains</td>
+        <td>Adds cool balance to warm palette</td>
+      </tr>
+      <tr>
+        <td>Beige - Light</td>
+        <td><div class="swatch" style="background:#F5F5DC;"></div></td>
+        <td>Secondary</td>
+        <td>#F5F5DC</td>
+        <td>Page background, content areas</td>
+        <td>Main background</td>
+        <td>Soft parchment tone; gentle on eyes</td>
+      </tr>
+      <tr>
+        <td>Beige - Tan</td>
+        <td><div class="swatch" style="background:#E6D3B0;"></div></td>
+        <td>Secondary</td>
+        <td>#E6D3B0</td>
+        <td>Card backgrounds, story boxes</td>
+        <td>Story text areas</td>
+        <td>Cozy reading tone; warm and inclusive</td>
+      </tr>
+      <tr>
+        <td>Red - Crimson</td>
+        <td><div class="swatch" style="background:#DC143C;"></div></td>
+        <td>Alert</td>
+        <td>#DC143C</td>
+        <td>“New” badge, delete button</td>
+        <td>Badges, alerts</td>
+        <td>High visibility; emotional urgency</td>
+      </tr>
+      <tr>
+        <td>Green - Forest</td>
+        <td><div class="swatch" style="background:#228B22;"></div></td>
+        <td>Action</td>
+        <td>#228B22</td>
+        <td>Edit button, active status</td>
+        <td>Action buttons</td>
+        <td>Friendly and confident tone</td>
+      </tr>
+      <tr>
+        <td>Orange - Amazon</td>
+        <td><div class="swatch" style="background:#FF9900;"></div></td>
+        <td>Badge</td>
+        <td>#FF9900</td>
+        <td>Amazon Choice badge</td>
+        <td>Product list</td>
+        <td>Recognizable affiliate marker</td>
+      </tr>
+      <tr>
+        <td>Black - Text</td>
+        <td><div class="swatch" style="background:#333333;"></div></td>
+        <td>Primary</td>
+        <td>#333333</td>
+        <td>Body text</td>
+        <td>Product descriptions</td>
+        <td>High contrast, readable, not harsh</td>
+      </tr>
+      <tr>
+        <td>Black - Shadow - Soft</td>
+        <td><div class="swatch" style="background:#00000080;"></div></td>
+        <td>Other</td>
+        <td>#00000080</td>
+        <td>Card shadows, depth effects</td>
+        <td>Story cards</td>
+        <td>Subtle depth without harsh contrast</td>
+      </tr>
+      <tr>
+        <td>White</td>
+        <td><div class="swatch" style="background:#FFFFFF;"></div></td>
+        <td>Neutral</td>
+        <td>#FFFFFF</td>
+        <td>Table cells, clean base layer</td>
+        <td>Product rows</td>
+        <td>Clean and readable foundation</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    function sortTable(colIndex) {
+      const table = document.getElementById("colorTable");
+      const rows = Array.from(table.rows).slice(1);
+      const sorted = rows.sort((a, b) => {
+        const aText = a.cells[colIndex].textContent.trim().toLowerCase();
+        const bText = b.cells[colIndex].textContent.trim().toLowerCase();
+        return aText.localeCompare(bText);
+      });
+      sorted.forEach(row => table.tBodies[0].appendChild(row));
+    }
+  </script>
+</body>
+</html>
