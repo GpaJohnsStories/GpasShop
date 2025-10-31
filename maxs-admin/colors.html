@@ -60,7 +60,7 @@
 </head>
 <body>
   <h1>🎨 Gpa's Shop Color Reference</h1>
-  <table id="colorTable">
+<table id="colorTable" data-sort-col="" data-sort-dir="">
     <thead>
       <tr>
 	    <th onclick="sortTable(1)">Color Name ▲</th>
@@ -193,36 +193,36 @@
     </tbody>
   </table>
 
-  <script>
-    function sortTable(colIndex) {
-  const table = document.getElementById("colorTable");
-  const rows = Array.from(table.rows).slice(1);
-  const isAsc = table.getAttribute("data-sort-col") == colIndex && table.getAttribute("data-sort-dir") == "asc";
-  const dir = isAsc ? "desc" : "asc";
 
-  rows.sort((a, b) => {
-    const aText = a.cells[colIndex].textContent.trim().toLowerCase();
-    const bText = b.cells[colIndex].textContent.trim().toLowerCase();
-    return dir === "asc" ? aText.localeCompare(bText) : bText.localeCompare(aText);
-  });
+<script>
+  function sortTable(colIndex) {
+    const table = document.getElementById("colorTable");
+    const rows = Array.from(table.rows).slice(1);
+    const isAsc = table.getAttribute("data-sort-col") == colIndex && table.getAttribute("data-sort-dir") == "asc";
+    const dir = isAsc ? "desc" : "asc";
 
-  rows.forEach(row => table.tBodies[0].appendChild(row));
-  table.setAttribute("data-sort-col", colIndex);
-  table.setAttribute("data-sort-dir", dir);
+    rows.sort((a, b) => {
+      const aText = a.cells[colIndex].textContent.trim().toLowerCase();
+      const bText = b.cells[colIndex].textContent.trim().toLowerCase();
+      return dir === "asc" ? aText.localeCompare(bText) : bText.localeCompare(aText);
+    });
 
-  // Update indicators
-  const headers = table.querySelectorAll("th");
-  headers.forEach((th, i) => {
-    if (i === colIndex) {
-      th.textContent = th.textContent.replace(/ ▲| ▼/g, "") + (dir === "asc" ? " ▲" : " ▼");
-    } else {
-      th.textContent = th.textContent.replace(/ ▲| ▼/g, "");
-    }
-  });
-}
+    rows.forEach(row => table.tBodies[0].appendChild(row));
+    table.setAttribute("data-sort-col", colIndex);
+    table.setAttribute("data-sort-dir", dir);
 
-      sorted.forEach(row => table.tBodies[0].appendChild(row));
-    }
-  </script>
+    // Update sort indicators
+    const headers = table.querySelectorAll("th");
+    headers.forEach((th, i) => {
+      let label = th.textContent.replace(/ ▲| ▼/g, "").trim();
+      if (i === colIndex) {
+        th.textContent = label + (dir === "asc" ? " ▲" : " ▼");
+      } else {
+        th.textContent = label;
+      }
+    });
+  }
+</script>
+
 </body>
 </html>
