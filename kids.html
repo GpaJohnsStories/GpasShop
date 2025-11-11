@@ -32,7 +32,16 @@
         </div>
     </div>
 </section>
-	
+
+<!-- FOOTER  -->
+<div style="height: 10px;"></div> <!-- Open space before footer -->
+<div id="footer"></div>
+<script>
+fetch('footer.html')
+  .then(response => response.text())
+  .then(data => document.getElementById('footer').innerHTML = data);
+</script>
+</footer>
 
 </body>
 </html>
