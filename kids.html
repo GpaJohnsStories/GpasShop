@@ -12,9 +12,12 @@
 </head>
 
 <body>
-<header style="background-image: url('a-v/photos/header-wood-plank.gif'); background-size: cover; height: 120px; padding: 10px; position: relative;">
-    <img src="a-v/photos/Header-Kids-Stuff.gif" alt="Kid's Stuff" style="height: 100px; float: left; margin-top: 10px; filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.5));">
+<header style="background-image: url('a-v/photos/header-wood-plank.gif'); background-size: cover; height: 160px; padding: 10px; position: relative; text-align: center;">
+  <div style="display: inline-block; position: relative; cursor: pointer;" onclick="toggleMenu()">
+    <img src="a-v/photos/Header-Kids-Stuff.gif" alt="Kid's Stuff" style="width: 600px; max-width: 100%; filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.5));">
+  </div>
 </header>
+
 
 <!-- Jump menu buttons -->
 <div style="text-align: center; margin: 20px;">
@@ -42,6 +45,13 @@ fetch('footer.html')
   .then(data => document.getElementById('footer').innerHTML = data);
 </script>
 </footer>
+
+<script>
+  function toggleMenu() {
+    // This will trigger your dropdown logic soon
+    alert("Menu bell clicked! Dropdown coming soon...");
+  }
+</script>
 
 </body>
 </html>
