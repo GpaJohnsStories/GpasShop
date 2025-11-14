@@ -254,7 +254,10 @@
             <div class="input-group">
                 <h3><span class="step-number">4</span>Description</h3>
                 <textarea id="description" rows="5" placeholder="Product description..." oninput="updateCharCount()"></textarea>
-                <div class="char-counter" id="charCounter">0/250</div>
+                
+                <div class="char-counter" id="charCounter">0/600</div>
+                     <div id="charError" style="color: #DC143C; font-weight: bold; display: none;">Description too long! Please shorten it.</div>
+
             </div>
 
             <div class="input-group">
@@ -340,22 +343,26 @@
             }
         }
 
-        function updateCharCount() {
-            const description = document.getElementById('description').value;
-            const counter = document.getElementById('charCounter');
-            const button = document.getElementById('formatButton');
-            const length = description.length;
-            
-            counter.textContent = length + '/250';
-            
-            if (length > 250) {
-                counter.classList.add('over-limit');
-                button.disabled = true;
-            } else {
-                counter.classList.remove('over-limit');
-                button.disabled = false;
-            }
-        }
+     function updateCharCount() {
+    const description = document.getElementById('description').value;
+    const counter = document.getElementById('charCounter');
+    const button = document.getElementById('formatButton');
+    const errorDiv = document.getElementById('charError');
+    const length = description.length;
+    
+    counter.textContent = length + '/600';
+    
+    if (length > 600) {
+        counter.classList.add('over-limit');
+        errorDiv.style.display = 'block';
+        button.disabled = true;
+    } else {
+        counter.classList.remove('over-limit');
+        errorDiv.style.display = 'none';
+        button.disabled = false;
+    }
+}
+
 
         function formatProduct() {
             const title = document.getElementById('title').value;
@@ -365,8 +372,8 @@
             const category = document.getElementById('category').value;
             const ageGroup = document.getElementById('ageGroup').value;
             
-            if (description.length > 250) {
-                alert('Description must be 250 characters or less!');
+            if (description.length > 600) {
+                alert('Description must be 600 characters or less!');
                 return;
             }
             
