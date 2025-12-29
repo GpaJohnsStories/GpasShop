@@ -457,18 +457,18 @@ function saveProductFile() {
   const timestampComment = "<!-- date_added: " + now + " -->\n\n";
 
   // Build full HTML file content
-  const fileContent =
-    "<!DOCTYPE html>\n" +
-    "<html>\n" +
-    "<head>\n" +
-    "  <meta charset='UTF-8'>\n" +
-    "  <title>" + code + "</title>\n" +
-    "</head>\n" +
-    "<body>\n" +
-    timestampComment +
-    window.finalProductHTML + "\n" +
-    "</body>\n" +
-    "</html>";
+ const fileContent =
+  "<!DOCTYPE html>\n" +
+  "<html>\n" +
+  "<head>\n" +
+  "  <meta charset='UTF-8'>\n" +
+  "  <title>" + code + "</title>\n" +
+  "</head>\n" +
+  "<body>\n" +
+  timestampComment +
+  window.finalProductHTML +
+  "\n</body>\n</html>";
+
 
   // Create a downloadable blob
   const blob = new Blob([fileContent], { type: "text/html" });
@@ -501,3 +501,4 @@ function saveProductFile() {
 
 </body>
 </html>
+
