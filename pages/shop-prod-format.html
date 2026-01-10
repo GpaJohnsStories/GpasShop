@@ -401,7 +401,28 @@ async function fetchNextSuffix(prefix) {
   return String(maxSuffix + 1).padStart(3, "0");
 }
 
+// ===============================================================
+// LOAD PRODUCT FROM GITHUB
+// This function loads an existing product HTML file from the
+// GpasShop GitHub repo using the product code typed by the user.
+// Example: FT1-001 loads /prod/FT1-001.html
+// ===============================================================
+async function loadProduct() {
 
+  // ---------------------------------------------------------------
+  // 1. Get the product code from the input box
+  // ---------------------------------------------------------------
+  const code = document.getElementById("prodCode").value.trim();
+
+  // If nothing was typed, stop and warn the user
+  if (!code) {
+    alert("Enter a product code like FT1-001");
+    return;
+  }
+
+  // ---------------------------------------------------------------
+  // 2. Build the RAW GitHub URL for the product file
+	  
 /* --------------------------------------------------------------
    ESCAPE HTML ENTITIES
 -------------------------------------------------------------- */
@@ -596,5 +617,6 @@ async function saveProductFile() {
 
 </body>
 </html>
+
 
 
