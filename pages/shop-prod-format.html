@@ -204,14 +204,16 @@
         <h3>Product Details</h3>
 
         <!-- PRODUCT CODE -->
-    <div style="display:flex; gap:40px; align-items:flex-start;">
+    <div>
+  <label for="pcode">Product Code:</label><br>
 
-       <div>
-            <label for="pcode">Product Code:</label><br>
-            <input type="text" id="pcode"
-                 style="width:120px; font-weight:bold;"
-                 oninput="validateCode(this)">
-       </div>
+  <!-- Pattern-based placeholder: IP?-nnn -->
+  <input type="text" id="pcode"
+         placeholder="IP?-nnn"
+         style="width:120px; font-weight:bold;"
+         oninput="validateCode(this)">
+</div>
+
 
         <!-- PRICE-->
        <div>
@@ -617,6 +619,7 @@ async function saveProductFile() {
 
 </body>
 </html>
+
 
 
 
