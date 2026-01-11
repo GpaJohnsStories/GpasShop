@@ -4,22 +4,62 @@
 <meta charset="UTF-8">
 <title>Grandpa John's Shop</title>
 
-<!-- Kalam font -->
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap" rel="stylesheet">
-
 </head>
 
 <body style="margin:0; background:black;">
 
 <!-- ========================= -->
-<!-- TOP BLACKBOARD AREA -->
+<!-- WELCOME BLACKBOARD -->
 <!-- ========================= -->
 
+<div style="max-width:1000px; margin:0 auto; padding:20px;">
+
 <div style="
-  max-width:1000px;
-  margin:0 auto;
+  background:black;
+  border:14px solid #6b4a2b;
   padding:20px;
+  margin-bottom:30px;
 ">
+
+<!-- LEFT: PHOTO -->
+<div style="width:50%; float:left; padding:10px;">
+  <img src="photos/gpas-shop-w-frame.png" style="width:100%;" alt="Grandpa John's Shop">
+</div>
+
+<!-- RIGHT: WELCOME TEXT -->
+<div style="width:50%; float:left; padding:10px;">
+
+<div style="
+  font-family:Kalam, cursive;
+  font-size:21px;
+  font-weight:bold;
+  font-style:italic;
+  color:#f5f5f5;
+  line-height:1.45;
+">
+
+Hi Friend —
+
+<p>
+Glad to see you. I'm sorry but my memory isn't what it used to be and I don't remember your name.
+But that's okay, I'm Grandpa John and I appreciate you visiting my shop.
+</p>
+
+<p>
+Everything here is stuff I'd tell you about if we were neighbors just chatting over the fence.
+</p>
+
+<p style="text-align:center;">
+Grandpa John
+</p>
+
+</div>
+</div>
+
+<div style="clear:both;"></div>
+
+</div>
 
 <!-- ========================= -->
 <!-- CHALK BOARD #1 : MOOD -->
@@ -32,37 +72,26 @@
   margin-bottom:20px;
 ">
 
-<div style="
-  font-family:Kalam, cursive;
-  font-size:22px;
-  font-weight:bold;
-  font-style:italic;
-  color:#f5f5f5;
-  margin-bottom:16px;
-">
+<div style="font-family:Kalam, cursive; font-size:22px; font-weight:bold; font-style:italic; color:#f5f5f5; margin-bottom:16px;">
 What are you in the mood for?
 </div>
 
-<!-- Bell Option -->
 <div onclick="selectMood('faith')" style="cursor:pointer; margin-bottom:14px;">
-  <img id="bell-faith" src="icons/shop-bell-icon-1.png"
-       style="width:28px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-faith" src="icons/shop-bell-icon-1.png" style="width:28px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     Faith & Hope
   </span>
 </div>
 
 <div onclick="selectMood('fun')" style="cursor:pointer; margin-bottom:14px;">
-  <img id="bell-fun" src="icons/shop-bell-icon-1.png"
-       style="width:28px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-fun" src="icons/shop-bell-icon-1.png" style="width:28px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     Just for Fun
   </span>
 </div>
 
 <div onclick="selectMood('all')" style="cursor:pointer;">
-  <img id="bell-all" src="icons/shop-bell-icon-1.png"
-       style="width:28px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-all" src="icons/shop-bell-icon-1.png" style="width:28px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     Everything We’ve Got
   </span>
@@ -81,44 +110,33 @@ What are you in the mood for?
   margin-bottom:20px;
 ">
 
-<div style="
-  font-family:Kalam, cursive;
-  font-size:22px;
-  font-weight:bold;
-  font-style:italic;
-  color:#f5f5f5;
-  margin-bottom:16px;
-">
+<div style="font-family:Kalam, cursive; font-size:22px; font-weight:bold; font-style:italic; color:#f5f5f5; margin-bottom:16px;">
 What kind of thing?
 </div>
 
 <div onclick="selectType('shirts')" style="cursor:pointer; margin-bottom:14px;">
-  <img id="bell-shirts" src="icons/shop-bell-icon-1.png"
-       style="width:28px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-shirts" src="icons/shop-bell-icon-1.png" style="width:28px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     T‑Shirts
   </span>
 </div>
 
 <div onclick="selectType('books')" style="cursor:pointer; margin-bottom:14px;">
-  <img id="bell-books" src="icons/shop-bell-icon-1.png"
-       style="width:28px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-books" src="icons/shop-bell-icon-1.png" style="width:28px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     Books & Bibles
   </span>
 </div>
 
 <div onclick="selectType('other')" style="cursor:pointer; margin-bottom:14px;">
-  <img id="bell-other" src="icons/shop-bell-icon-1.png"
-       style="width:28px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-other" src="icons/shop-bell-icon-1.png" style="width:28px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     Other Stuff
   </span>
 </div>
 
 <div onclick="selectType('all')" style="cursor:pointer;">
-  <img id="bell-type-all" src="icons/shop-bell-icon-1.png"
-       style="width:28px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-type-all" src="icons/shop-bell-icon-1.png" style="width:28px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     Everything We’ve Got
   </span>
@@ -136,14 +154,7 @@ What kind of thing?
   padding:20px;
 ">
 
-<div style="
-  font-family:Kalam, cursive;
-  font-size:22px;
-  font-weight:bold;
-  font-style:italic;
-  color:#f5f5f5;
-  margin-bottom:12px;
-">
+<div style="font-family:Kalam, cursive; font-size:22px; font-weight:bold; font-style:italic; color:#f5f5f5; margin-bottom:12px;">
 Anything in particular?
 </div>
 
@@ -167,33 +178,28 @@ Anything in particular?
 </div>
 
 <!-- ========================= -->
-<!-- JAVASCRIPT : SELECTION LOGIC -->
+<!-- AUDIO -->
+<!-- ========================= -->
+
+<audio id="shopBell" src="audio/shop-bell-ring.mp3" preload="auto"></audio>
+
+<!-- ========================= -->
+<!-- SCRIPT -->
 <!-- ========================= -->
 
 <script>
-/* Store current selections */
-let selectedMood = "";
-let selectedType = "";
-
-/* Reset bell brightness */
-function resetBells(prefix) {
-  document.querySelectorAll("img[id^='bell-" + prefix + "']").forEach(bell => {
-    bell.style.opacity = "0.6";
-  });
+function ringBell() {
+  let bell = document.getElementById("shopBell");
+  bell.currentTime = 0;
+  bell.play();
 }
 
-/* Mood selection */
 function selectMood(mood) {
-  selectedMood = mood;
-  resetBells("");
-  document.getElementById("bell-" + mood).style.opacity = "1";
+  ringBell();
 }
 
-/* Type selection */
 function selectType(type) {
-  selectedType = type;
-  resetBells("");
-  document.getElementById("bell-" + type).style.opacity = "1";
+  ringBell();
 }
 </script>
 
