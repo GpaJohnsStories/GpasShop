@@ -1,80 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gpa's Shop - Stop in and say, "Hello!"</title>
-    <link rel="icon" type="image/gif" href="a-v/photos/ICO-BL1 - shop-bell-icon.gif">
-	<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="gpa-shop-styles.css">
+<meta charset="UTF-8">
+<title>Grandpa John's Shop</title>
+
+<!-- Gloria Hallelujah -->
+<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    background: #222;
+    font-family: 'Gloria Hallelujah', cursive;
+  }
+
+  /* Blackboard section */
+  .blackboard {
+    background: #1b1b1b;
+    padding: 20px;
+  }
+
+  /* Content wrapper */
+  .intro-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  /* Left image */
+  .intro-image {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .intro-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Right text */
+  .intro-text {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    color: #f5f5f5;
+    font-size: 21px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .intro-text p {
+    margin-top: 12px;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 700px) {
+    .intro-image,
+    .intro-text {
+      width: 100%;
+    }
+
+    .intro-text {
+      padding: 15px;
+    }
+  }
+
+  /* Desktop breathing room */
+  @media (min-width: 1100px) {
+    .intro-wrap {
+      max-width: 1100px;
+    }
+  }
+</style>
 </head>
 
 <body>
-<center>
-<!-- Shop Photo -->
-<center>
-<div style="width: 610px; position: relative;">
-    <img src="a-v/photos/gpas-shop-w-frame-bell.gif" alt="Inside Grandpa John's cozy country shop" style="width: 600px; margin-left: 36px;">
-<!-- Add this after the <img src="gpas-shop-w-frame-bell.gif"...> --> 
-	<div onclick="document.getElementById('bellSound').play(); toggleMenu();" style="position: absolute; top: 90px; right: 15px; width: 140px; height: 200px; cursor: pointer;">
-	</div>
-	<!-- Add the audio element right after your shop image --> 
-	<audio id="bellSound" src="a-v/audio/shop-bell-ring.mp3" preload="auto">
-	</audio> <script> document.getElementById('bellSound').volume = 1; // 0 to 1, default is 0.5 
-	</script> 
-	
-	
-</div>
-</center>
 
-	<div style="height: 15px;"></div>
+<div class="blackboard">
+  <div class="intro-wrap">
 
-<!-- Blackboard -->
-<div style="width: 600px; background: #1a1a1a; border: 8px solid #8B4513; border-radius: 4px; box-shadow: 0 8px 16px rgba(0,0,0,0.4); padding: 15px 20px;">
-    <div style="font-family: 'Kalam', cursive; font-size: 24px; font-style: italic; color: white;">
-        <p></p><div style="text-align: left;">Hi Friend &mdash;</div>
-        <div style="text-align: left; margin-top: 10px;">
-			Glad to see you. I'm sorry but my memory isn't what it used to be and I don't remember your name. But that's okay, I'm Grandpa John and I appreciate you visiting my shop. </p>
-			<p>Just ring or click on the bell, top right in the shop photo, and you may find what you're looking for. </p>
-			<p>Everything here is stuff I'd tell you about if we were neighbors just chatting over the fence.</p>
-		</div>
+    <!-- LEFT: Shop Image -->
+    <div class="intro-image">
+      <img src="photos/gpas-shop-w-frame.png" alt="Grandpa John's Shop">
     </div>
+
+    <!-- RIGHT: Welcome Text -->
+    <div class="intro-text">
+      Hi Friend —
+
+      <p>
+        Glad to see you. I'm sorry but my memory isn't what it used to be and I don't remember your name.
+        But that's okay, I'm Grandpa John and I appreciate you visiting my shop.
+      </p>
+
+      <p>
+        Everything here is stuff I'd tell you about if we were neighbors just chatting over the fence.
+      </p>
+
+      <p style="text-align:center;">
+        Grandpa John
+      </p>
+    </div>
+
+  </div>
 </div>
 
-<div style="height: 25px;"></div>
-
-<!-- Small Print -->
-<div style="width: 600px; background: #f5f5f5; border: 2px solid #8B4513; border-radius: 8px; padding: 15px;">
-     <p style="margin: 0;">
-           <i><b>The Small Print: </b></i>You need to know that when you click my links and buy something, the companies pay me a small commission. This doesn't cost you any extra, but it helps me keep my free websites <b><a href="https://gpaskids.com" target="_blank">GpasKids.com</a></b> and <b><a href="https://gpasfaith.com" target="_blank">GpasFaith.com</a></b> growing with more stories and encouragement and helping kids learn kindness and families grow in faith.
-        </p>
-</div>
-</center>
-
-</div>
-
-<!-- Coming Soon -->
-	<center>
-<i><h1><font color="#047857">Coming Soon:</font></h1></i>
-    📚Children's Books — Grade School through High School<br>
-    👕 Children's T-Shirts — Featuring Grandpas Friends from <b><a href="https://gpaskids.com" target="_blank">GpasKids.com</a></b><br>
-    ✝️ Christian Devotional Books — Featuring some from <b><a href="https://gpasfaith.com" target="_blank">GpasFaith.com</a></b><br>
-    🙂 Anything else that looks it will be of interest to you all<br>
-
-	</center>
-
-<!-- FOOTER  -->
-<div style="height: 10px;"></div> <!-- Open space before footer -->
-<div id="footer"></div>
-<script>
-fetch('footer.html')
-  .then(response => response.text())
-  .then(data => document.getElementById('footer').innerHTML = data);
-</script>
-</footer>
-
+<!-- Future content goes here -->
 
 </body>
-	
 </html>
