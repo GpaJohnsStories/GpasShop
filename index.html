@@ -87,21 +87,21 @@ What are you in the mood for?
 </div>
 
 <div onclick="selectMood('faith')" style="cursor:pointer; margin-bottom:14px;">
-  <img id="bell-faith" src="icons/shop-bell-icon-1.png" style="width:36px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-faith" src="icons/shop-bell-icon-1.png" style="width:40px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     Faith & Hope
   </span>
 </div>
 
 <div onclick="selectMood('fun')" style="cursor:pointer; margin-bottom:14px;">
-  <img id="bell-fun" src="icons/shop-bell-icon-1.png" style="width:28px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-fun" src="icons/shop-bell-icon-1.png" style="width:40px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     Just for Fun
   </span>
 </div>
 
 <div onclick="selectMood('all')" style="cursor:pointer;">
-  <img id="bell-all" src="icons/shop-bell-icon-1.png" style="width:28px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-all" src="icons/shop-bell-icon-1.png" style="width:40px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     Everything We’ve Got
   </span>
@@ -112,28 +112,28 @@ What are you in the mood for?
 
 
 <div onclick="selectType('shirts')" style="cursor:pointer; margin-bottom:14px;">
-  <img id="bell-shirts" src="icons/shop-bell-icon-1.png" style="width:28px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-shirts" src="icons/shop-bell-icon-1.png" style="width:40px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     T‑Shirts
   </span>
 </div>
 
 <div onclick="selectType('books')" style="cursor:pointer; margin-bottom:14px;">
-  <img id="bell-books" src="icons/shop-bell-icon-1.png" style="width:28px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-books" src="icons/shop-bell-icon-1.png" style="width:40px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     Books & Bibles
   </span>
 </div>
 
 <div onclick="selectType('other')" style="cursor:pointer; margin-bottom:14px;">
-  <img id="bell-other" src="icons/shop-bell-icon-1.png" style="width:28px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-other" src="icons/shop-bell-icon-1.png" style="width:40px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     Other Stuff
   </span>
 </div>
 
 <div onclick="selectType('all')" style="cursor:pointer;">
-  <img id="bell-type-all" src="icons/shop-bell-icon-1.png" style="width:28px; vertical-align:middle; margin-right:8px;">
+  <img id="bell-type-all" src="icons/shop-bell-icon-1.png" style="width:40px; vertical-align:middle; margin-right:8px;">
   <span style="font-family:Kalam, cursive; font-size:21px; font-weight:bold; font-style:italic; color:#f5f5f5;">
     Everything We’ve Got
   </span>
@@ -174,6 +174,88 @@ Anything in particular?
 
 </div>
 
+<!-- ========================= -->
+<!-- PRODUCT DISPLAY WALL -->
+<!-- ========================= -->
+
+<!-- WOOD FRAME -->
+<div style="
+  background-image:url('photos/header-wood-plank.gif');
+  background-size:cover;
+  padding:8px;
+  margin-top:30px;
+">
+
+<!-- CHALK SURFACE -->
+<div style="
+  background:black;
+  padding:20px;
+">
+
+<!-- GRID -->
+<div style="
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:20px;
+">
+
+  <!-- EMPTY PRODUCT SLOT -->
+  <div style="height:420px; border:2px dashed #444;"></div>
+  <div style="height:420px; border:2px dashed #444;"></div>
+  <div style="height:420px; border:2px dashed #444;"></div>
+
+  <div style="height:420px; border:2px dashed #444;"></div>
+  <div style="height:420px; border:2px dashed #444;"></div>
+  <div style="height:420px; border:2px dashed #444;"></div>
+
+  <div style="height:420px; border:2px dashed #444;"></div>
+  <div style="height:420px; border:2px dashed #444;"></div>
+  <div style="height:420px; border:2px dashed #444;"></div>
+
+  <div style="height:420px; border:2px dashed #444;"></div>
+  <div style="height:420px; border:2px dashed #444;"></div>
+  <div style="height:420px; border:2px dashed #444;"></div>
+
+</div>
+
+<!-- FOOTER MESSAGE -->
+<div style="
+  margin-top:24px;
+  font-family:Kalam, cursive;
+  font-size:20px;
+  font-weight:bold;
+  font-style:italic;
+  color:#f5f5f5;
+  text-align:center;
+">
+
+More in the back room.  
+Tap the bell to see them.  
+Tap ← to go back through the shelves.
+
+</div>
+
+<!-- NAVIGATION -->
+<div style="
+  margin-top:16px;
+  display:flex;
+  justify-content:space-between;
+  font-family:Kalam, cursive;
+  font-size:22px;
+  font-weight:bold;
+  font-style:italic;
+  color:#f5f5f5;
+">
+
+<span style="cursor:pointer;">← Back</span>
+<span style="cursor:pointer;">Next →</span>
+
+</div>
+
+</div>
+</div>
+
+  
 <!-- ========================= -->
 <!-- AUDIO -->
 <!-- ========================= -->
