@@ -261,5 +261,86 @@ td { vertical-align:top; }
 
 </table>
 
+<script>
+
+/*
+  These three constants identify where the product files live on GitHub.
+  We are going to ask GitHub directly what files exist in the /prod folder.
+*/
+const repoOwner = "GpaJohnsStories";
+const repoName  = "GpasShop";
+const prodPath  = "prod";
+
+/*
+  This function contacts GitHub and asks:
+  "What files are currently inside the /prod folder?"
+*/
+async function getProductFiles() {
+
+  // Build the GitHub API URL that lists folder contents
+  const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${prodPath}`;
+
+  // Ask GitHub for the folder contents
+  const response = await fetch(url);
+
+  // Convert GitHub's response into usable JavaScript data
+  const files = await response.json();
+
+  /*
+    From the returned list:
+    - keep only .html files
+    - extract just the filename (not the full metadata)
+  */
+  return files
+    .filter(file => file.name.endsWith(".html"))
+    .map(file => file.name);
+}
+
+/*
+  This function loads product cards into the page.
+  It assumes:
+  - filter = ALL
+  - sort = product code (filename)
+*/
+async function loadProducts() {
+
+  // Find every empty product slot already placed in the table
+  const slots = document.querySelectorAll(".product-slot");
+
+  // Ask GitHub for the list of product card files
+  let files = await getProductFiles();
+
+  /*
+    Sort filenames alphabetically.
+    Because filenames start with the product code,
+    alphabetical order = product code order.
+  */
+  files.sort((a, b) => a.localeCompare(b));
+
+  /*
+    Load each product card file and place it into the next slot.
+    Stop if we run out of slots or files.
+  */
+  for (let i = 0; i < files.length && i < slots.length; i++) {
+
+    // Load the product card HTML file
+    const response = await fetch(`prod/${files[i]}`);
+
+    // Read the file contents as HTML text
+    const html = await response.text();
+
+    // Insert the product card into the page
+    slots[i].innerHTML = html;
+  }
+}
+
+/*
+  Start the whole process once the page loads.
+*/
+loadProducts();
+
+</script>
+
+
 </body>
 </html>
