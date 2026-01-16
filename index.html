@@ -4,93 +4,102 @@
 <meta charset="UTF-8">
 <title>Grandpa John's Shop</title>
 
- <!-- ========================= -->
-<!-- FONTS                    -->
-<!-- ========================= -->
- 
+<!-- FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
- /* ========================= */
-/* DESKTOP TABLE LAYOUT      */
 /* ========================= */
- 
-  body {
-    margin:0;
-    background:#8B3A1E;
-    font-family:Kalam, cursive;
-  }
-
-  table.shop-wall {
-    margin:20px auto;
-    border-collapse:collapse;
-  }
-
-  td {
-    vertical-align:top;
-  }
-
-  .col {
-    width:300px;
-  }
-
-  .spacer-col {
-    width:10px;
-  }
-
-  .spacer-row {
-    height:10px;
-  }
-
-  .frame-img {
-    width:100%;
-    height:auto;
-    display:block;
-  }
-
-  .blackboard-text {
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-   /* More space from the wooden frame */
-    padding:60px 50px;
-    color:#f5f5f5;
-    font-size:24px;
-    font-weight:normal;
-    font-style:normal;
-    line-height:1.45;
-  }
-
-  .relative {
-    position:relative;
-  }
-
-  .product-slot {
-    width:300px;
-    height:380px;
-    background:white;
-    box-shadow:0 0 6px rgba(0,0,0,0.4);
-  }
-
-  .shelf {
-    height:60px;
-    background-image:url('photos/shop-wood-board.gif');
-    background-size:cover;
-  }
+/* BASE LAYOUT               */
+/* ========================= */
 
 body {
   margin:0;
-  background:#F4EBD0; 
-  background-size:cover;      /* fills screen without tiling */
+  background:#F4EBD0;
+  background-size:cover;
   background-repeat:no-repeat;
   background-position:center top;
   font-family:Kalam, cursive;
 }
 
- 
+table.shop-wall {
+  margin:20px auto;
+  border-collapse:collapse;
+}
+
+td {
+  vertical-align:top;
+}
+
+.col {
+  width:300px;
+}
+
+.spacer-col {
+  width:10px;
+}
+
+.spacer-row {
+  height:10px;
+}
+
+/* ========================= */
+/* FRAMED PANELS (ROW 1 + 3) */
+/* ========================= */
+
+.frame-panel {
+  width:300px;
+  height:380px; /* base height for Row 3 */
+  background-image:url('photos/shop-wood-frame.gif');
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  position:relative;
+  box-sizing:border-box;
+}
+
+/* Row 1 framed items are taller */
+.row1 .frame-panel {
+  height:450px;
+}
+
+/* ========================= */
+/* BLACKBOARD TEXT OVERLAY   */
+/* ========================= */
+
+.blackboard-text {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:60px 50px;
+  color:#f5f5f5;
+  font-size:24px;
+  font-weight:normal;
+  font-style:normal;
+  line-height:1.45;
+}
+
+/* ========================= */
+/* PRODUCT CARDS (NO FRAME)  */
+/* ========================= */
+
+.product-slot {
+  width:300px;
+  height:380px;
+  background:white;
+  box-shadow:0 0 6px rgba(0,0,0,0.4);
+}
+
+/* ========================= */
+/* SHELF                     */
+/* ========================= */
+
+.shelf {
+  height:60px;
+  background-image:url('photos/shop-wood-board.gif');
+  background-size:cover;
+}
 </style>
 </head>
 
@@ -98,108 +107,159 @@ body {
 
 <table class="shop-wall">
 
-  <!-- ========================= -->
-  <!-- ROW 1 : PHOTO + WELCOME -->
-  <!-- ========================= -->
-  <tr>
-    <td class="col">
-      <img src="photos/gpas-shop-web.png" class="frame-img" alt="Grandpa John's Shop">
-    </td>
+<!-- ========================= -->
+<!-- ROW 1 : PHOTO + WELCOME + SPECIAL PRODUCTS -->
+<!-- ========================= -->
+<tr class="row1">
 
-    <td class="spacer-col"></td>
+  <!-- COL 1: SHOP PHOTO -->
+  <td class="col">
+    <div class="frame-panel">
+      <img src="photos/gpas-shop-web.png"
+           alt="Grandpa John's Shop"
+           style="width:100%; height:100%; object-fit:cover;">
+    </div>
+  </td>
 
-    <td class="col" colspan="3">
-      <div class="relative">
-        <img src="photos/shop-blackboard.png" class="frame-img" alt="Welcome Message">
-        <div class="blackboard-text">
-          Hello Friend —<br><br>
-          Glad to see you. I'm sorry but my memory isn't what it used to be and I don't remember your name.
-          But that's okay, I'm Grandpa John and I appreciate you visiting my shop.<br><br>
-          Everything here is stuff I'd tell you about if we were neighbors just chatting over the fence.<br><br>
-          <div style="text-align:center;">Grandpa John</div>
-        </div>
+  <td class="spacer-col"></td>
+
+  <!-- COL 3: WELCOME BLACKBOARD -->
+  <td class="col">
+    <div class="frame-panel">
+      <div class="blackboard-text">
+        Hello Friend —<br><br>
+        Glad to see you. I'm sorry but my memory isn't what it used to be and I don't remember your name.
+        But that's okay, I'm Grandpa John and I appreciate you visiting my shop.<br><br>
+        Everything here is stuff I'd tell you about if we were neighbors just chatting over the fence.<br><br>
+        <div style="text-align:center;">Grandpa John</div>
       </div>
-    </td>
-  </tr>
+    </div>
+  </td>
 
-  <!-- SPACER -->
-  <tr class="spacer-row"><td colspan="7"></td></tr>
+  <td class="spacer-col"></td>
 
-  <!-- ========================= -->
-  <!-- ROW 3 : FILTER BLACKBOARDS -->
-  <!-- ========================= -->
-  <tr>
-    <td class="col"><img src="photos/shop-blackboard.png" class="frame-img"></td>
-    <td class="spacer-col"></td>
-    <td class="col"><img src="photos/shop-blackboard.png" class="frame-img"></td>
-    <td class="spacer-col"></td>
-    <td class="col"><img src="photos/shop-blackboard.png" class="frame-img"></td>
-    <td class="spacer-col"></td>
-    <td class="col"><img src="photos/shop-blackboard.png" class="frame-img"></td>
-  </tr>
+  <!-- COL 5: SPECIAL PRODUCT 1 -->
+  <td class="col">
+    <div class="frame-panel">
+      <!-- special product content goes here -->
+    </div>
+  </td>
 
-  <!-- SPACER -->
-  <tr class="spacer-row"><td colspan="7"></td></tr>
+  <td class="spacer-col"></td>
 
-  <!-- ========================= -->
-  <!-- ROW 5 : PRODUCT ROW 1 -->
-  <!-- ========================= -->
-  <tr>
-    <td class="col"><div class="product-slot"></div></td>
-    <td class="spacer-col"></td>
-    <td class="col"><div class="product-slot"></div></td>
-    <td class="spacer-col"></td>
-    <td class="col"><div class="product-slot"></div></td>
-    <td class="spacer-col"></td>
-    <td class="col"><div class="product-slot"></div></td>
-  </tr>
+  <!-- COL 7: SPECIAL PRODUCT 2 -->
+  <td class="col">
+    <div class="frame-panel">
+      <!-- special product content goes here -->
+    </div>
+  </td>
 
-  <!-- SHELF -->
-  <tr>
-    <td colspan="7"><div class="shelf"></div></td>
-  </tr>
+</tr>
 
-  <!-- SPACER -->
-  <tr class="spacer-row"><td colspan="7"></td></tr>
+<!-- SPACER -->
+<tr class="spacer-row"><td colspan="7"></td></tr>
 
-  <!-- ========================= -->
-  <!-- ROW 7 : PRODUCT ROW 2 -->
-  <!-- ========================= -->
-  <tr>
-    <td class="col"><div class="product-slot"></div></td>
-    <td class="spacer-col"></td>
-    <td class="col"><div class="product-slot"></div></td>
-    <td class="spacer-col"></td>
-    <td class="col"><div class="product-slot"></div></td>
-    <td class="spacer-col"></td>
-    <td class="col"><div class="product-slot"></div></td>
-  </tr>
+<!-- ========================= -->
+<!-- ROW 3 : FILTER BLACKBOARDS -->
+<!-- ========================= -->
+<tr class="row3">
 
-  <!-- SHELF -->
-  <tr>
-    <td colspan="7"><div class="shelf"></div></td>
-  </tr>
+  <td class="col">
+    <div class="frame-panel">
+      <div class="blackboard-text">
+        <!-- filter text 1 -->
+      </div>
+    </div>
+  </td>
 
-  <!-- SPACER -->
-  <tr class="spacer-row"><td colspan="7"></td></tr>
+  <td class="spacer-col"></td>
 
-  <!-- ========================= -->
-  <!-- ROW 9 : PRODUCT ROW 3 -->
-  <!-- ========================= -->
-  <tr>
-    <td class="col"><div class="product-slot"></div></td>
-    <td class="spacer-col"></td>
-    <td class="col"><div class="product-slot"></div></td>
-    <td class="spacer-col"></td>
-    <td class="col"><div class="product-slot"></div></td>
-    <td class="spacer-col"></td>
-    <td class="col"><div class="product-slot"></div></td>
-  </tr>
+  <td class="col">
+    <div class="frame-panel">
+      <div class="blackboard-text">
+        <!-- filter text 2 -->
+      </div>
+    </div>
+  </td>
 
-  <!-- SHELF -->
-  <tr>
-    <td colspan="7"><div class="shelf"></div></td>
-  </tr>
+  <td class="spacer-col"></td>
+
+  <td class="col">
+    <div class="frame-panel">
+      <div class="blackboard-text">
+        <!-- filter text 3 -->
+      </div>
+    </div>
+  </td>
+
+  <td class="spacer-col"></td>
+
+  <td class="col">
+    <div class="frame-panel">
+      <div class="blackboard-text">
+        <!-- filter text 4 -->
+      </div>
+    </div>
+  </td>
+
+</tr>
+
+<!-- SPACER -->
+<tr class="spacer-row"><td colspan="7"></td></tr>
+
+<!-- ========================= -->
+<!-- ROW 5 : PRODUCT ROW 1 -->
+<!-- ========================= -->
+<tr>
+  <td class="col"><div class="product-slot"></div></td>
+  <td class="spacer-col"></td>
+  <td class="col"><div class="product-slot"></div></td>
+  <td class="spacer-col"></td>
+  <td class="col"><div class="product-slot"></div></td>
+  <td class="spacer-col"></td>
+  <td class="col"><div class="product-slot"></div></td>
+</tr>
+
+<!-- SHELF -->
+<tr><td colspan="7"><div class="shelf"></div></td></tr>
+
+<!-- SPACER -->
+<tr class="spacer-row"><td colspan="7"></td></tr>
+
+<!-- ========================= -->
+<!-- ROW 7 : PRODUCT ROW 2 -->
+<!-- ========================= -->
+<tr>
+  <td class="col"><div class="product-slot"></div></td>
+  <td class="spacer-col"></td>
+  <td class="col"><div class="product-slot"></div></td>
+  <td class="spacer-col"></td>
+  <td class="col"><div class="product-slot"></div></td>
+  <td class="spacer-col"></td>
+  <td class="col"><div class="product-slot"></div></td>
+</tr>
+
+<!-- SHELF -->
+<tr><td colspan="7"><div class="shelf"></div></td></tr>
+
+<!-- SPACER -->
+<tr class="spacer-row"><td colspan="7"></td></tr>
+
+<!-- ========================= -->
+<!-- ROW 9 : PRODUCT ROW 3 -->
+<!-- ========================= -->
+<tr>
+  <td class="col"><div class="product-slot"></div></td>
+  <td class="spacer-col"></td>
+  <td class="col"><div class="product-slot"></div></td>
+  <td class="spacer-col"></td>
+  <td class="col"><div class="product-slot"></div></td>
+  <td class="spacer-col"></td>
+  <td class="col"><div class="product-slot"></div></td>
+</tr>
+
+<!-- SHELF -->
+<tr><td colspan="7"><div class="shelf"></div></td></tr>
 
 </table>
 
