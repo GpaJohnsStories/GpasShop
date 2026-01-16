@@ -4,165 +4,192 @@
 <meta charset="UTF-8">
 <title>Grandpa John's Shop</title>
 
+ <!-- ========================= -->
+<!-- FONTS                    -->
+<!-- ========================= -->
+ 
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
+
+/* ========================= */
+/* DESKTOP TABLE LAYOUT      */
+/* ========================= */
 
 <style>
   body {
     margin:0;
-    background:#d8c7a3; /* temporary soft brown until floor photo is ready */
+    background:#d8c7a3;
     font-family:Kalam, cursive;
-    color:#f5f5f5;
   }
 
-  .container {
-    max-width:1400px;
-    margin:0 auto;
-    padding:20px;
+  table.shop-wall {
+    margin:20px auto;
+    border-collapse:collapse;
   }
 
-  .wood-frame {
-    border:12px solid #6b4a2b;
+  td {
+    vertical-align:top;
   }
 
-  .blackboard {
-    background-image:url('photos/new-blackboard.png');
-    background-size:cover;
-    background-position:center;
+  .col {
+    width:300px;
+  }
+
+  .spacer-col {
+    width:10px;
+  }
+
+  .spacer-row {
+    height:10px;
+  }
+
+  .frame-img {
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
+  .blackboard-text {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
     padding:40px;
-  }
-
-  .welcome-text {
+    color:#f5f5f5;
     font-size:22px;
     font-weight:bold;
     font-style:italic;
     line-height:1.45;
   }
 
-  .grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-    gap:20px;
-  }
-
-  .product-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-    gap:30px;
-    padding:20px;
+  .relative {
+    position:relative;
   }
 
   .product-slot {
-    background:white;
-    color:black;
+    width:300px;
     height:420px;
-    border-radius:8px;
+    background:white;
     box-shadow:0 0 6px rgba(0,0,0,0.4);
   }
 
+  .shelf {
+    height:60px;
+    background-image:url('/photos/shop-wood-shelf.png');
+    background-size:cover;
+  }
 </style>
 </head>
 
 <body>
 
-<!-- ========================= -->
-<!-- TOP ROW: PHOTO + WELCOME -->
-<!-- ========================= -->
+<table class="shop-wall">
 
-<div class="container" style="display:flex; flex-wrap:wrap; gap:20px;">
+  <!-- ========================= -->
+  <!-- ROW 1 : PHOTO + WELCOME -->
+  <!-- ========================= -->
+  <tr>
+    <td class="col" colspan="3">
+      <img src="/photos/gpas-shop-web.png" class="frame-img" alt="Grandpa John's Shop">
+    </td>
 
-  <!-- SHOP PHOTO -->
-  <div class="wood-frame" style="
-    flex:1 1 600px;
-    background-image:url('photos/gpas-shop-web.png');
-    background-size:cover;
-    background-position:center;
-    height:500px;
-  "></div>
+    <td class="spacer-col"></td>
 
-  <!-- WELCOME BLACKBOARD -->
-  <div class="wood-frame blackboard" style="flex:1 1 600px;">
-    <div class="welcome-text">
-      Hi Friend —<br><br>
-      Glad to see you. I'm sorry but my memory isn't what it used to be and I don't remember your name.
-      But that's okay, I'm Grandpa John and I appreciate you visiting my shop.<br><br>
-      Everything here is stuff I'd tell you about if we were neighbors just chatting over the fence.<br><br>
-      <div style="text-align:center;">Grandpa John</div>
-    </div>
-  </div>
+    <td class="col" colspan="3">
+      <div class="relative">
+        <img src="/photos/shop-blackboard.png" class="frame-img" alt="Welcome Blackboard">
+        <div class="blackboard-text">
+          Hi Friend —<br><br>
+          Glad to see you. I'm sorry but my memory isn't what it used to be and I don't remember your name.
+          But that's okay, I'm Grandpa John and I appreciate you visiting my shop.<br><br>
+          Everything here is stuff I'd tell you about if we were neighbors just chatting over the fence.<br><br>
+          <div style="text-align:center;">Grandpa John</div>
+        </div>
+      </div>
+    </td>
+  </tr>
 
-</div>
+  <!-- SPACER -->
+  <tr class="spacer-row"><td colspan="7"></td></tr>
 
-<!-- ========================= -->
-<!-- SEARCH / FILTER ROW -->
-<!-- ========================= -->
+  <!-- ========================= -->
+  <!-- ROW 3 : FILTER BLACKBOARDS -->
+  <!-- ========================= -->
+  <tr>
+    <td class="col"><img src="/photos/shop-blackboard.png" class="frame-img"></td>
+    <td class="spacer-col"></td>
+    <td class="col"><img src="/photos/shop-blackboard.png" class="frame-img"></td>
+    <td class="spacer-col"></td>
+    <td class="col"><img src="/photos/shop-blackboard.png" class="frame-img"></td>
+    <td class="spacer-col"></td>
+    <td class="col"><img src="/photos/shop-blackboard.png" class="frame-img"></td>
+  </tr>
 
-<div class="container grid">
+  <!-- SPACER -->
+  <tr class="spacer-row"><td colspan="7"></td></tr>
 
-  <div class="wood-frame blackboard">
-    <div style="font-size:22px; font-weight:bold; font-style:italic;">
-      What are you in the mood for?
-    </div>
-  </div>
+  <!-- ========================= -->
+  <!-- ROW 5 : PRODUCT ROW 1 -->
+  <!-- ========================= -->
+  <tr>
+    <td class="col"><div class="product-slot"></div></td>
+    <td class="spacer-col"></td>
+    <td class="col"><div class="product-slot"></div></td>
+    <td class="spacer-col"></td>
+    <td class="col"><div class="product-slot"></div></td>
+    <td class="spacer-col"></td>
+    <td class="col"><div class="product-slot"></div></td>
+  </tr>
 
-  <div class="wood-frame blackboard"></div>
-  <div class="wood-frame blackboard"></div>
-  <div class="wood-frame blackboard"></div>
+  <!-- SHELF -->
+  <tr>
+    <td colspan="7"><div class="shelf"></div></td>
+  </tr>
 
-</div>
+  <!-- SPACER -->
+  <tr class="spacer-row"><td colspan="7"></td></tr>
 
-<!-- ========================= -->
-<!-- PRODUCT WALL -->
-<!-- ========================= -->
+  <!-- ========================= -->
+  <!-- ROW 7 : PRODUCT ROW 2 -->
+  <!-- ========================= -->
+  <tr>
+    <td class="col"><div class="product-slot"></div></td>
+    <td class="spacer-col"></td>
+    <td class="col"><div class="product-slot"></div></td>
+    <td class="spacer-col"></td>
+    <td class="col"><div class="product-slot"></div></td>
+    <td class="spacer-col"></td>
+    <td class="col"><div class="product-slot"></div></td>
+  </tr>
 
-<div class="container wood-frame" style="
-  background-image:url('photos/shop-wood-wall.png');
-  background-size:cover;
-  background-position:center;
-  margin-top:40px;
-">
+  <!-- SHELF -->
+  <tr>
+    <td colspan="7"><div class="shelf"></div></td>
+  </tr>
 
-  <!-- PRODUCT GRID -->
-  <div class="product-grid">
+  <!-- SPACER -->
+  <tr class="spacer-row"><td colspan="7"></td></tr>
 
-    <!-- 12 EMPTY PRODUCT SLOTS -->
-    <div class="product-slot"></div>
-    <div class="product-slot"></div>
-    <div class="product-slot"></div>
-    <div class="product-slot"></div>
-    <div class="product-slot"></div>
-    <div class="product-slot"></div>
-    <div class="product-slot"></div>
-    <div class="product-slot"></div>
-    <div class="product-slot"></div>
-    <div class="product-slot"></div>
-    <div class="product-slot"></div>
-    <div class="product-slot"></div>
+  <!-- ========================= -->
+  <!-- ROW 9 : PRODUCT ROW 3 -->
+  <!-- ========================= -->
+  <tr>
+    <td class="col"><div class="product-slot"></div></td>
+    <td class="spacer-col"></td>
+    <td class="col"><div class="product-slot"></div></td>
+    <td class="spacer-col"></td>
+    <td class="col"><div class="product-slot"></div></td>
+    <td class="spacer-col"></td>
+    <td class="col"><div class="product-slot"></div></td>
+  </tr>
 
-  </div>
+  <!-- SHELF -->
+  <tr>
+    <td colspan="7"><div class="shelf"></div></td>
+  </tr>
 
-  <!-- WOOD SHELF UNDER GRID -->
-  <div style="
-    background-image:url('photos/shop-wood-shelf.png');
-    background-size:cover;
-    height:60px;
-    margin-top:20px;
-  "></div>
-
-</div>
-
-<!-- ========================= -->
-<!-- AUDIO -->
-<!-- ========================= -->
-
-<audio id="shopBell" src="audio/shop-bell-ring.mp3" preload="auto"></audio>
-
-<script>
-function ringBell() {
-  let bell = document.getElementById("shopBell");
-  bell.currentTime = 0;
-  bell.play();
-}
-</script>
+</table>
 
 </body>
 </html>
