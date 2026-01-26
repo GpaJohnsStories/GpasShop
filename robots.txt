@@ -1,0 +1,7 @@
+# robots.txt for gpasshop.com
+# Allow all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Point to your sitemap (update if you change sitemap location)
+Sitemap: https://gpasshop.com/sitemap.xml
