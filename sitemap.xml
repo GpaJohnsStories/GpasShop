@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Simple sitemap for gpasshop.com with 1 public page.
+  Add new <url> sections here when you add more public pages.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://gpasshop.com/</loc>
+    <priority>1.0</priority>
+  </url>
+</urlset>
