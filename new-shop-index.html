@@ -1,1 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grandpa John's Shop — Shelf View (Blueprint Layout)</title>
+  <!--
+    STEP 1: BASIC LAYOUT SKELETON
+    - This initial version uses HTML tables to build the two-column shop layout.
+    - All major areas are marked with big, clear comments so you can tweak easily.
+    - No JS and almost no CSS yet.
+    - We use plain table borders and SIMPLE structure for positioning/visual guides.
+    - We'll add real content, smart logic, and pretty visuals in later steps.
+  -->
+</head>
+<body>
 
+<!-- =============================================== -->
+<!-- MAIN CONTENT WRAPPER                           -->
+<!-- We use a container to help line things up.     -->
+<!-- =============================================== -->
+<div style="width:1280px; margin: 24px auto; display: flex; align-items: flex-start; gap: 5px;">
+
+  <!-- =================================================== -->
+  <!-- LEFT TABLE: MAIN SHOP WALL with product grid, etc.  -->
+  <!-- Approx 970px wide (per design)                      -->
+  <!-- =================================================== -->
+  <table border="1" cellpadding="0" cellspacing="0" style="width: 970px; border-collapse: collapse;">
+    <!-- ========= Shop Top Row: 3 Big Boxes ========== -->
+    <tr height="305">
+      <td colspan="3"><!-- Left Special (rows 1–3 and 5–7) --></td>
+      <td colspan="3"><!-- Shop Photo --></td>
+      <td colspan="3"><!-- Welcome Blackboard --></td>
+      <td colspan="2"><!-- (Unused in rows 1–2) --></td>
+    </tr>
+    <!-- ========== Shelf Spacer ========== -->
+    <tr height="10">
+      <td colspan="11" style="background: #deb887;"> <!-- Wooden Shelf --></td>
+    </tr>
+    <!-- ========= Search/Filter Row ========== -->
+    <tr height="305">
+      <td colspan="3"><!-- Left Special (again) --></td>
+      <td colspan="3"><!-- Search Blackboard --></td>
+      <td colspan="3"><!-- Filter/Sort Blackboard --></td>
+      <td colspan="2"><!-- (Unused in this row) --></td>
+    </tr>
+    <!-- ========== Shelf Spacer ========== -->
+    <tr height="10">
+      <td colspan="11" style="background: #deb887;"> <!-- Wooden Shelf --></td>
+    </tr>
+    <!-- ========== Product Shelf #1 Grid ========== -->
+    <tr height="150">
+      <td><!-- P1 --></td>
+      <td></td>
+      <td><!-- P2 --></td>
+      <td></td>
+      <td><!-- P3 --></td>
+      <td></td>
+      <td><!-- P4 --></td>
+      <td></td>
+      <td><!-- P5 --></td>
+      <td></td>
+      <td><!-- P6 --></td>
+    </tr>
+    <!-- ========== Shelf Spacer ========== -->
+    <tr height="10">
+      <td colspan="11" style="background: #deb887;"> <!-- Wooden Shelf --></td>
+    </tr>
+    <!-- ========== Product Shelf #2 Grid ========== -->
+    <tr height="150">
+      <td><!-- P7 --></td>
+      <td></td>
+      <td><!-- P8 --></td>
+      <td></td>
+      <td><!-- P9 --></td>
+      <td></td>
+      <td><!-- P10 --></td>
+      <td></td>
+      <td><!-- P11 --></td>
+      <td></td>
+      <td><!-- P12 --></td>
+    </tr>
+    <!-- ========== Shelf Spacer ========== -->
+    <tr height="10">
+      <td colspan="11" style="background: #deb887;"> <!-- Wooden Shelf --></td>
+    </tr>
+    <!-- ======== ADD MORE PRODUCT ROWS AS NEEDED ======== -->
+  </table>
+
+  <!-- =================================================== -->
+  <!-- RIGHT TABLE: DISPLAY WINDOW (STICKY SIDEBAR)        -->
+  <!-- Shows full product card on thumbnail click          -->
+  <!-- Approx 305px wide                                  -->
+  <!-- =================================================== -->
+  <table border="1" cellpadding="0" cellspacing="0" style="width: 305px; margin-left: 0; margin-right: 10px; border-collapse: collapse; position: sticky; top: 0;">
+    <tr>
+      <td style="height:700px; vertical-align: top;">
+        <!-- Full Product Card Shows Here -->
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+<!-- =============================================== -->
+<!-- FOOTER (SPANS BOTH MAIN + SIDEBAR)             -->
+<!-- =============================================== -->
+<div style="width:1280px; margin: 40px auto 0 auto; text-align: center; border-top: 2px solid #bbb; padding-top: 16px; font-size: 1.1em;">
+  <!-- Links to your family of sites -->
+  <a href="https://gpaskids.com" target="_blank">gpaskids.com</a> |
+  <a href="https://gpasfaith.com" target="_blank">gpasfaith.com</a> |
+  <a href="https://gpasshop.com" target="_blank">gpasshop.com</a>
+</div>
+
+</body>
+</html>
