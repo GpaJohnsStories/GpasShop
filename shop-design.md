@@ -1,4 +1,4 @@
-LAST UPDATE: 2026-01-27 @ 3:42 PM  
+LAST UPDATE: 2026-01-27 @ 7:24 PM  
 
 Index Page Overview
 
@@ -6,8 +6,16 @@ The GPAS Shop index page serves as a visual storefront, presenting the entire ca
 
 The design eliminates nested scrolling, keeps navigation simple, and uses framed boxes, wooden shelves, and blackboard elements to maintain the shop’s friendly, handcrafted personality. Visitors can browse quickly through thumbnails, use search and filter tools to narrow results, and view complete product cards without leaving the page. The layout is desktop‑first, with tablet and phone versions planned around the same 305px visual units for consistency across all devices.
 
-All design photos are in github -- gpas-shop repo /photos/
-New shop index.html is built and named new-shop-index.html 
+*** STYLE NOTES ***
+    All design photos are in github -- gpas-shop repo /photos/
+    Row 1-3 (rowspan & colspan) will use photo that include their wood frames...
+        Shop Photo = gpas-shop-web.png 
+        Blackboards = shop-blackboard.png
+    Page background is linen-background.jpg
+    Wood shelf is wood-board.gif
+    the spacer cells are to be transparent so that the page background shows through.
+    .
+    New shop index.html is built and named new-shop-index.html 
 
 
 🧱 GPAS Shop Index Page — Final Blueprint (Two‑Table Layout, 6‑Wide Grid)
@@ -35,57 +43,57 @@ Total page width ≈ 1280px
 
 📐 MAIN TABLE — COLUMN DEFINITIONS
 
-The main table has 11 interior columns plus 2 borders.
-Borders
-    Left outside border: 10px
-    Right outside border: 5px
+The main table has 11 interior columns.
+Horizontal buffers are outside the table:
+    Left outside buffer: 10px (margin or padding before the table)
+    Right outside buffer: 5px (gap before the Display Window table)
 
-Interior Columns
+Interior columns:
     Odd columns (1, 3, 5, 7, 9, 11): 150px content
     Even columns (2, 4, 6, 8, 10): 5px spacers
 
 This gives you 6 content columns separated by 5 thin spacers.
-Width Calculation
-    6 × 150 = 900px
-    5 × 5 = 25px
-    Borders = 20px
 
-Total main table width = 945px  
-(You can bump spacers to 10px if you want ~970px.)
-📏 ROW DEFINITIONS
-Rows 1 & 2 — 305px tall
+Width calculation (table only):
+    6 columns × 150 = 900px
+    5 columns × 5 = 25px
 
-Contain three 305×305px framed boxes:
-    Columns 1–3 → Left Special Feature
-    (150 + 5 + 150 = 305)
-    Columns 4–6 → Shop Photo
-    (150 + 5 + 150 = 305)
-    Columns 7–9 → Welcome Blackboard
-    (150 + 5 + 150 = 305)
+Total main table width = 925px  
+(Plus 10px left outside buffer and 5px right outside buffer before the Display Window table.)
+Total page width ≈ 1240px (925 main + 5 gap + 305 display + 5 right margin)
 
-Columns 10–11 remain unused in rows 1–2.
-Row 3 — 10px
 
-Full‑width wooden shelf
-Spans columns 1–11
-🔍 Rows 4 & 5 — 305px tall
+📏 ROW DEFINITIONS (TOP FEATURE + SEARCH/FILTER AREAS)
+        Only in rows 1–3 and 5–7, the main table contains three 305×305px framed boxes 
+            created with rowspan="3" cells that start in rows 1 and 5:
+    Rows 1–3 colspan (Top Feature Area)
+        Columns 1–3 (colspan) → Left Special Feature
+            150 + 5 + 150 = 305px wide and 150 + 5 + 150 = 305px tall
+        Column 4 → 5px spacer (normal column)
+        Columns 5–7 (colspan) → Shop Photo
+            150 + 5 + 150 = 305px wide and 150 + 5 + 150 = 305px tall
+        Column 8 → 5px spacer (normal column)
+        Columns 9–11 (colspan) → Welcome Blackboard
+            150 + 5 + 150 = 305px wide and 150 + 5 + 150 = 305px tall
+.
+    Rows 5–7 (Search / Filter Area) -- same colspan and rowspan as rows 1-3
+        Columns 1–3 (colspan) → Left Special (continues)
+        Column 4 → 5px spacer
+    Column 8 → 5px spacer
+    Columns 9–11 (colspan) → Filter
 
-Search / Filter area:
-    Columns 1–3 → Left Special Feature (same as rows 1–2)
-    Columns 4–6 → Search Blackboard
-    Columns 7–9 → Filter / Sort Blackboard
+Row heights:
+    Even rows (2, 4, 6, 8, …) are 5px tall shelf rows.
+    Rows 2 and 6 are covered by the rowspan="3" cells that start in rows 1 and 5, 
+        so they do not contain separate shelf cells.
+    Starting at row 8, all even rows (8 & 10) use a full‑width wooden shelf image 
+        spanning columns 1–11.
 
-Columns 10–11 unused.
-🪵 Row 6 — 10px
-
-Full‑width wooden shelf
-Spans columns 1–11
-🧩 PRODUCT GRID (Rows 7–8, 10–11, etc.)
-
+🧩 PRODUCT GRID (Rows 9 nd 11)
 Each product row contains 6 product thumbnails, each 150×150px.
 Pattern per row:
-    Column 1: Product P1
-    Column 2: Spacer
+    Column 1: Product P1 = 150px
+    Column 2: Spacer = 5px
     Column 3: Product P2
     Column 4: Spacer
     Column 5: Product P3
@@ -96,19 +104,9 @@ Pattern per row:
     Column 10: Spacer
     Column 11: Product P6
 
-Rows 7 & 8 — 150px tall
+Rows 7 & 8 — each 150px tall
 
 Product thumbnails P1–P6
-Row 9 — 10px
-Wooden shelf
-
-Rows 10 & 11 — 150px tall
-Product thumbnails P7–P12
-
-Row 12 — 10px
-Wooden shelf
-
-Repeat until all products are shown.
 
 
 🧭 DISPLAY WINDOW TABLE (RIGHT SIDE)
