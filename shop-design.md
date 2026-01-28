@@ -1,4 +1,4 @@
-LAST UPDATE: 2026-01-27 @ 7:24 PM  
+LAST UPDATE: 2026-01-28 @ 4:22 PM  
 
 Index Page Overview
 
@@ -8,125 +8,205 @@ The design eliminates nested scrolling, keeps navigation simple, and uses framed
 
 *** STYLE NOTES ***
     All design photos are in github -- gpas-shop repo /photos/
-    Row 1-3 (rowspan & colspan) will use photo that include their wood frames...
-        Shop Photo = gpas-shop-web.png 
-        Blackboards = shop-blackboard.png
-    Page background is linen-background.jpg
-    Wood shelf is wood-board.gif
-    the spacer cells are to be transparent so that the page background shows through.
-    .
     New shop index.html is built and named new-shop-index.html 
 
+🧱 GPAS Shop Index Page — Final Blueprint (3‑Table Layout
 
-🧱 GPAS Shop Index Page — Final Blueprint (Two‑Table Layout, 6‑Wide Grid)
-PAGE STRUCTURE
+🧱 TABLE 1 — WELCOME TABLE (Top‑Left)
+    Width: 908px (300 + 4 + 300 + 4 + 300)
+    Height: 300px
+    Left outside buffer: 10px
+    Right outside buffer: 8px
+        Below Table 1: 8px vertical buffer before Table 2 begins
 
-The page contains two side‑by‑side tables:
-1. Main Table (left)
-    Width ≈ 970px
-    Contains:
-        Left Special (rows 1–3 and rows 5-7)
+Row 1 (300px tall)
+    Col 1 — 300px
+        Special Product 1
+        Background image: wood-background.png (blackboard frame)
+        Image can scale to fit the 300×300 cell
+    Col 2 — 4px
+        Divider
+        Transparent (shows linen-background.jpg through it)
+    Col 3 — 300px
         Shop Photo
-        Welcome Blackboard
-        Search / Filter
-        Shelves
-        Product thumbnails (6 per row)
+        Background image: gpas-shop-web.png
+        Scales to fit the 300×300 cell
+    Col 4 — 4px
+        Divider
+        Transparent
+    Col 5 — 300px
+        Welcome text -- kalam 24px, ???, bold ???, chaulk white on blackboard
+        Background image: wood-background.png
+        Text sits on top of the blackboard image
 
-2. Display Window Table (right)
-    Width = 305px
-    Left margin = 0px
-    Contains one large framed cell for the full product card
-    Behaves like a sticky sidebar
-Total page width ≈ 1280px  
-(970 main + 5 gap + 305 display)
+Row 2 — 4px tall (rowspan background row)
+        This row is a spacer row that visually separates the top blackboards from the second row of blackboards.
+        Height: 4px
+        All 5 columns exist, but:
+            No borders
+            No images
+            No lines
+            Transparent background
+                Purpose: allow the linen page background to show through as a clean gap
+            No content, no padding
+            This row is intentionally “empty” so the page background creates a natural breathing space.
 
+Row 3 — 150px tall (second blackboard row)
+Same 5‑column structure as Row 1, but every cell is a blackboard.
+    Col 1 (300px): Blackboard (wood frame)
+    Col 2 (4px): Divider (transparent)
+    Col 3 (300px): Blackboard (wood frame)
+    Col 4 (4px): Divider (transparent)
+    Col 5 (300px): Blackboard (wood frame)
+    Notes:
+        These blackboards can hold:
+            Search instructions
+            Filter instructions
+            Category explanations
+            “How to use the shop” notes
+            Background image: wood-background.png
+            Text overlays as needed
 
-📐 MAIN TABLE — COLUMN DEFINITIONS
+END OF TABLE 1
 
-The main table has 11 interior columns.
-Horizontal buffers are outside the table:
-    Left outside buffer: 10px (margin or padding before the table)
-    Right outside buffer: 5px (gap before the Display Window table)
+🎨 About Image Sizes
+        You don’t need the images to be pre‑sized.
+        You can safely let CSS do the work:
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        This ensures:
+            The blackboards always fill the 300×300 cell
+            The shop photo always fills its 300×300 cell
+            No stretching or distortion
+            No white gaps
+            If you later decide to resize the cells (e.g., 320px or 280px), the images will adapt automatically.
 
-Interior columns:
-    Odd columns (1, 3, 5, 7, 9, 11): 150px content
-    Even columns (2, 4, 6, 8, 10): 5px spacers
+🧵 Page Background
+        linen-background.jpg is the page background
+        Divider cells (4px) are transparent so the linen shows through
+        You can swap the background later without touching the tables
 
-This gives you 6 content columns separated by 5 thin spacers.
+🧱 Vertical Buffer Below Table 1
+        You now have:
+        Table 1
+            8px vertical buffer
+        Table 2 (Display Window) begins below that
+            This is clean and easy for GCP to implement:
+            Code
+                <div style="height:8px;"></div>
+                or a CSS class -- Gpa John prefers NO CSS CLASS.
 
-Width calculation (table only):
-    6 columns × 150 = 900px
-    5 columns × 5 = 25px
+Image Handling (Updated)
+    Since you’re not sure the images are pre‑sized, the safest CSS for all blackboard and photo cells is:
+        Code
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        This ensures:
+            No stretching
+            No white gaps
+            Frames always fill the cell
+            You can resize cells later without breaking anything
 
-Total main table width = 925px  
-(Plus 10px left outside buffer and 5px right outside buffer before the Display Window table.)
-Total page width ≈ 1240px (925 main + 5 gap + 305 display + 5 right margin)
-
-
-📏 ROW DEFINITIONS (TOP FEATURE + SEARCH/FILTER AREAS)
-        Only in rows 1–3 and 5–7, the main table contains three 305×305px framed boxes 
-            created with rowspan="3" cells that start in rows 1 and 5:
-    Rows 1–3 colspan (Top Feature Area)
-        Columns 1–3 (colspan) → Left Special Feature
-            150 + 5 + 150 = 305px wide and 150 + 5 + 150 = 305px tall
-        Column 4 → 5px spacer (normal column)
-        Columns 5–7 (colspan) → Shop Photo
-            150 + 5 + 150 = 305px wide and 150 + 5 + 150 = 305px tall
-        Column 8 → 5px spacer (normal column)
-        Columns 9–11 (colspan) → Welcome Blackboard
-            150 + 5 + 150 = 305px wide and 150 + 5 + 150 = 305px tall
+🧭 TABLE 2 -- DISPLAY WINDOW (RIGHT SIDE, top)
+    A completely separate table:
+        Width = 320px
+        Left outside margin = 0px
+        Right outside margin = 10px
+        Contains one large cell with a wood frame -- photo
+        Height = auto (fills page)
+        Displays the full product card when a thumbnail is clicked
 .
-    Rows 5–7 (Search / Filter Area) -- same colspan and rowspan as rows 1-3
-        Columns 1–3 (colspan) → Left Special (continues)
-        Column 4 → 5px spacer
-    Column 8 → 5px spacer
-    Columns 9–11 (colspan) → Filter
+    This table does not scroll with the main table.
 
-Row heights:
-    Even rows (2, 4, 6, 8, …) are 5px tall shelf rows.
-    Rows 2 and 6 are covered by the rowspan="3" cells that start in rows 1 and 5, 
-        so they do not contain separate shelf cells.
-    Starting at row 8, all even rows (8 & 10) use a full‑width wooden shelf image 
-        spanning columns 1–11.
+🧱 TABLE 3 — PRODUCT THUMBNAIL / Catalog GRID (Below Table 1)
+Purpose: Display 6 thumbnails across, with wood shelf separators
+Position: Immediately below Table 1, after the 8px vertical buffer
 
-🧩 PRODUCT GRID (Rows 9 nd 11)
-Each product row contains 6 product thumbnails, each 150×150px.
-Pattern per row:
-    Column 1: Product P1 = 150px
-    Column 2: Spacer = 5px
-    Column 3: Product P2
-    Column 4: Spacer
-    Column 5: Product P3
-    Column 6: Spacer
-    Column 7: Product P4
-    Column 8: Spacer
-    Column 9: Product P5
-    Column 10: Spacer
-    Column 11: Product P6
+Total columns: 11 (6 thumbnails + 5 dividers)
+    Thumbnail cell width: 150px
+    Divider cell width: 4px
+    Total width:
+        6 × 150 = 900
+        5 × 4 = 20
+        Total = 920px
+            This matches your new Table 1 width logic.
 
-Rows 7 & 8 — each 150px tall
+📐 ROW STRUCTURE
+    Row 1 — 150px tall (Thumbnails Row A)
+    11 columns total
+    Pattern:
+        Col 1: 150px — Thumbnail 1
+        Col 2: 4px — Divider (transparent)
+        Col 3: 150px — Thumbnail 2
+        Col 4: 4px — Divider
+        Col 5: 150px — Thumbnail 3
+        Col 6: 4px — Divider
+        Col 7: 150px — Thumbnail 4
+        Col 8: 4px — Divider
+        Col 9: 150px — Thumbnail 5
+        Col 10: 4px — Divider
+        Col 11: 150px — Thumbnail 6
 
-Product thumbnails P1–P6
+Thumbnail cell behavior
+    Background: product thumbnail image
+    Image scaling:
+        Code
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            No padding
+            No borders
 
+Divider cells
+    4px wide
+    Transparent
+    Show linen page background through them
+    
+Row 2 — 4px tall (Shelf Row A)
+    Same 11‑column structure
+        Rowspan NOT needed — this row is the shelf
+        Background image: shelf-wood.png (or whatever your shelf plank file is)
+        Background behavior:
+        Code
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            No borders
+            No padding
+            No content
+.
+        This creates the visual “wood shelf” under the first row of thumbnails.
 
-🧭 DISPLAY WINDOW TABLE (RIGHT SIDE)
+Row 3 — 150px tall (Thumbnails Row B)
+    Identical to Row 1:
+    6 thumbnails
+    5 transparent 4px dividers
+    Same scaling rules
+    Same column widths
+    This is your second row of product thumbnails.
+    
+Row 4 — 4px tall (Shelf Row B)
+        Identical to Row 2:
+        Full‑width wood shelf
+        4px tall
+        Background image fills the row
+        No borders, no padding
+        This shelf visually closes out Table 2 and prepares the eye for Table 3 or whatever comes next.
 
-A completely separate table:
-    Width = 305px
-    Left outside margin = 0px
-    Right outside margin = 10px
-    Contains one large cell with a wood frame
-    Height = auto (fills page)
-    Displays the full product card when a thumbnail is clicked
+🎨 Page Background
+    linen-background.jpg sits behind everything
+    Divider cells (4px) are transparent so the linen shows through
+    Shelf rows override the linen with the wood plank image 
 
-This table does not scroll with the main table.
 📄 FOOTER
-
-A shared footer appears below both tables, containing links to:
-    gpaskids.com
-    gpasfaith.com
-    gpasshop.com
-
+    A shared/common footer to be built will be at page bottom, full screen width, containing links to:
+        gpaskids.com
+        gpasfaith.com
+        gpasshop.com
+        and other info -- cookies,  copyright, built by, etc.
+    
 About the /prod/???-???.html Product Card Files
 
 Each product in the shop is stored as a standalone HTML file inside the GitHub repository folder:
