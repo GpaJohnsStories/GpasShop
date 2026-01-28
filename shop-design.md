@@ -1,4 +1,4 @@
-LAST UPDATE: 2026-01-28 @ 4:22 PM  
+LAST UPDATE: 2026-01-28 @ 4:32 PM
 
 Index Page Overview
 
@@ -17,7 +17,7 @@ The design eliminates nested scrolling, keeps navigation simple, and uses framed
     Height: 300px
     Left outside buffer: 10px
     Right outside buffer: 8px
-        Below Table 1: 8px vertical buffer before Table 2 begins
+        Below Table 1: 8px vertical buffer before Table 3 begins
 
 Row 1 (300px tall)
     Col 1 — 300px
@@ -91,7 +91,7 @@ END OF TABLE 1
         You now have:
         Table 1
             8px vertical buffer
-        Table 2 (Display Window) begins below that
+        Table 3 (Display Window) begins below that
             This is clean and easy for GCP to implement:
             Code
                 <div style="height:8px;"></div>
@@ -109,16 +109,55 @@ Image Handling (Updated)
             Frames always fill the cell
             You can resize cells later without breaking anything
 
-🧭 TABLE 2 -- DISPLAY WINDOW (RIGHT SIDE, top)
-    A completely separate table:
+🧱 TABLE 2 — DISPLAY WINDOW (Right‑Side Sticky Sidebar)
+    Purpose
+        A fixed, non‑scrolling sidebar that always shows the full product card when a thumbnail is clicked.
+    Position
+        Sits on the right side of the page
+        Begins at the top of the viewport, aligned with Table 1
+        Does not scroll with the main content
+        Independent from Tables 1 and 3
+        Outside Margins
+            Left margin: 0px (flush against the main content area)
+            Right margin: 10px (breathing room from browser edge)
+        Width: 320px
+            Matches your 300px product card width
+            Allows 10px padding on each side
+            Visually balanced with the ~910px main area
+        Height: auto
+            Should extend the full height of the viewport
+            Should remain visible as the user scrolls the main table
+            Scrolling Behavior: Sticky / fixed
+            Does not scroll with the main table
+            The product card inside may scroll internally if needed, but the table itself stays put
+
+📐 TABLE STRUCTURE
+    Rows
+        1 row only
+        Height = auto (fills the sidebar)
+    Columns
+        1 column only
         Width = 320px
-        Left outside margin = 0px
-        Right outside margin = 10px
-        Contains one large cell with a wood frame -- photo
-        Height = auto (fills page)
-        Displays the full product card when a thumbnail is clicked
-.
-    This table does not scroll with the main table.
+    Cell Content
+        A single large cell containing:
+            A wood‑frame background image (wood-background.png)
+            The full product card injected via JavaScript when a thumbnail is clicked
+        Optional internal padding (10px recommended)
+    Cell Behavior
+        Background image fills the cell:
+        Code
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            No borders
+            No internal table dividers
+            No padding unless you choose to add it later
+
+🎨 Visual Notes
+    The wood frame gives the display window a “mounted on the wall” feel
+    The 320px width keeps the card readable without crowding
+    The 10px right margin prevents the sidebar from feeling glued to the browser edge
+    The fixed position ensures the display window is always visible while browsing thumbnails
 
 🧱 TABLE 3 — PRODUCT THUMBNAIL / Catalog GRID (Below Table 1)
 Purpose: Display 6 thumbnails across, with wood shelf separators
