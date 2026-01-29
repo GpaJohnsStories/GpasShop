@@ -209,5 +209,100 @@ const prodPath  = "prod";
 
 </script>
 
+<style>
+/* ===== TABLE 2 : DISPLAY WINDOW ===== */
+
+table.display-window {
+  width:360px;
+  margin-left:10px;
+  border-collapse:collapse;
+  position:sticky;
+  top:10px;
+}
+
+/* single cell container */
+table.display-window td {
+  padding:0;
+  vertical-align:top;
+}
+
+/* paper surface */
+.display-paper {
+  background:#f7f5ef;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  padding:16px;
+  max-height:90vh;
+  overflow-y:auto;
+  box-sizing:border-box;
+}
+
+/* photo area */
+.display-photo {
+  width:100%;
+  height:340px;
+  margin-bottom:14px;
+}
+
+.display-photo img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+/* headline */
+.display-headline {
+  font-family:serif;
+  font-size:26px;
+  line-height:1.2;
+  margin-bottom:6px;
+}
+
+/* subhead */
+.display-subhead {
+  font-family:serif;
+  font-size:16px;
+  color:#555;
+  margin-bottom:12px;
+}
+
+/* body text */
+.display-body {
+  font-family:serif;
+  font-size:18px;
+  line-height:1.45;
+}
+</style>
+
+<table class="display-window">
+  <tr>
+    <td>
+      <div class="display-paper">
+
+        <div class="display-photo">
+          <img src="photos/sample-product.png" alt="">
+        </div>
+
+        <div class="display-headline">
+          Product Title Goes Here
+        </div>
+
+        <div class="display-subhead">
+          A neighborly favorite
+        </div>
+
+        <div class="display-body">
+          This is where the longer, folksy description lives.
+          It can run as long as it needs to. The paper scrolls
+          independently while the table stays put.
+        </div>
+
+      </div>
+    </td>
+  </tr>
+</table>
+
+
+      
 </body>
 </html>
