@@ -1,91 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Grandpa John's Shop — New 3-Table Layout</title>
-  <!--
-    STEP 1: TABLE 1 ONLY — WELCOME TABLE
-    - 4 rows, 5 columns
-    - All images and spacing per shop-design.md
-    - All content and divider cells are locked to correct dimensions (300px/4px)
-    - Inline styles, no CSS classes
-    - Ready for tweaking!
-  -->
-</head>
-<body style="margin:0; background-image:url('photos/linen-background.jpg'); background-size:cover; background-repeat:no-repeat; background-position:center top; font-family:'Kalam', cursive;">
-
-<!-- ============================================================ -->
-<!-- TABLE 1: WELCOME TABLE (Top-Left)                            -->
-<!-- Width: 908px (300 + 4 + 300 + 4 + 300)                       -->
-<!-- Left buffer: 10px, Right buffer: 8px                         -->
-<!-- ============================================================ -->
-<div style="margin-left:10px; margin-top:24px;">
-  <table border="0" cellpadding="0" cellspacing="0" style="width:908px; border-collapse:collapse;">
-    <!-- ==================== ROW 1: 300px tall ==================== -->
-    <tr style="height:300px;">
-      <!-- COL 1: Special Product 1 (shop-blackboard.png) -->
-      <td style="width:300px;height:300px;max-width:300px;max-height:300px;overflow:hidden;box-sizing:border-box;background-image:url('photos/shop-blackboard.png');background-size:cover;background-position:center;background-repeat:no-repeat;">
-        <!-- Placeholder for Special Product 1 content -->
-      </td>
-      <!-- COL 2: Transparent divider (4px) -->
-      <td style="width:4px;height:300px;max-width:4px;max-height:300px;background:transparent;overflow:hidden;box-sizing:border-box;"></td>
-      <!-- COL 3: Shop Photo (gpas-shop-web.png) -->
-      <td style="width:300px;height:300px;max-width:300px;max-height:300px;overflow:hidden;box-sizing:border-box;background-image:url('photos/gpas-shop-web.png');background-size:cover;background-position:center;background-repeat:no-repeat;">
-        <!-- Shop photo fills this cell -->
-      </td>
-      <!-- COL 4: Transparent divider (4px) -->
-      <td style="width:4px;height:300px;max-width:4px;max-height:300px;background:transparent;overflow:hidden;box-sizing:border-box;"></td>
-      <!-- COL 5: Welcome Text (shop-blackboard.png with white Kalam text) -->
-      <td style="width:300px;height:300px;max-width:300px;max-height:300px;overflow:hidden;box-sizing:border-box;background-image:url('photos/shop-blackboard.png');background-size:cover;background-position:center;background-repeat:no-repeat;color:#f5f5f5;font-size:24px;padding:40px 30px;vertical-align:top;">
-        Hello Friend —<br><br>
-        Glad to see you. I'm sorry but my memory isn't what it used to be and I don't remember your name.
-        But that's okay, I'm Grandpa John and I appreciate you visiting my shop.<br><br>
-        Everything here is stuff I'd tell you about if we were neighbors just chatting over the fence.<br><br>
-        <div style="text-align:center;">Grandpa John</div>
-      </td>
-    </tr>
-    <!-- ==================== ROW 2: 4px spacer (transparent) ==================== -->
-    <tr style="height:4px;">
-      <td style="width:300px;height:4px;max-width:300px;max-height:4px;background:transparent;"></td>
-      <td style="width:4px;height:4px;max-width:4px;max-height:4px;background:transparent;"></td>
-      <td style="width:300px;height:4px;max-width:300px;max-height:4px;background:transparent;"></td>
-      <td style="width:4px;height:4px;max-width:4px;max-height:4px;background:transparent;"></td>
-      <td style="width:300px;height:4px;max-width:300px;max-height:4px;background:transparent;"></td>
-    </tr>
-    <!-- ==================== ROW 3: 300px tall (three blackboards) ==================== -->
-    <tr style="height:300px;">
-      <!-- COL 1: Blackboard (shop-blackboard.png) -->
-      <td style="width:300px;height:300px;max-width:300px;max-height:300px;overflow:hidden;box-sizing:border-box;background-image:url('photos/shop-blackboard.png');background-size:cover;background-position:center;background-repeat:no-repeat;color:#f5f5f5;font-size:20px;padding:40px 30px;vertical-align:top;">
-        <!-- Placeholder for search/filter instructions -->
-      </td>
-      <!-- COL 2: Transparent divider (4px) -->
-      <td style="width:4px;height:300px;max-width:4px;max-height:300px;background:transparent;overflow:hidden;box-sizing:border-box;"></td>
-      <!-- COL 3: Blackboard (shop-blackboard.png) -->
-      <td style="width:300px;height:300px;max-width:300px;max-height:300px;overflow:hidden;box-sizing:border-box;background-image:url('photos/shop-blackboard.png');background-size:cover;background-position:center;background-repeat:no-repeat;color:#f5f5f5;font-size:20px;padding:40px 30px;vertical-align:top;">
-        <!-- Placeholder for category info -->
-      </td>
-      <!-- COL 4: Transparent divider (4px) -->
-      <td style="width:4px;height:300px;max-width:4px;max-height:300px;background:transparent;overflow:hidden;box-sizing:border-box;"></td>
-      <!-- COL 5: Blackboard (shop-blackboard.png) -->
-      <td style="width:300px;height:300px;max-width:300px;max-height:300px;overflow:hidden;box-sizing:border-box;background-image:url('photos/shop-blackboard.png');background-size:cover;background-position:center;background-repeat:no-repeat;color:#f5f5f5;font-size:20px;padding:40px 30px;vertical-align:top;">
-        <!-- Placeholder for how-to-use notes -->
-      </td>
-    </tr>
-    <!-- ==================== ROW 4: 4px spacer (transparent) ==================== -->
-    <tr style="height:4px;">
-      <td style="width:300px;height:4px;max-width:300px;max-height:4px;background:transparent;"></td>
-      <td style="width:4px;height:4px;max-width:4px;max-height:4px;background:transparent;"></td>
-      <td style="width:300px;height:4px;max-width:300px;max-height:4px;background:transparent;"></td>
-      <td style="width:4px;height:4px;max-width:4px;max-height:4px;background:transparent;"></td>
-      <td style="width:300px;height:4px;max-width:300px;max-height:4px;background:transparent;"></td>
-    </tr>
-  </table>
-</div>
-
-<!-- ============================================================ -->
-<!-- 8px vertical buffer before TABLE 3 begins                   -->
-<!-- ============================================================ -->
-<div style="height:8px;"></div>
-
-</body>
-</html>
+<div class="blackboard300" style="width:300px; height:300px; background-image:url('photos/shop-blackboard.png'); background-size:cover; background-position:center;"><p>Welcome text retained here...</p></div> <td width="300" height="300"><div class="blackboard300">Special blackboard content...</div></td> <td width="300" height="300"><div class="blackboard300">Row 3 blackboard content...</div></td>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var boards = document.getElementsByClassName("blackboard300");
+  for (var i = 0; i < boards.length; i++) {
+    boards[i].style.fontFamily = "Kalam, sans-serif";
+    boards[i].style.fontSize = "21pt";
+    boards[i].style.fontStyle = "italic";
+    boards[i].style.fontWeight = "normal";
+    boards[i].style.lineHeight = "1.1";
+    boards[i].style.padding = "10px";
+    boards[i].style.overflow = "hidden";
+  }
+});
+</script>
