@@ -1,15 +1,56 @@
-<div class="blackboard300" style="width:300px; height:300px; background-image:url('photos/shop-blackboard.png'); background-size:cover; background-position:center;"><p>Welcome text retained here...</p></div> <td width="300" height="300"><div class="blackboard300">Special blackboard content...</div></td> <td width="300" height="300"><div class="blackboard300">Row 3 blackboard content...</div></td>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var boards = document.getElementsByClassName("blackboard300");
-  for (var i = 0; i < boards.length; i++) {
-    boards[i].style.fontFamily = "Kalam, sans-serif";
-    boards[i].style.fontSize = "21pt";
-    boards[i].style.fontStyle = "italic";
-    boards[i].style.fontWeight = "normal";
-    boards[i].style.lineHeight = "1.1";
-    boards[i].style.padding = "10px";
-    boards[i].style.overflow = "hidden";
-  }
-});
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Page</title>
+    <style>
+        .blackboard300 {
+            width: 300px;
+            height: 300px;
+            background-color: black; /* Example style */
+            /* Add additional styles as needed */
+        }
+        /* Other styles here */
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Shop</h1>
+    <table>
+        <tr>
+            <td><div class="blackboard300">Content 1</div></td>
+            <td style="width: 4px; background: transparent;"></td>
+            <td style="background-image: url('gpas-shop-web.png'); width: 300px; height: 300px;"></td>
+            <td style="width: 4px; background: transparent;"></td>
+            <td><div class="blackboard300">Welcome to the Shop</div></td>
+        </tr>
+        <tr>
+            <td><div class="blackboard300">Content 2</div></td>
+            <td style="width: 4px; background: transparent;"></td>
+            <td><div class="blackboard300">Content 3</div></td>
+            <td style="width: 4px; background: transparent;"></td>
+            <td><div class="blackboard300">Content 4</div></td>
+        </tr>
+        <tr>
+            <td><div class="blackboard300">Content 5</div></td>
+            <td style="width: 4px; background: transparent;"></td>
+            <td><div class="blackboard300">Content 6</div></td>
+            <td style="width: 4px; background: transparent;"></td>
+            <td><div class="blackboard300">Content 7</div></td>
+        </tr>
+        <tr>
+            <td><div class="blackboard300">Content 8</div></td>
+            <td style="width: 4px; background: transparent;"></td>
+            <td><div class="blackboard300">Content 9</div></td>
+            <td style="width: 4px; background: transparent;"></td>
+            <td><div class="blackboard300">Content 10</div></td>
+        </tr>
+    </table>
+    <script>
+        const blackboards = document.querySelectorAll('.blackboard300');
+        blackboards.forEach(b => {
+            // Apply necessary styles or scripts
+        });
+    </script>
+</body>
+</html>
