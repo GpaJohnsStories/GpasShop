@@ -4,81 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop Page</title>
-    
-  <style>
-  .blackboard300 {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    overflow: hidden;
-  }
-  /* Other styles here */
+
+    <!-- Kalam font -->
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+
+    <style>
+      /* Blackboard class: NO width/height here */
+      .blackboard300 {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+      }
     </style>
 </head>
+
 <body>
 
-    <h1>NEW-SHOP-INDEX -- 01/28-EE</h1><br><br>
-<!-- Table 1: Welcome Section -->
+<h1>NEW-SHOP-INDEX -- 01/28-FF</h1>
+<br><br>
+
+<!-- ========================================================= -->
+<!-- TABLE 1 — WELCOME SECTION                                -->
+<!-- ========================================================= -->
+
 <table border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; margin-right:8px;">
-  
-    <!-- Row 1: blackboard / photo / blackboard with dividers -->
+
+  <!-- ======================================================= -->
+  <!-- ROW 1 — 300px blackboard / 300px photo / 300px blackboard -->
+  <!-- ======================================================= -->
   <tr>
+
+    <!-- Cell 1 -->
     <td width="300" height="300">
       <div class="blackboard300"
-           style="width:300px;height:300px;background-image:url('photos/shop-blackboard.png');"
+           style="width:300px;height:300px;background-image:url('photos/shop-blackboard.png');">
         Special blackboard content...
       </div>
     </td>
+
+    <!-- Divider -->
     <td width="4" height="300" style="background-color:transparent;"></td>
+
+    <!-- Cell 2 — Shop Photo -->
     <td width="300" height="300">
       <div class="blackboard300"
-         style="width:300px;height:150px;background-image:url('photos/gpas-shop-web.png');"  
-        <!-- Shop photo only -->
+           style="width:300px;height:300px;background-image:url('photos/gpas-shop-web.png');">
       </div>
     </td>
+
+    <!-- Divider -->
     <td width="4" height="300" style="background-color:transparent;"></td>
+
+    <!-- Cell 3 -->
     <td width="300" height="300">
       <div class="blackboard300"
-            style="width:300px;height:150px;background-image:url('photos/shop-blackboard.png');"
-    </div>
+           style="width:300px;height:300px;background-image:url('photos/shop-blackboard.png');">
+        Welcome to the shop
+      </div>
     </td>
+
   </tr>
 
-  <!-- Row 2: 4px transparent spacer row -->
+  <!-- Spacer row -->
   <tr>
     <td colspan="5" height="4" style="background-color:transparent;"></td>
   </tr>
 
-  <!-- Row 3: Second row of 3 blackboards -->
-<table border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; margin-right:8px;">
-  <!-- Row 3: Three blackboards with dividers -->
+  <!-- ======================================================= -->
+  <!-- ROW 3 — Three 300×150 blackboards                       -->
+  <!-- ======================================================= -->
   <tr>
-    <td width="300" height="300">
-      <div class="blackboard300"
-           style="width:300px;height:300px;background-image:url('photos/shop-blackboard.png');"
-        Special blackboard content...
-      </div>
-    </td>
-    <td width="4" height="300" style="background-color:transparent;"></td>
-    <td width="300" height="300">
-      <div class="blackboard300"
-          style="width:300px;height:300px;background-image:url('photos/shop-blackboard.png');"
-      </div>
-    </td>
-    <td width="4" height="300" style="background-color:transparent;"></td>
-    <td width="300" height="300">
-      <div class="blackboard300"
-            style="width:300px;height:150px;background-image:url('photos/shop-blackboard.png');"
-    </div>
-    </td>
-  </tr>
 
-  <!-- Row 4: 4px transparent spacer row -->
-  <tr>
-    <td colspan="5" height="4" style="background-color:transparent;"></td>
+    <!-- Cell 1 -->
+    <td width="300" height="150">
+      <div class="blackboard300"
+           style="width:300px;height:150px;background-image:url('photos/shop-blackboard.png');">
+        Search instructions...
+      </div>
+    </td>
+
+    <!-- Divider -->
+    <td width="4" height="150" style="background-color:transparent;"></td>
+
+    <!-- Cell 2 -->
+    <td width="300" height="150">
+      <div class="blackboard300"
+           style="width:300px;height:150px;background-image:url('photos/shop-blackboard.png');">
+        Filter tips...
+      </div>
+    </td>
+
+    <!-- Divider -->
+    <td width="4" height="150" style="background-color:transparent;"></td>
+
+    <!-- Cell 3 -->
+    <td width="300" height="150">
+      <div class="blackboard300"
+           style="width:300px;height:150px;background-image:url('photos/shop-blackboard.png');">
+        Category help...
+      </div>
+    </td>
+
   </tr>
 
 </table>
+
+<!-- ========================================================= -->
+<!-- SCRIPT — STYLE ALL BLACKBOARDS                           -->
+<!-- ========================================================= -->
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -94,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
-
 
 </body>
 </html>
