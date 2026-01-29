@@ -112,197 +112,168 @@ td { vertical-align:top; }
 
 <body>
 
-<table class="shop-wall">
-<!-- ========================= -->
-<!-- ROW 1 : WELCOME / SHOP -->
-<!-- ========================= -->
+<!-- ===================================================== -->
+<!-- WALL CONTAINER : LEFT STACK + RIGHT DISPLAY WINDOW   -->
+<!-- ===================================================== -->
+<div
+  style="
+    display:flex;
+    align-items:stretch;   /* forces equal height columns */
+    margin-left:10px;
+  "
+>
 
-<!-- Col 1 : Featured Product 1 -->
-<tr class="row1">
-  <td class="col">
-    <div class="frame-blackboard">
-      <div class="blackboard-text">
-        <center>FEATURED</center>
-      </div>
-    </div>
-  </td>
+  <!-- =============================================== -->
+  <!-- LEFT COLUMN : TABLE 1 + TABLE 3 (STACKED)       -->
+  <!-- =============================================== -->
+  <div style="display:block;">
 
-<!-- Col 2 : Spacer -->
-  <td class="spacer-col"></td>
-
-<!-- Col 3 : Gpa's Shop Photo -->
-  <td class="col">
-      <div class="shop-photo-wrapper">
-      <img src="photos/gpas-shop-web.png"
-     alt="Grandpa John's Shop"
-     style="
-       width:100%;
-       height:100%;
-       object-fit:fill;
-       display:block;
-     ">
-      </div>
-  </td>
-
-<!-- Col 4 : Spacer -->
-  <td class="spacer-col"></td>
-
-<!-- Col 5 : Gpa's Welcome Statement -->
-  <td class="col">
-    <div class="frame-blackboard">
-      <div class="blackboard-text">
-Hello Friend — <br><br>
-Glad you stopped by. Everything here is stuff I’d tell you
-about if we were neighbors chatting over the back fence.<br><br>
-<i><div style="text-align:center;">Grandpa John</div></i>
-      </div>
-    </div>
-  </td>
-</tr>
-
-<!-- ROW 2 -- SPACER -->
-<tr class="spacer-row"><td colspan="5"></td></tr>
-
-<!-- ========================= -->
-<!-- ROW 3 : BLACKBOARDS -->
-<!-- ========================= -->
-<tr>
-  <td class="col">
-    <div class="frame-blackboard">
-      <div class="blackboard-text">
-        <center>Search</center>
-      </div>
-    </div>
-  </td>
-
-  <td class="spacer-col"></td>
-
-  <td class="col">
-    <div class="frame-blackboard">
-      <div class="blackboard-text">
-        <center>Sort</center>
-      </div>
-    </div>
-  </td>
-
-  <td class="spacer-col"></td>
-
-  <td class="col">
-    <div class="frame-blackboard">
-      <div class="blackboard-text">
-        <center>FIND</center>
-      </div>
-    </div>
-  </td>
-</tr>
+    <!-- ========================= -->
+    <!-- TABLE 1 : SHOP WALL       -->
+    <!-- ========================= -->
+    <table class="shop-wall">
       
-<!-- ROW 5 -- SPACER -->
-<tr class="spacer-row"><td colspan="5"></td></tr>
+      <!-- ROW 1 : WELCOME / SHOP -->
+      <tr class="row1">
+        <td class="col">
+          <div class="frame-blackboard">
+            <div class="blackboard-text">
+              <center>FEATURED</center>
+            </div>
+          </div>
+        </td>
 
-<tr>
-</table>
+        <td class="spacer-col"></td>
+
+        <td class="col">
+          <div class="shop-photo-wrapper">
+            <img src="photos/gpas-shop-web.png"
+                 alt="Grandpa John's Shop"
+                 style="width:100%; height:100%; object-fit:fill; display:block;">
+          </div>
+        </td>
+
+        <td class="spacer-col"></td>
+
+        <td class="col">
+          <div class="frame-blackboard">
+            <div class="blackboard-text">
+              Hello Friend — <br><br>
+              Glad you stopped by. Everything here is stuff I’d tell you
+              about if we were neighbors chatting over the back fence.<br><br>
+              <i><div style="text-align:center;">Grandpa John</div></i>
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <!-- SPACER -->
+      <tr class="spacer-row"><td colspan="5"></td></tr>
+
+      <!-- ROW 3 : BLACKBOARDS -->
+      <tr>
+        <td class="col">
+          <div class="frame-blackboard">
+            <div class="blackboard-text"><center>Search</center></div>
+          </div>
+        </td>
+
+        <td class="spacer-col"></td>
+
+        <td class="col">
+          <div class="frame-blackboard">
+            <div class="blackboard-text"><center>Sort</center></div>
+          </div>
+        </td>
+
+        <td class="spacer-col"></td>
+
+        <td class="col">
+          <div class="frame-blackboard">
+            <div class="blackboard-text"><center>FIND</center></div>
+          </div>
+        </td>
+      </tr>
+
+      <!-- SPACER -->
+      <tr class="spacer-row"><td colspan="5"></td></tr>
+
+    </table>
+
+    <!-- ================================================= -->
+    <!-- TABLE 3 : PRODUCT THUMB GRID (COMING SOON)        -->
+    <!-- ================================================= -->
+    <!--
+      TABLE 3 WILL GO HERE.
+      It will be the SAME WIDTH as Table 1.
+      When rows are added here, Table 2 will grow to match.
+    -->
+
+  </div>
+
+  <!-- =============================================== -->
+  <!-- TABLE 2 : DISPLAY WINDOW (RIGHT SIDE)            -->
+  <!-- =============================================== -->
+  <table
+    class="display-window"
+    style="
+      width:320px;
+      margin-left:10px;
+      border-collapse:collapse;
+    "
+  >
+    <tr>
+      <td style="padding:0; vertical-align:top;">
+
+        <div
+          style="
+            background:#f7f5ef;
+            box-shadow:0 2px 6px rgba(0,0,0,0.15);
+            padding:16px;
+            height:100%;              /* matches left column height */
+            overflow-y:auto;          /* scroll only if needed */
+            box-sizing:border-box;
+          "
+        >
+
+          <div style="width:100%; height:340px; margin-bottom:14px;">
+            <img src="photos/sample-product.png"
+                 alt=""
+                 style="width:100%; height:100%; object-fit:contain; display:block;">
+          </div>
+
+          <div style="font-family:serif; font-size:26px; line-height:1.2; margin-bottom:6px;">
+            Product Title Goes Here
+          </div>
+
+          <div style="font-family:serif; font-size:16px; color:#555; margin-bottom:12px;">
+            A neighborly favorite
+          </div>
+
+          <div style="font-family:serif; font-size:18px; line-height:1.45;">
+            This is where the longer, folksy description lives.
+            It can run as long as it needs to. When it exceeds
+            the available height, this paper scrolls internally.
+          </div>
+
+        </div>
+
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+<!-- ========================= -->
+<!-- FOOTER WILL LAND HERE    -->
+<!-- ========================= -->
 
 <script>
 const repoOwner = "GpaJohnsStories";
 const repoName  = "GpasShop";
 const prodPath  = "prod";
-
 </script>
 
-<style>
-/* ===== TABLE 2 : DISPLAY WINDOW ===== */
-
-table.display-window {
-  width:320px;
-  margin-left:10px;
-  border-collapse:collapse;
-  position:sticky;
-  top:10px;
-}
-
-/* single cell container */
-table.display-window td {
-  padding:0;
-  vertical-align:top;
-}
-
-/* paper surface */
-.display-paper {
-  background:#f7f5ef;
-  box-shadow:0 2px 6px rgba(0,0,0,0.15);
-  padding:16px;
-  max-height:90vh;
-  overflow-y:auto;
-  box-sizing:border-box;
-}
-
-/* photo area */
-.display-photo {
-  width:100%;
-  height:340px;
-  margin-bottom:14px;
-}
-
-.display-photo img {
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-}
-
-/* headline */
-.display-headline {
-  font-family:serif;
-  font-size:26px;
-  line-height:1.2;
-  margin-bottom:6px;
-}
-
-/* subhead */
-.display-subhead {
-  font-family:serif;
-  font-size:16px;
-  color:#555;
-  margin-bottom:12px;
-}
-
-/* body text */
-.display-body {
-  font-family:serif;
-  font-size:18px;
-  line-height:1.45;
-}
-</style>
-
-<table class="display-window">
-  <tr>
-    <td>
-      <div class="display-paper">
-
-        <div class="display-photo">
-          <img src="photos/sample-product.png" alt="">
-        </div>
-
-        <div class="display-headline">
-          Product Title Goes Here
-        </div>
-
-        <div class="display-subhead">
-          A neighborly favorite
-        </div>
-
-        <div class="display-body">
-          This is where the longer, folksy description lives.
-          It can run as long as it needs to. The paper scrolls
-          independently while the table stays put.
-        </div>
-
-      </div>
-    </td>
-  </tr>
-</table>
-
-
-      
 </body>
+
 </html>
