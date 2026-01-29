@@ -214,54 +214,57 @@ td { vertical-align:top; }
   <!-- =============================================== -->
   <!-- TABLE 2 : DISPLAY WINDOW (RIGHT SIDE)            -->
   <!-- =============================================== -->
-  <table
-    class="display-window"
-   style="
-  width:320px;
-  margin:10px 0 4px 10px;   /* MATCHES table.shop-wall */
-  border-collapse:collapse;
-  height:100%;
-"
-  >
-    <tr>
-      <td style="padding:0; vertical-align:top;">
+<table
+  class="display-window"
+  style="
+    width:320px;
+    margin:10px 0 4px 10px;
+    border-collapse:collapse;
+    height:100%;
+  "
+>
+  <tr>
+    <td style="padding:0; vertical-align:top; height:100%;">
 
-        <div
-          style="
-            background:#f7f5ef;
-            box-shadow:0 2px 6px rgba(0,0,0,0.15);
-            padding:16px;
-            height:100%;              /* matches left column height */
-            overflow-y:auto;          /* scroll only if needed */
-            box-sizing:border-box;
-          "
-        >
+      <!-- PAPER (required) -->
+      <div
+        style="
+          background:#f7f5ef;
+          box-shadow:0 2px 6px rgba(0,0,0,0.15);
+          padding:16px;
+          height:100%;
+          overflow-y:auto;
+          box-sizing:border-box;
+        "
+      >
 
-          <div style="width:100%; height:340px; margin-bottom:14px;">
-            <img src="photos/sample-product.png"
-                 alt=""
-                 style="width:100%; height:100%; object-fit:contain; display:block;">
-          </div>
-
-          <div style="font-family:serif; font-size:26px; line-height:1.2; margin-bottom:6px;">
-            Product Title Goes Here
-          </div>
-
-          <div style="font-family:serif; font-size:16px; color:#555; margin-bottom:12px;">
-            A neighborly favorite
-          </div>
-
-          <div style="font-family:serif; font-size:18px; line-height:1.45;">
-            This is where the longer, folksy description lives.
-            It can run as long as it needs to. When it exceeds
-            the available height, this paper scrolls internally.
-          </div>
-
+        <!-- PHOTO (wrapper kept for stability) -->
+        <div style="width:100%; height:340px; margin-bottom:14px;">
+          <img src="photos/sample-product.png"
+               alt=""
+               style="width:100%; height:100%; object-fit:contain; display:block;">
         </div>
 
-      </td>
-    </tr>
-  </table>
+        <!-- TEXT (could be merged later if desired) -->
+        <div style="font-family:serif; font-size:26px; line-height:1.2; margin-bottom:6px;">
+          Product Title Goes Here
+        </div>
+
+        <div style="font-family:serif; font-size:16px; color:#555; margin-bottom:12px;">
+          A neighborly favorite
+        </div>
+
+        <div style="font-family:serif; font-size:18px; line-height:1.45;">
+          This is where the longer, folksy description lives.
+          It can run as long as it needs to. When it exceeds
+          the available height, this paper scrolls internally.
+        </div>
+
+      </div>
+
+    </td>
+  </tr>
+</table>
 
 </div>
 
