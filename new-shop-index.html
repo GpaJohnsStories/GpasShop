@@ -1,133 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEW SHOP INDEX</title>
 
-    <!-- Kalam font -->
-    <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
 
-    <style>
-      /* Blackboard class: NO width/height here */
-      .blackboard300 {
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        overflow: hidden;
-      }
-    </style>
+<style>
+  body {
+    margin: 0;
+    padding: 20px;
+    font-family: sans-serif;
+  }
+
+  /* Universal image container */
+  .img-box-300 {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .img-box-150 {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Universal image behavior */
+  .img-box-300 img,
+  .img-box-150 img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: auto;
+  }
+
+  /* Text overlay for blackboards */
+  .overlay-text {
+    position: absolute;
+    inset: 0;
+    padding: 20px;
+    font-family: Kalam, sans-serif;
+    font-size: 21pt;
+    font-style: italic;
+    line-height: 1.1;
+    color: #f5f5f5;
+    pointer-events: none;
+  }
+</style>
 </head>
 
 <body>
 
-<h1>NEW-SHOP-INDEX -- 01/28-FF</h1>
-<br><br>
+<h1>NEW‑SHOP‑INDEX — 01/28 - MM</h1> <br>
 
-<!-- ========================================================= -->
-<!-- TABLE 1 — WELCOME SECTION                                -->
-<!-- ========================================================= -->
+<!-- ===================================================== -->
+<!-- TABLE 1 : WELCOME / SHOP PHOTO / BLACKBOARD           -->
+<!-- ===================================================== -->
 
-<table border="0" cellspacing="0" cellpadding="0" style="margin-left:10px; margin-right:8px;">
+<table border="0" cellspacing="0" cellpadding="0">
 
-  <!-- ======================================================= -->
-  <!-- ROW 1 — 300px blackboard / 300px photo / 300px blackboard -->
-  <!-- ======================================================= -->
-  <tr>
+<tr>
 
-    <!-- Cell 1 -->
-    <td width="300" height="300">
-      <div class="blackboard300"
-           style="width:300px;height:300px;background-image:url('photos/shop-blackboard.png');">
-        Special blackboard content...
-      </div>
-    </td>
+<!-- Blackboard -->
+<td width="300" height="300">
+  <div class="img-box-300">
+    <img src="photos/shop-blackboard.png">
+    <div class="overlay-text">
+      Welcome to the shop
+    </div>
+  </div>
+</td>
 
-    <!-- Divider -->
-    <td width="4" height="300" style="background-color:transparent;"></td>
+<td width="4"></td>
 
-    <!-- Cell 2 — Shop Photo -->
-    <td width="300" height="300">
-      <div class="blackboard300"
-           style="width:300px;height:300px;background-image:url('photos/gpas-shop-web.png');">
-      </div>
-    </td>
+<!-- Shop photo -->
+<td width="300" height="300">
+  <div class="img-box-300">
+    <img src="photos/gpas-shop-web.png">
+  </div>
+</td>
 
-    <!-- Divider -->
-    <td width="4" height="300" style="background-color:transparent;"></td>
+<td width="4"></td>
 
-    <!-- Cell 3 -->
-    <td width="300" height="300">
-      <div class="blackboard300"
-           style="width:300px;height:300px;background-image:url('photos/shop-blackboard.png');">
-        Welcome to the shop
-      </div>
-    </td>
+<!-- Blackboard -->
+<td width="300" height="300">
+  <div class="img-box-300">
+    <img src="photos/shop-blackboard.png">
+    <div class="overlay-text">
+      Special items inside
+    </div>
+  </div>
+</td>
 
-  </tr>
+</tr>
 
-  <!-- Spacer row -->
-  <tr>
-    <td colspan="5" height="4" style="background-color:transparent;"></td>
-  </tr>
+<tr><td colspan="5" height="4"></td></tr>
 
-  <!-- ======================================================= -->
-  <!-- ROW 3 — Three 300×150 blackboards                       -->
-  <!-- ======================================================= -->
-  <tr>
+<tr>
 
-    <!-- Cell 1 -->
-    <td width="300" height="150">
-      <div class="blackboard300"
-           style="width:300px;height:150px;background-image:url('photos/shop-blackboard.png');">
-        Search instructions...
-      </div>
-    </td>
+<!-- Blackboard -->
+<td width="300" height="300">
+  <div class="img-box-300">
+    <img src="photos/shop-blackboard.png">
+    <div class="overlay-text">
+      Search tips
+    </div>
+  </div>
+</td>
 
-    <!-- Divider -->
-    <td width="4" height="150" style="background-color:transparent;"></td>
+<td width="4"></td>
 
-    <!-- Cell 2 -->
-    <td width="300" height="150">
-      <div class="blackboard300"
-           style="width:300px;height:150px;background-image:url('photos/shop-blackboard.png');">
-        Filter tips...
-      </div>
-    </td>
+<!-- Blackboard -->
+<td width="300" height="300">
+  <div class="img-box-300">
+    <img src="photos/shop-blackboard.png">
+    <div class="overlay-text">
+      Filter help
+    </div>
+  </div>
+</td>
 
-    <!-- Divider -->
-    <td width="4" height="150" style="background-color:transparent;"></td>
+<td width="4"></td>
 
-    <!-- Cell 3 -->
-    <td width="300" height="150">
-      <div class="blackboard300"
-           style="width:300px;height:150px;background-image:url('photos/shop-blackboard.png');">
-        Category help...
-      </div>
-    </td>
+<!-- Blackboard -->
+<td width="300" height="300">
+  <div class="img-box-300">
+    <img src="photos/shop-blackboard.png">
+    <div class="overlay-text">
+      Categories
+    </div>
+  </div>
+</td>
 
-  </tr>
+</tr>
 
 </table>
 
-<!-- ========================================================= -->
-<!-- SCRIPT — STYLE ALL BLACKBOARDS                           -->
-<!-- ========================================================= -->
+<br><br>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  var boards = document.getElementsByClassName("blackboard300");
-  for (var i = 0; i < boards.length; i++) {
-    boards[i].style.fontFamily = "Kalam, sans-serif";
-    boards[i].style.fontSize = "21pt";
-    boards[i].style.fontStyle = "italic";
-    boards[i].style.fontWeight = "normal";
-    boards[i].style.lineHeight = "1.1";
-    boards[i].style.padding = "10px";
-    boards[i].style.overflow = "hidden";
-  }
-});
-</script>
+<!-- ===================================================== -->
+<!-- TABLE 3 : PRODUCT GRID (example thumbnails)           -->
+<!-- ===================================================== -->
+
+<table border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td width="150" height="150">
+  <div class="img-box-150">
+    <img src="photos/products/product1.png">
+  </div>
+</td>
+
+<td width="4"></td>
+
+<td width="150" height="150">
+  <div class="img-box-150">
+    <img src="photos/products/product2.png">
+  </div>
+</td>
+
+<td width="4"></td>
+
+<td width="150" height="150">
+  <div class="img-box-150">
+    <img src="photos/products/product3.png">
+  </div>
+</td>
+
+</tr>
+
+</table>
 
 </body>
 </html>
