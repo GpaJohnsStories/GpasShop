@@ -2,158 +2,208 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEW SHOP INDEX</title>
+<title>Grandpa John's Shop</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- SEO -->
+<meta name="description"
+      content="GpaShop is a warm, family-friendly place for books, t-shirts, and small gifts—everything chosen for kids, parents, and grandparents in both Faith and Happy categories.">
+<meta name="keywords"
+      content="children's books, kids t-shirts, family gifts, read-aloud books, Christian, gifts, wholesome shirts, GpaShop">
+<meta name="author" content="GpaShop">
+
+<link rel="canonical" href="https://gpasshop.com/">
+<link rel="icon" type="image/gif" href="https://gpasshop.com/icons/shop-bell-favicon.gif">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-  body {
-    margin: 0;
-    padding: 20px;
-    font-family: sans-serif;
-  }
 
-  /* Universal image container */
-  .img-box-300 {
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
-    position: relative;
-  }
+/* ========================= */
+/* BASE LAYOUT               */
+/* ========================= */
 
-  .img-box-150 {
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    position: relative;
-  }
+body {
+  margin:0;
+  background-image:url('photos/linen-background.jpg');
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center top;
+  font-family:Kalam, cursive;
+}
 
-  /* Universal image behavior */
-  .img-box-300 img,
-  .img-box-150 img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    display: block;
-    margin: auto;
-  }
+table.shop-wall {
+  margin:10px auto;
+  border-collapse:collapse;
+}
 
-  /* Text overlay for blackboards */
-  .overlay-text {
-    position: absolute;
-    inset: 0;
-    padding: 20px;
-    font-family: Kalam, sans-serif;
-    font-size: 21px;
-    font-style: italic;
-    font-weight: normal;
-    line-height: 1.1;
-    color: #f5f5f5;
-    pointer-events: none;
-  }
+td { vertical-align:top; }
+
+/* Column sizing — content driven */
+.col { width:300px; }
+.spacer-col { width:10px; }
+.spacer-row { height:5px; }
+
+/* ========================= */
+/* FRAMES                    */
+/* ========================= */
+
+.frame-wood {
+  width:300px;
+  height:300px;
+  background-image:url('photos/rustic-frame.png');
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  position:relative;
+  box-sizing:border-box;
+}
+
+.shop-photo-wrapper {
+  width:300px;
+  height:300px;
+  position:relative;
+  box-sizing:border-box;
+}
+
+.frame-blackboard {
+  width:300px;
+  height:300px;
+  background-image:url('photos/shop-blackboard.png');
+  background-size:100% 100%;
+  background-repeat:no-repeat;
+  position:relative;
+  box-sizing:border-box;
+}
+
+.row1 .frame-blackboard {
+  height:300px;
+}
+
+/* ========================= */
+/* TEXT OVERLAY              */
+/* ========================= */
+
+.blackboard-text {
+  position:absolute;
+  inset:0;
+  padding:40px 30px;
+  color:#f5f5f5;
+  font-family: Kalam, cursive;
+  font-size:21px;
+  line-height:1.15;
+  font-weight:normal;
+}
+
+/* ========================= */
+/* SHELF                     */
+/* ========================= */
+
+.shelf {
+  height:20px;
+  background-image:url('photos/wood-board.gif');
+  background-size:cover;
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>NEW‑SHOP‑INDEX — 01/28 - PP</h1> <br>
-
-<!-- ===================================================== -->
-<!-- TABLE 1 : WELCOME / SHOP PHOTO / BLACKBOARD           -->
-<!-- ===================================================== -->
-
-<table border="0" cellspacing="0" cellpadding="0"
-       style="table-layout:fixed;width:908px;">
-
-<!-- Set column widths explicity -->
-<colgroup>
-  <col style="width:300px;">
-  <col style="width:4px;">
-  <col style="width:300px;">
-  <col style="width:4px;">
-  <col style="width:300px;">
-</colgroup>
-
-<tr>
-
-<!-- Blackboard -->
-<td width="300" height="300">
-  <div class="img-box-300">
-    <img src="photos/shop-blackboard.png">
-    <div class="overlay-text">
-      Welcome to the shop
+<table class="shop-wall">
+<h1>GPAS SHOP NEW INDEX--01-28-SS</h1>
+<!-- ========================= -->
+<!-- ROW 1 : WELCOME / SHOP -->
+<!-- ========================= -->
+<tr class="row1">
+  <td class="col">
+    <div class="frame-blackboard">
+      <div class="blackboard-text">
+        Welcome to Grandpa John’s Shop
+      </div>
     </div>
-  </div>
-</td>
+  </td>
 
-<td width="4"></td>
+  <td class="spacer-col"></td>
 
-<!-- Shop photo -->
-<td width="300" height="300">
-  <div class="img-box-300">
-    <img src="photos/gpas-shop-web.png">
-  </div>
-</td>
-
-<td width="4"></td>
-
-<!-- Blackboard -->
-<td width="300" height="300">
-  <div class="img-box-300">
-    <img src="photos/shop-blackboard.png">
-    <div class="overlay-text">
-      Special items inside
+  <td class="col">
+    <div class="frame-wood">
+      <div class="shop-photo-wrapper">
+        <!-- shop photo lives here -->
+      </div>
     </div>
-  </div>
-</td>
+  </td>
 
+  <td class="spacer-col"></td>
+
+  <td class="col">
+    <div class="frame-blackboard">
+      <div class="blackboard-text">
+        Books, shirts, and small gifts
+      </div>
+    </div>
+  </td>
 </tr>
 
-<tr><td colspan="5" height="4"></td></tr>
+<!-- SHELF -->
+<tr><td colspan="5"><div class="shelf"></div></td></tr>
 
+<!-- SPACER -->
+<tr class="spacer-row"><td colspan="5"></td></tr>
+
+<!-- ========================= -->
+<!-- ROW 3 : BLACKBOARDS -->
+<!-- ========================= -->
 <tr>
-
-<!-- Blackboard -->
-<td width="300" height="300">
-  <div class="img-box-300">
-    <img src="photos/shop-blackboard.png">
-    <div class="overlay-text">
-      Search tips
+  <td class="col">
+    <div class="frame-blackboard">
+      <div class="blackboard-text">
+        Faith
+      </div>
     </div>
-  </div>
-</td>
+  </td>
 
-<td width="4"></td>
+  <td class="spacer-col"></td>
 
-<!-- Blackboard -->
-<td width="300" height="300">
-  <div class="img-box-300">
-    <img src="photos/shop-blackboard.png">
-    <div class="overlay-text">
-      Filter help
+  <td class="col">
+    <div class="frame-blackboard">
+      <div class="blackboard-text">
+        Happy
+      </div>
     </div>
-  </div>
-</td>
+  </td>
 
-<td width="4"></td>
+  <td class="spacer-col"></td>
 
-<!-- Blackboard -->
-<td width="300" height="300">
-  <div class="img-box-300">
-    <img src="photos/shop-blackboard.png">
-    <div class="overlay-text">
-      Categories
+  <td class="col">
+    <div class="frame-blackboard">
+      <div class="blackboard-text">
+        All Products
+      </div>
     </div>
-  </div>
-</td>
-
+  </td>
 </tr>
 
+<!-- SHELF -->
+<tr><td colspan="5"><div class="shelf"></div></td></tr>
+
+<!-- SPACER -->
+<tr class="spacer-row"><td colspan="5"></td></tr>
+
+<!-- ========================= -->
+<!-- PRODUCT ROW -->
+<!-- ========================= -->
+<tr>
 </table>
 
-<br><br>
+<script>
+const repoOwner = "GpaJohnsStories";
+const repoName  = "GpasShop";
+const prodPath  = "prod";
+
+</script>
 
 </body>
 </html>
