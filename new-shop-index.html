@@ -45,7 +45,7 @@ td { vertical-align:top; }
 /* Column sizing — content driven */
 .col { width:300px; }
 .spacer-col { width:10px; }
-.spacer-row { height:5px; }
+.spacer-row { height:10px; }
 
 /* ========================= */
 /* FRAMES                    */
@@ -113,21 +113,25 @@ td { vertical-align:top; }
 <body>
 
 <table class="shop-wall">
-<h1>GPAS SHOP NEW INDEX--01-28-TT</h1>
+<h1>GPAS SHOP NEW INDEX--01-28-XX</h1>
 <!-- ========================= -->
 <!-- ROW 1 : WELCOME / SHOP -->
 <!-- ========================= -->
+
+<!-- Col 1 : Featured Product 1 -->
 <tr class="row1">
   <td class="col">
     <div class="frame-blackboard">
       <div class="blackboard-text">
-        Welcome to Grandpa John’s Shop
+        <center>FEATURED</center>
       </div>
     </div>
   </td>
 
+<!-- Col 2 : Spacer -->
   <td class="spacer-col"></td>
 
+<!-- Col 3 : Gpa's Shop Photo -->
   <td class="col">
       <div class="shop-photo-wrapper">
       <img src="photos/gpas-shop-web.png"
@@ -135,14 +139,16 @@ td { vertical-align:top; }
      style="
        width:100%;
        height:100%;
-       object-fit:contain;
+       object-fit:fill;
        display:block;
      ">
       </div>
   </td>
 
+<!-- Col 4 : Spacer -->
   <td class="spacer-col"></td>
 
+<!-- Col 5 : Gpa's Welcome Statement -->
   <td class="col">
     <div class="frame-blackboard">
       <div class="blackboard-text">
@@ -152,10 +158,7 @@ td { vertical-align:top; }
   </td>
 </tr>
 
-<!-- SHELF -->
-<tr><td colspan="5"><div class="shelf"></div></td></tr>
-
-<!-- SPACER -->
+<!-- ROW 2 -- SPACER -->
 <tr class="spacer-row"><td colspan="5"></td></tr>
 
 <!-- ========================= -->
@@ -165,7 +168,7 @@ td { vertical-align:top; }
   <td class="col">
     <div class="frame-blackboard">
       <div class="blackboard-text">
-        Faith
+        <center>Search</center>
       </div>
     </div>
   </td>
@@ -175,7 +178,7 @@ td { vertical-align:top; }
   <td class="col">
     <div class="frame-blackboard">
       <div class="blackboard-text">
-        Happy
+        <center>Sort</center>
       </div>
     </div>
   </td>
@@ -185,13 +188,13 @@ td { vertical-align:top; }
   <td class="col">
     <div class="frame-blackboard">
       <div class="blackboard-text">
-        All Products
+        <center>FIND</center>
       </div>
     </div>
   </td>
 </tr>
       
-<!-- SPACER -->
+<!-- ROW 5 -- SPACER -->
 <tr class="spacer-row"><td colspan="5"></td></tr>
 
 <tr>
