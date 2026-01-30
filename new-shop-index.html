@@ -72,7 +72,7 @@
         >
           <div style="font-family:Kalam, 'Comic Sans MS', cursive; font-size:20px; font-weight:700; color:#222;">
             Product details will appear here.<br><br>
-            01-29 X1
+            01-29 X2
           </div>
           <div style="height:8px;"></div>
           <div style="font-size:13px; line-height:1.3; color:#333;">
@@ -91,8 +91,8 @@
   <div
     id="main-area"
     style="
-      margin-left:4px;                /* left outside buffer now 4px */
-      margin-right:360px;             /* reserve 320px sidebar + 10px gap + safety */
+      margin-left:0px;                /* left outside buffer now 4px */
+      margin-right:330px;             /* reserve 320px sidebar + 10px gap + safety */
       padding-top:10px;
       box-sizing:border-box;
     "
@@ -115,81 +115,106 @@
       <!-- Row 1: 300px tall -->
       <tr style="height:300px;">
         <!-- Col 1: Special Product 1 (300x300) -->
-        <td
-          id="table1-col1-special"
-          title="Special Product 1"
-          style="
-            width:300px;
-            height:300px;
+<td
+  id="table1-col5-welcome"
+  style="
+    width:300px;
+    height:300px;
 
-            /* ensure the full framed blackboard image fits exactly in the 300x300 cell */
-            background-image: url('photos/shop-blackboard.png');
-            background-size: 300px 300px;
-            background-position: center;
-            background-repeat: no-repeat;
+    /* full framed blackboard fits exactly */
+    background-image: url('photos/shop-blackboard.png');
+    background-size: 300px 300px;
+    background-position: center;
+    background-repeat: no-repeat;
 
-            box-sizing: border-box;
-            padding:8px;
-            cursor:pointer;
-          "
-        >
-          <!-- Special product area (inject thumbnail or <img> later) -->
-          <div style="color:#fff; font-family:Kalam, 'Comic Sans MS', cursive; font-size:18px; font-weight:700;">
-            Featured
-          </div>
-        </td>
+    box-sizing: border-box;
+    padding: 22px;
+
+    /* entire cell uses Kalam 21px regular */
+    font-family: Kalam, 'Comic Sans MS', cursive;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.05;
+    color: #ffffff;
+  "
+>
+  <!-- Welcome text goes here. Example: -->
+  Welcome to GPAS Shop
+  <div style="height:12px;"></div>
+  <div style="font-size:14px; font-weight:600;">
+    Browse the snapshots below. Click any thumbnail to view the full product card in the display window on the right.
+  </div>
+</td>
 
         <!-- Col 2: 4px transparent divider -->
         <td style="width:4px; height:300px; background:transparent;"></td>
 
         <!-- Col 3: Shop Photo (300x300) - reduce height to 300px and stretch width -->
-        <td
-          id="table1-col3-photo"
-          title="Shop Photo"
-          style="
-            width:300px;
-            height:300px;
+<td
+  id="table1-col5-welcome"
+  style="
+    width:300px;
+    height:300px;
 
-            /* force the shop photo to fit exactly into 300x300 so it won't be clipped */
-            background-image: url('photos/gpas-shop-web.png');
-            background-size: 300px 300px; /* exact fit */
-            background-position: center;
-            background-repeat: no-repeat;
-          "
-        ></td>
+    /* full framed blackboard fits exactly */
+    background-image: url('photos/shop-blackboard.png');
+    background-size: 300px 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    box-sizing: border-box;
+    padding: 22px;
+
+    /* entire cell uses Kalam 21px regular */
+    font-family: Kalam, 'Comic Sans MS', cursive;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.05;
+    color: #ffffff;
+  "
+>
+  <!-- Welcome text goes here. Example: -->
+  Welcome to GPAS Shop
+  <div style="height:12px;"></div>
+  <div style="font-size:14px; font-weight:600;">
+    Browse the snapshots below. Click any thumbnail to view the full product card in the display window on the right.
+  </div>
+</td>
 
         <!-- Col 4: 4px transparent divider -->
         <td style="width:4px; height:300px; background:transparent;"></td>
 
         <!-- Col 5: Welcome text on blackboard (300x300) -->
-        <td
-          id="table1-col5-welcome"
-          style="
-            width:300px;
-            height:300px;
+<td
+  id="table1-col5-welcome"
+  style="
+    width:300px;
+    height:300px;
 
-            /* full blackboard frame fits exactly */
-            background-image: url('photos/shop-blackboard.png');
-            background-size: 300px 300px;
-            background-position: center;
-            background-repeat: no-repeat;
+    /* full framed blackboard fits exactly */
+    background-image: url('photos/shop-blackboard.png');
+    background-size: 300px 300px;
+    background-position: center;
+    background-repeat: no-repeat;
 
-            box-sizing: border-box;
-            padding:18px;
-            color:#ffffff;
-            /* entire cell uses Kalam 21px regular */
-            font-family: Kalam, 'Comic Sans MS', cursive;
-            font-size:21px;
-            font-weight:400;
-            line-height:1.05;
-          "
-        >
-          Welcome to GPAS Shop
-          <div style="height:12px;"></div>
-          <div style="font-size:14px; font-weight:600; line-height:1.3;">
-            Browse the snapshots below. Click any thumbnail to view the full product card in the display window on the right.
-          </div>
-        </td>
+    box-sizing: border-box;
+    padding: 22px;
+
+    /* entire cell uses Kalam 21px regular */
+    font-family: Kalam, 'Comic Sans MS', cursive;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.05;
+    color: #ffffff;
+  "
+>
+  <!-- Welcome text goes here. Example: -->
+  Hello Friend,<br>
+  <div style="font-size:21px; font-weight:600;">
+  Thanks for stopping by. Everything here is stuff I mention to you if we were just talking over the back fence. Have fun and check it all out.<br>
+    <center>Grandpa John</center>
+  </div>
+</td>
       </tr>
 
       <!-- Row 2: 4px spacer row (transparent; linen background shows through) -->
@@ -318,19 +343,20 @@
       </tr>
 
       <!-- Row 2: Shelf Row A (4px tall) — use wood-board.gif compressed to 4px -->
-      <tr style="height:4px;">
-        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-      </tr>
+<tr style="height:8px;">
+  <td colspan="11" role="presentation"
+      style="
+        height:8px;
+        padding:0;
+        margin:0;
+        border:0;
+        background-image:url('photos/wood-board.gif');
+        background-repeat:repeat-x;
+        background-position:center;
+        background-size:auto 8px;
+      ">
+  </td>
+</tr>
 
       <!-- Row 3: Thumbnails Row B (150px) -->
       <tr style="height:150px;">
@@ -353,19 +379,21 @@
       </tr>
 
       <!-- Row 4: Shelf Row B (4px tall) -->
-      <tr style="height:4px;">
-        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
-      </tr>
+<tr style="height:8px;">
+  <td colspan="11" role="presentation"
+      style="
+        height:8px;
+        padding:0;
+        margin:0;
+        border:0;
+        background-image:url('photos/wood-board.gif');
+        background-repeat:repeat-x;
+        background-position:center;
+        background-size:auto 8px;
+      ">
+  </td>
+</tr>
+
     </table>
 
     <!-- Footer placeholder -->
