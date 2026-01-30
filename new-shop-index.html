@@ -1,288 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Grandpa John's Shop</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- SEO -->
-<meta name="description"
-      content="GpaShop is a warm, family-friendly place for books, t-shirts, and small gifts—everything chosen for kids, parents, and grandparents in both Faith and Happy categories.">
-<meta name="keywords"
-      content="children's books, kids t-shirts, family gifts, read-aloud books, Christian, gifts, wholesome shirts, GpaShop">
-<meta name="author" content="GpaShop">
-
-<link rel="canonical" href="https://gpasshop.com/">
-<link rel="icon" type="image/gif" href="https://gpasshop.com/icons/shop-bell-favicon.gif">
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap" rel="stylesheet">
-
-<style>
-
-/* ========================= */
-/* BASE LAYOUT               */
-/* ========================= */
-
-body {
-  margin:0;
-  background-image:url('photos/linen-background.jpg');
-  background-size:cover;
-  background-repeat:no-repeat;
-  background-position:center top;
-  font-family:Kalam, cursive;
-}
-
-table.shop-wall {
-  margin:10px 0 4px 10px;
-  border-collapse:collapse;
-}
-
-td { vertical-align:top; }
-
-/* Column sizing — content driven */
-.col { width:300px; }
-.spacer-col { width:10px; }
-.spacer-row { height:10px; }
-
-/* ========================= */
-/* FRAMES                    */
-/* ========================= */
-
-.frame-wood {
-  width:300px;
-  height:300px;
-  background-image:url('photos/rustic-frame.png');
-  background-size:100% 100%;
-  background-repeat:no-repeat;
-  position:relative;
-  box-sizing:border-box;
-}
-
-.shop-photo-wrapper {
-  width:300px;
-  height:300px;
-  position:relative;
-  box-sizing:border-box;
-}
-
-.frame-blackboard {
-  width:300px;
-  height:300px;
-  background-image:url('photos/shop-blackboard.png');
-  background-size:100% 100%;
-  background-repeat:no-repeat;
-  position:relative;
-  box-sizing:border-box;
-}
-
-.row1 .frame-blackboard {
-  height:300px;
-}
-
-/* ========================= */
-/* TEXT OVERLAY              */
-/* ========================= */
-
-.blackboard-text {
-  position:absolute;
-  inset:0;
-  padding:40px 30px;
-  color:#f5f5f5;
-  font-family: Kalam, cursive;
-  font-size:21px;
-  line-height:1.15;
-  font-weight:normal;
-}
-
-/* ========================= */
-/* SHELF                     */
-/* ========================= */
-
-.shelf {
-  height:20px;
-  background-image:url('photos/wood-board.gif');
-  background-size:cover;
-}
-
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GPAS Shop — New Shop Index</title>
 </head>
-
-<body>
-
-<!-- ===================================================== -->
-<!-- WALL CONTAINER : LEFT STACK + RIGHT DISPLAY WINDOW   -->
-<!-- ===================================================== -->
-<div
+<body
   style="
-    display:flex;
-    align-items:stretch;   /* forces equal height columns */
-    margin-left:10px;
+    margin:0;
+    padding:0;
+    font-family: Lexend, Arial, sans-serif;
+    /* linen page background (inline per request) */
+    background-image: url('photos/linen-background.jpg');
+    background-repeat: repeat;
+    background-position: center;
+    background-size: auto;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    color:#222;
   "
 >
 
-<div><!-- LEFT COLUMN START -->
-      
-  <!-- =============================================== -->
-  <!-- LEFT COLUMN : TABLE 1 + TABLE 3 (STACKED)       -->
-  <!-- =============================================== -->
-  <div style="display:block;">
+  <!-- ===================================================== -->
+  <!-- NOTE: Minimal CSS usage. All layout rules are inline. -->
+  <!-- A single tiny style block only to ensure tables collapse -->
+  <style>table{border-collapse:collapse} td{padding:0;vertical-align:top}</style>
+  <!-- ===================================================== -->
 
-    <!-- ========================= -->
-    <!-- TABLE 1 : SHOP WALL       -->
-    <!-- ========================= -->
-    <table class="shop-wall">
-      
-      <!-- ROW 1 : WELCOME / SHOP -->
-      <tr class="row1">
-        <td class="col">
-          <div class="frame-blackboard">
-            <div class="blackboard-text">
-              <center>FEATURED</center>
-            </div>
-          </div>
-        </td>
-
-        <td class="spacer-col"></td>
-
-        <td class="col">
-          <div class="shop-photo-wrapper">
-            <img src="photos/gpas-shop-web.png"
-                 alt="Grandpa John's Shop"
-                 style="width:100%; height:100%; object-fit:fill; display:block;">
-          </div>
-        </td>
-
-        <td class="spacer-col"></td>
-
-        <td class="col">
-          <div class="frame-blackboard">
-            <div class="blackboard-text">
-              Hello Friend — <br><br>
-              Glad you stopped by. Everything here is stuff I’d tell you
-              about if we were neighbors chatting over the back fence.<br><br>
-              <i><div style="text-align:center;">Grandpa John</div></i>
-            </div>
-          </div>
-        </td>
-      </tr>
-
-      <!-- SPACER -->
-      <tr class="spacer-row"><td colspan="5"></td></tr>
-
-      <!-- ROW 3 : BLACKBOARDS -->
-      <tr>
-        <td class="col">
-          <div class="frame-blackboard">
-            <div class="blackboard-text"><center>Search</center></div>
-          </div>
-        </td>
-
-        <td class="spacer-col"></td>
-
-        <td class="col">
-          <div class="frame-blackboard">
-            <div class="blackboard-text"><center>Sort</center></div>
-          </div>
-        </td>
-
-        <td class="spacer-col"></td>
-
-        <td class="col">
-          <div class="frame-blackboard">
-            <div class="blackboard-text"><center>FIND -- 01/29 - AA</center></div>
-          </div>
-        </td>
-      </tr>
-
-      <!-- SPACER -->
-      <tr class="spacer-row"><td colspan="5"></td></tr>
-
-    </table>
-
-    <!-- ================================================= -->
-    <!-- TABLE 3 : PRODUCT THUMB GRID (COMING SOON)        -->
-    <!-- ================================================= -->
-    <!--
-      TABLE 3 WILL GO HERE.
-      It will be the SAME WIDTH as Table 1.
-      When rows are added here, Table 2 will grow to match.
-    -->
-</div><!-- END LEFT COLUMN -->
-
-  <!-- =============================================== -->
-  <!-- TABLE 2 : DISPLAY WINDOW (RIGHT SIDE)            -->
-  <!-- =============================================== -->
-
-<div style="width:320px; margin:10px 0 4px 10px; display:flex;"><!-- RIGHT COLUMN START -->
-
-<table
-  class="display-window"
-  style="
-    width:320px;
-    margin:10px 0 4px 10px;
-    border-collapse:collapse;
-    height:100%;
-  "
->
-  <tr>
-    <td style="padding:0; vertical-align:top; height:100%;">
-
-      <!-- PAPER (required) -->
-      <div
+  <!-- ===================================================== -->
+  <!-- FIXED DISPLAY WINDOW (TABLE 2) - RIGHT SIDEBAR        -->
+  <!-- - Width: 320px
+       - Fixed to viewport top-right
+       - Newspaper color fill
+       - Torn-edge overlay injected by JS (random left/right)
+       - Inner container (#display-window-content) is the injection target
+  -->
+  <!-- ===================================================== -->
+  <table
+    id="table-2-display"
+    aria-label="Product display window"
+    style="
+      position:fixed;
+      top:0;
+      right:10px;
+      width:320px;
+      height:100vh;
+      z-index:1000;
+      border-collapse:collapse;
+    "
+  >
+    <tr>
+      <td
+        id="display-window-cell"
         style="
-          background:#f7f5ef;
-          box-shadow:0 2px 6px rgba(0,0,0,0.15);
-          padding:16px;
-          height:100%;
-          overflow-y:auto;
+          width:320px;
+          height:100vh;
           box-sizing:border-box;
+          padding:10px;
+          position:relative; /* for torn-edge overlay positioning */
+          /* newspaper color fill as base */
+          background-color:#f2efe8;
+          overflow:hidden;
         "
       >
+        <!-- Torn edge image will be inserted by JS as an absolutely positioned <img>
+             so we avoid pseudo-elements and keep CSS minimal. -->
 
-        <!-- PHOTO (wrapper kept for stability) -->
-        <div style="width:100%; height:340px; margin-bottom:14px;">
-          <img src="photos/sample-product.png"
-               alt=""
-               style="width:100%; height:100%; object-fit:contain; display:block;">
+        <!-- Display window content area (product card will be injected here) -->
+        <div
+          id="display-window-content"
+          style="
+            width:100%;
+            height:100%;
+            overflow-y:auto;
+            box-sizing:border-box;
+            position:relative;
+            z-index:20;
+            padding-left:10px;
+            padding-right:10px;
+            background:transparent;
+          "
+        >
+          <!-- Default placeholder content (replaced by product card HTML) -->
+          <div style="color:#222; font-family:Kalam, 'Comic Sans MS', cursive; font-size:20px; font-weight:700;">
+            Product details will appear here.
+          </div>
+          <div style="height:8px;"></div>
+          <div style="color:#333; font-size:13px; line-height:1.3;">
+            Click a thumbnail to load the full product card into this window.
+          </div>
         </div>
+      </td>
+    </tr>
+  </table>
 
-        <!-- TEXT (could be merged later if desired) -->
-        <div style="font-family:serif; font-size:26px; line-height:1.2; margin-bottom:6px;">
-          Product Title Goes Here
-        </div>
+  <!-- ===================================================== -->
+  <!-- MAIN CONTENT AREA (TABLE 1 + TABLE 3)                -->
+  <!-- Reserve space on the right so the fixed sidebar doesn't overlap -->
+  <!-- Left outside buffer: 10px; Right outside buffer for Table1: 8px -->
+  <!-- ===================================================== -->
+  <div
+    id="main-area"
+    style="
+      margin-left:10px;               /* left outside buffer for Table 1 */
+      margin-right:360px;             /* reserve 320px sidebar + 10px gap + 30px safety */
+      padding-top:10px;
+      box-sizing:border-box;
+    "
+  >
 
-        <div style="font-family:serif; font-size:16px; color:#555; margin-bottom:12px;">
-          A neighborly favorite
-        </div>
+    <!-- ===================================================== -->
+    <!-- TABLE 1 — WELCOME TABLE (Top-Left)                    -->
+    <!-- Width: 908px (300 + 4 + 300 + 4 + 300)               -->
+    <!-- Row heights: 300px, 4px spacer, 150px                 -->
+    <!-- Right outside buffer: 8px (applied as table margin-right) -->
+    <!-- ===================================================== -->
+    <table
+      id="table-1-welcome"
+      role="presentation"
+      style="
+        width:908px;
+        border-collapse:collapse;
+        margin:0 8px 0 0; /* right outside buffer 8px */
+      "
+    >
+      <!-- Row 1: 300px tall -->
+      <tr style="height:300px;">
+        <!-- Col 1: Special Product 1 (300x300) -->
+        <td
+          id="table1-col1-special"
+          title="Special Product 1"
+          style="
+            width:300px;
+            height:300px;
+            background-image: url('photos/shop-blackboard.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            padding:8px;
+            cursor:pointer;
+          "
+        >
+          <!-- Special product area (inject thumbnail or <img> later) -->
+          <div style="color:#fff; font-family:Kalam, 'Comic Sans MS', cursive; font-size:18px; font-weight:700;">
+            Featured
+          </div>
+        </td>
 
-        <div style="font-family:serif; font-size:18px; line-height:1.45;">
-          This is where the longer, folksy description lives.
-          It can run as long as it needs to. When it exceeds
-          the available height, this paper scrolls internally.
-        </div>
+        <!-- Col 2: 4px transparent divider -->
+        <td style="width:4px; height:300px; background:transparent;"></td>
 
-  </div>
+        <!-- Col 3: Shop Photo (300x300) -->
+        <td
+          id="table1-col3-photo"
+          title="Shop Photo"
+          style="
+            width:300px;
+            height:300px;
+            background-image: url('photos/gpas-shop-web.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          "
+        ></td>
 
-    </td>
-  </tr>
-</table>
+        <!-- Col 4: 4px transparent divider -->
+        <td style="width:4px; height:300px; background:transparent;"></td>
 
-      </div><!-- END RIGHT COLUMN -->
-  </div><!-- END WALL CONTAINER -->
+        <!-- Col 5: Welcome text on blackboard (300x300) -->
+        <td
+          id="table1-col5-welcome"
+          style="
+            width:300px;
+            height:300px;
+            background-image: url('photos/shop-blackboard.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            padding:18px;
+            color:#ffffff;
+          "
+        >
+          <div style="font-family:Kalam, 'Comic Sans MS', cursive; font-size:21px; font-weight:400; line-height:1.05;">
+            Welcome to GPAS Shop
+          </div>
+          <div style="height:12px;"></div>
+          <div style="font-size:14px; font-weight:600; line-height:1.3;">
+            Browse the snapshots below. Click any thumbnail to view the full product card in the display window on the right.
+          </div>
+        </td>
+      </tr>
 
-<!-- ========================= -->
-<!-- FOOTER WILL LAND HERE    -->
-<!-- ========================= -->
+      <!-- Row 2: 4px spacer row (transparent; linen background shows through) -->
+      <tr style="height:4px;">
+        <td style="width:300px; height:4px; background:transparent;"></td>
+        <td style="width:4px;   height:4px; background:transparent;"></td>
+        <td style="width:300px; height:4px; background:transparent;"></td>
+        <td style="width:4px;   height:4px; background:transparent;"></td>
+        <td style="width:300px; height:4px; background:transparent;"></td>
+      </tr>
 
-<script>
-const repoOwner = "GpaJohnsStories";
-const repoName  = "GpasShop";
-const prodPath  = "prod";
-</script>
+      <!-- Row 3: 150px blackboard row (3 blackboards) -->
+      <tr style="height:150px;">
+        <!-- Col 1 blackboard -->
+        <td
+          style="
+            width:300px;
+            height:150px;
+            background-image: url('photos/shop-blackboard.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            padding:12px;
+            color:#fff;
+          "
+        >
+          <div style="font-family:Kalam, 'Comic Sans MS', cursive; font-size:18px; font-weight:700;">
+            Search Tips
+          </div>
+          <div style="height:8px;"></div>
+          <div style="font-size:13px; font-weight:600;">
+            Try keywords, age ranges, or themes to narrow results.
+          </div>
+        </td>
+
+        <!-- Col 2 divider -->
+        <td style="width:4px; height:150px; background:transparent;"></td>
+
+        <!-- Col 3 blackboard -->
+        <td
+          style="
+            width:300px;
+            height:150px;
+            background-image: url('photos/shop-blackboard.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            padding:12px;
+            color:#fff;
+          "
+        >
+          <div style="font-family:Kalam, 'Comic Sans MS', cursive; font-size:18px; font-weight:700;">
+            How It Works
+          </div>
+          <div style="height:8px;"></div>
+          <div style="font-size:13px; font-weight:600;">
+            Click a snapshot to load the full card in the display window. Use filters to refine.
+          </div>
+        </td>
+
+        <!-- Col 4 divider -->
+        <td style="width:4px; height:150px; background:transparent;"></td>
+
+        <!-- Col 5 blackboard -->
+        <td
+          style="
+            width:300px;
+            height:150px;
+            background-image: url('photos/shop-blackboard.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            padding:12px;
+            color:#fff;
+          "
+        >
+          <div style="font-family:Kalam, 'Comic Sans MS', cursive; font-size:18px; font-weight:700;">
+            Categories
+          </div>
+          <div style="height:8px;"></div>
+          <div style="font-size:13px; font-weight:600;">
+            Books, Kids, Faith, Gifts — organized for quick browsing.
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <!-- 8px vertical buffer below Table 1 -->
+    <div style="height:8px;"></div>
+
+    <!-- ===================================================== -->
+    <!-- TABLE 3 — PRODUCT THUMBNAIL / CATALOG GRID           -->
+    <!-- Width: 920px (6*150 + 5*4)                          -->
+    <!-- Row pattern: Thumbnails (150px) / Shelf (4px) x2    -->
+    <!-- ===================================================== -->
+    <table
+      id="table-3-grid"
+      role="presentation"
+      style="
+        width:920px;
+        border-collapse:collapse;
+        margin-bottom:16px;
+      "
+    >
+      <!-- Row 1: Thumbnails Row A (150px) -->
+      <tr style="height:150px;">
+        <td id="thumb-a-1" style="width:150px;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:pointer;" title="Thumbnail A1"></td>
+        <td style="width:4px;height:150px;background:transparent;"></td>
+
+        <td id="thumb-a-2" style="width:150px;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:pointer;" title="Thumbnail A2"></td>
+        <td style="width:4px;height:150px;background:transparent;"></td>
+
+        <td id="thumb-a-3" style="width:150px;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:pointer;" title="Thumbnail A3"></td>
+        <td style="width:4px;height:150px;background:transparent;"></td>
+
+        <td id="thumb-a-4" style="width:150px;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:pointer;" title="Thumbnail A4"></td>
+        <td style="width:4px;height:150px;background:transparent;"></td>
+
+        <td id="thumb-a-5" style="width:150px;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:pointer;" title="Thumbnail A5"></td>
+        <td style="width:4px;height:150px;background:transparent;"></td>
+
+        <td id="thumb-a-6" style="width:150px;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:pointer;" title="Thumbnail A6"></td>
+      </tr>
+
+      <!-- Row 2: Shelf Row A (4px tall) — use wood-board.gif compressed to 4px -->
+      <tr style="height:4px;">
+        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+      </tr>
+
+      <!-- Row 3: Thumbnails Row B (150px) -->
+      <tr style="height:150px;">
+        <td id="thumb-b-1" style="width:150px;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:pointer;" title="Thumbnail B1"></td>
+        <td style="width:4px;height:150px;background:transparent;"></td>
+
+        <td id="thumb-b-2" style="width:150px;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:pointer;" title="Thumbnail B2"></td>
+        <td style="width:4px;height:150px;background:transparent;"></td>
+
+        <td id="thumb-b-3" style="width:150px;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:pointer;" title="Thumbnail B3"></td>
+        <td style="width:4px;height:150px;background:transparent;"></td>
+
+        <td id="thumb-b-4" style="width:150px;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:pointer;" title="Thumbnail B4"></td>
+        <td style="width:4px;height:150px;background:transparent;"></td>
+
+        <td id="thumb-b-5" style="width:150px;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:pointer;" title="Thumbnail B5"></td>
+        <td style="width:4px;height:150px;background:transparent;"></td>
+
+        <td id="thumb-b-6" style="width:150px;height:150px;background-size:cover;background-position:center;background-repeat:no-repeat;cursor:pointer;" title="Thumbnail B6"></td>
+      </tr>
+
+      <!-- Row 4: Shelf Row B (4px tall) -->
+      <tr style="height:4px;">
+        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:4px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+        <td style="width:150px;height:4px;background-image:url('photos/wood-board.gif');background-size:cover;background-position:center;background-repeat:no-repeat;"></td>
+      </tr>
+    </table>
+
+    <!-- Footer placeholder -->
+    <div style="height:20px;"></div>
+    <div style="padding:12px 8px 40px 8px; color:#333; font-size:13px;">
+      <!-- Footer content to be added later -->
+    </div>
+
+  </div> <!-- end main-area -->
+
+  <!-- ===================================================== -->
+  <!-- SCRIPT: Randomize torn edge (left or right) for Table 2
+       - Inserts an <img> overlay inside #display-window-cell
+       - Uses photos/torn-edge.png (place this file in /photos/)
+       - If you prefer multiple torn images, swap the array below
+  -->
+  <!-- Minimal, self-contained JS; runs after DOM loads -->
+  <script>
+    (function() {
+      var cell = document.getElementById('display-window-cell');
+      if (!cell) return;
+
+      // List of torn-edge assets (single file assumed). Add more filenames if desired.
+      var tornEdges = ['photos/torn-edge.png'];
+
+      // Choose a random torn image and side
+      var pick = tornEdges[Math.floor(Math.random() * tornEdges.length)];
+      var side = (Math.random() < 0.5) ? 'left' : 'right';
+
+      // Create overlay image
+      var img = document.createElement('img');
+      img.src = pick;
+      img.alt = '';
+      img.setAttribute('aria-hidden','true');
+      img.style.position = 'absolute';
+      img.style.top = '0';
+      img.style.bottom = '0';
+      img.style.width = '56px';           // visual width of torn edge area; tweak if needed
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+      img.style.pointerEvents = 'none';
+      img.style.zIndex = '15';
+      img.style.opacity = '0.98';
+
+      if (side === 'left') {
+        img.style.left = '0';
+      } else {
+        img.style.right = '0';
+        // flip horizontally if the asset is left-oriented
+        img.style.transform = 'scaleX(-1)';
+      }
+
+      // Insert the torn-edge overlay into the cell
+      cell.appendChild(img);
+
+      // Expose the chosen side as a data attribute for debugging or styling
+      cell.setAttribute('data-torn-side', side);
+    })();
+  </script>
+
+  <!-- ===================================================== -->
+  <!-- INJECTION NOTES (do not remove)                       -->
+  <!-- - Special Product 1: #table1-col1-special             -->
+  <!-- - Thumbnails: #thumb-a-1 ... #thumb-a-6, #thumb-b-1 ... #thumb-b-6 -->
+  <!-- - Display window injection target: #display-window-content -->
+  <!-- - Product card files live in /prod/ and are 300px wide -->
+  <!-- ===================================================== -->
 
 </body>
-
 </html>
