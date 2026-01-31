@@ -390,52 +390,47 @@
 
   </div> <!-- end main-area -->
 
-  <!-- ===================================================== -->
-  <!-- SCRIPT: Randomize torn edge (left or right) for Table 2
-       - Inserts an <img> overlay inside #display-window-cell
-       - Uses photos/torn-edge.png (place this file in /photos/)
-       - Removes overlay if image fails to load (prevents broken icon)
-  -->
-  <script>
-    (function() {
-      var cell = document.getElementById('display-window-cell');
-      if (!cell) return;
+<!-- ===================================================== -->
+<!-- SCRIPT: Randomize torn edge (left or right) for Table 2 -->
+<script>
+(function() {
+  var cell = document.getElementById('display-window-cell');
+  if (!cell) return;
 
-      var tornEdges = ['photos/torn-edge.png']; // add more filenames if you have them
-      var pick = tornEdges[Math.floor(Math.random() * tornEdges.length)];
-      var side = (Math.random() < 0.5) ? 'left' : 'right';
+  var tornEdges = ['photos/torn-edge.png'];
+  var pick = tornEdges[Math.floor(Math.random() * tornEdges.length)];
+  var side = (Math.random() < 0.5) ? 'left' : 'right';
 
-      var img = document.createElement('img');
-      img.src = pick;
-      img.alt = '';
-      img.setAttribute('aria-hidden','true');
+  var img = document.createElement('img');
+  img.src = pick;
+  img.alt = '';
+  img.setAttribute('aria-hidden','true');
 
-      // Styling to avoid seams, broken icons, or borders
-      img.style.position = 'absolute';
-      img.style.top = '0';
-      img.style.bottom = '0';
-      img.style.width = '56px';           // visual width of torn edge area; tweak if needed
-      img.style.height = '100%';
-      img.style.objectFit = 'cover';
-      img.style.display = 'block';
-      img.style.pointerEvents = 'none';
-      img.style.zIndex = '15';
-      img.style.opacity = '0.98';
-      img.style.border = '0';
-      img.style.boxShadow = 'none';
-      img.style.backgroundColor = 'transparent';
+  img.style.position = 'absolute';
+  img.style.top = '0';
+  img.style.bottom = '0';
+  img.style.width = '56px';
+  img.style.height = '100%';
+  img.style.objectFit = 'cover';
+  img.style.display = 'block';
+  img.style.pointerEvents = 'none';
+  img.style.zIndex = '15';
+  img.style.opacity = '0.98';
+  img.style.border = '0';
+  img.style.boxShadow = 'none';
+  img.style.backgroundColor = 'transparent';
 
-      if (side === 'left') {
-        img.style.left = '0';
-      } else {
-        img.style.right = '0';
-        img.style.transform = 'scaleX(-1)';
-      }
+  if (side === 'left') {
+    img.style.left = '0';
+  } else {
+    img.style.right = '0';
+    img.style.transform = 'scaleX(-1)';
+  }
 
-      // Remove the overlay if the image fails to load (prevents broken-image icon)
-      img.onerror = function() {
-        if (img && img.parentNode) img.parentNode.removeChild(img);
-      };
+  img.onerror = function() {
+    if (img && img.parentNode) img.parentNode.removeChild(img);
+  };
 
-      cell.appendChild(img);
-      cell.setAttribute
+  cell.appendChild(img);
+})();
+</script>
