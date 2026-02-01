@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>GPAS Shop — New 1-Box Shop Index -- 01/13 -- 6:42 PM</title>
+  <title>GPAS Shop — New 1-Box Shop Index -- 01/13 -- 7:02 PM</title>
 </head>
 
 <body
@@ -26,36 +26,55 @@
     margin-top:10px;
   "
 >
+<-- Row 0 -- Dummy Row to set widths so real row 1 can use colspan -->
+<tr style="height:0;">
+  <td style="width:150px;padding:0;border:0;"></td>
+  <td style="width:4px;padding:0;border:0;"></td>
+  <td style="width:150px;padding:0;border:0;"></td>
+  <td style="width:4px;padding:0;border:0;"></td>
+  <td style="width:150px;padding:0;border:0;"></td>
+  <td style="width:4px;padding:0;border:0;"></td>
+  <td style="width:150px;padding:0;border:0;"></td>
+  <td style="width:4px;padding:0;border:0;"></td>
+  <td style="width:150px;padding:0;border:0;"></td>
+  <td style="width:4px;padding:0;border:0;"></td>
+  <td style="width:150px;padding:0;border:0;"></td>
+  <td style="width:4px;padding:0;border:0;"></td>
+  <td style="width:300px;padding:0;border:0;"></td>
+</tr>
 
+  
   <!-- ROW 1 : Welcome row — defines ALL column widths -->
-  <tr>
-    <!-- Cols 1 & 2 & 3-->
-    <td style="width:150px;height:300px;border:1px solid #666;"></td>
-    <td style="width:4px;border:1px solid #666;"></td>
-    <td style="width:150px;border:1px solid #666;"></td>
-    
-    <!-- Cols 4 - Spacer -->
-    <td style="width:4px;border:1px solid #666;"></td>
+ <tr>
+  <!-- GROUP 1 : Columns 1–3 (defined in Row 0) -->
+  <td colspan="3"
+      style="height:300px;border:1px solid #666;">
+  </td>
 
-    <!-- Cols 5 & 6 & 7 -->
-    <td style="width:150px;height:300px;border:1px solid #666;"></td>
-    <td style="width:4px;border:1px solid #666;"></td>
-    <td style="width:150px;border:1px solid #666;"></td>
+  <!-- COLUMN 4 : Vertical spacer -->
+  <td style="border:1px solid #666;"></td>
 
-    <!-- Col 8 - Spacer -->
-    <td style="width:4px;border:1px solid #666;"></td>
+  <!-- GROUP 2 : Columns 5–7 -->
+  <td colspan="3"
+      style="border:1px solid #666;">
+  </td>
 
-    <!-- Cols 9 & 10 & 11 -->
-    <td style="width:150px;height:300px;border:1px solid #666;"></td>
-    <td style="width:4px;border:1px solid #666;"></td>
-    <td style="width:150px;border:1px solid #666;"></td>
+  <!-- COLUMN 8 : Vertical spacer -->
+  <td style="border:1px solid #666;"></td>
 
-    <!-- Col 12 - Spacer -->
-    <td style="width:4px;border:1px solid #666;"></td>
+  <!-- GROUP 3 : Columns 9–11 -->
+  <td colspan="3"
+      style="border:1px solid #666;">
+  </td>
 
-    <!-- Col 13 - Display Window -->
-    <td style="width:300px;border:1px solid #666;"></td>
-  </tr>
+  <!-- COLUMN 12 : Vertical spacer -->
+  <td style="border:1px solid #666;"></td>
+
+  <!-- COLUMN 13 : Display window (spans rows 1–7) -->
+  <td rowspan="7"
+      style="border:1px solid #666;">
+  </td>
+</tr>
 
   <!-- ROW 2 : Spacer (4px) -->
   <tr>
